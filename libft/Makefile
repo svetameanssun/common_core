@@ -13,7 +13,8 @@
 FLAGS  = -Wall -Wextra -Werror
 NAME   = libft.a
 FILES_C = ft_abs.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
-	ft_isprint.c ft_isspace.c ft_memcpy ft_memset.c ft_memmove ft_bzero.c ft_putchar.c ft_putstr.c ft_strcpy.c \
+	ft_isprint.c ft_isspace.c ft_memcpy.c ft_memset.c ft_memmove.c ft_bzero.c \
+	ft_putchar.c ft_putstr.c ft_strchr ft_strcpy.c \
 	ft_strlcpy.c ft_strlcat.c ft_strlen.c ft_tolower.c ft_toupper.c
 FILES_O = $(FILES_C:.c=.o) # вместо точка с мы поставим точка о
 
