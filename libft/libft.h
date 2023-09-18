@@ -19,15 +19,16 @@
 #include <string.h>
 
 int	ft_abs(int j);
+void	ft_bzero(void *s, int n);
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
 int	ft_isascii(int c);
 int	ft_isdigit(int c);
 int	ft_isprint(int c);
 int	ft_isspace(int c);
-void	*ft_memset(void *s, int c, int n);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
 void    *ft_memmove(void *dst, const void *src, size_t len);
-void	ft_bzero(void *s, int n);
+void	*ft_memset(void *s, int c, int n);
 void    ft_putchar(char c);
 void    ft_putstr(char *str);
 char    *ft_strcpy(char *dest, char *src);
