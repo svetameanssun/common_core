@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:27:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/14 19:29:32 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:52:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void *ft_memmove(void *dst, const void *src, size_t n)
 
     i = 0;
     if (n == 0)
-        return (dest);
+        return (dst);
     if (src > dst)
     {
         while (i < n)
+        {
             ((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-        i++;
+            i++;
+        }
     }
     else if (dst > src)
     {
@@ -34,5 +36,5 @@ void *ft_memmove(void *dst, const void *src, size_t n)
             i--;
         }
     }
-    return (dest);
+    return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:50:07 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/14 13:18:12 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:32:30 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int i;
-	unsigned int count;
 
 	i = 0;
 	if (size > 0)
