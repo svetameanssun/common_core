@@ -1,15 +1,28 @@
 #include <string.h>
 #include <stdio.h>
-int	ft_strlen(char *str)
-{
-	int count;
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
-	count = 0;
-	while (str[count] != '\0')
-		count++;
-	return (count);
+int main(void)
+{
+    int i = 0;
+    int *res = (int *)calloc(5, 1);
+    write(1, res[i], 1);
+
+    return 0;
 }
 
+/*int	ft_strlen(char *str)
+{
+    int count;
+
+    count = 0;
+    while (str[count] != '\0')
+        count++;
+    return (count);
+}
+*/
 
 /*void *ft_memmove(void *dest, const void *src, int n)
 {
@@ -42,14 +55,12 @@ int	ft_strlen(char *str)
 }
 */
 
-int main(void)
+/*int main(void)
 {
     char arr1[10] = "mandibula";
     char arr2[6] = "verde";
 
-     
     printf("%s\n", memmove(arr2, arr1, 1));
-    //printf("%s\n", ft_memmove(arr1, arr2, 1));
+    // printf("%s\n", ft_memmove(arr1, arr2, 1));
     return 0;
-
-}
+}*/
