@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:38:58 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/19 20:22:47 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:22:26 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int	ft_atoi(const char *nptr)
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-		{
 			sign = sign * -1;
-		}
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')

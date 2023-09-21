@@ -3,13 +3,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "libft.h"
+int	ft_strlen(const char *str)
+{
+	int count;
+
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	return (count);
+}
 
 int main(void)
 {
-    int i = 0;
-    int *res = (int *)calloc(5, 1);
-    write(1, res[i], 1);
-
+    char * str = "123\012\0";
+    printf("%c",str[5]);
     return 0;
 }
 

@@ -6,13 +6,13 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:41:48 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/14 13:18:22 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:17:56 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int count;
 
