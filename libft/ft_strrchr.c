@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:29:04 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/21 18:23:01 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/22 20:40:00 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ char	*ft_strrchr(const char *s, int c)
 
 	while(s[i] != '\0')
 	{
-		if(s[i] == (unsigned char)c)
+		if(s[i] == (char)c)
 			aux = (char *)s + i;
 		i++;
 	}
-	if (c == 0)
+	if ((char)c == '\0')
 		aux = (char *)s + i;
 	return (aux);
 }

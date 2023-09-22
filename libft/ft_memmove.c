@@ -6,39 +6,39 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:27:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/21 19:56:23 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/22 20:38:03 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-    size_t i;
-    char *dest;
-    char *source;
-    
-    dest = (char *)dst;
-    source = (char *)src;
-    /*if (n == 0)
-        return (dst);*/
+	int     i;
+	char    *dest;
+	char    *source;
 
-    if (src < dst)
-    {
-        i = n - 1;
-        while (i >= 0)
-        {
-            *(dest + i) = *(source + i);
-            i--;
-        }
-    }
-    else if (src > dst)
-    {   i = 0;
-        while (i < n)
-        {
-            *(dest + i) = *(source + i);
-            i++;
-        }
-    } 
-    return (dst);
+	dest = (char *)dst;
+	source = (char *)src;
+	if (n == 0)
+		return (dst);
+	if (src < dst)
+	{
+		i = n - 1;
+		while (i >= 0)
+		{
+			*(dest + i) = *(source + i);
+			i--;
+		}
+	}
+	else if (src > dst)
+	{
+		i = 0;
+		while (i < (int)n)
+		{
+			*(dest + i) = *(source + i);
+			i++;
+		}
+	}
+	return (dst);
 }
