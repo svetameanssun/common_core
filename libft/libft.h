@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:26:59 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/25 19:57:05 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/25 21:29:29 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strchr(const char *s, int c);
 char    *ft_strcpy(char *dest, char *src);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-int ft_strlen(const char *str);
+size_t ft_strlen(const char *str);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);

@@ -6,22 +6,22 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:56:07 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/25 21:15:14 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/25 21:43:34 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+/*size_t	ft_strlen(const char *str)
 {
-	int count;
+	size_t count;
 
 	count = 0;
 	while (str[count] != '\0')
 		count++;
 	return (count);
-}
+}*/
 
 /*char *ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -50,7 +50,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     size_t          s_len;
     char            *new;
 
-    s_len = (size_t)(strlen(s));
+    s_len = (strlen(s));
     new = (char*)malloc(sizeof(char) * len + 1);
     if (new == NULL)
 		return (NULL);
@@ -70,14 +70,16 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     }
     else if (s_len > len)
     {
-        while ((i + start < start + len) || (i < s_len))
+        while ((i + start < start + len) && (i < s_len))
+        {
             new[i] = s[i + start];
             i++;
+        }
     }
     new[i] = '\0';
     return (new); 
 }
-int main (void)
+/*int main (void)
 {
     char *str = "i just want this part #############";
     size_t size = 22;
@@ -91,4 +93,4 @@ int main (void)
     free(ret);
     exit(0);
     return 0;
-}
+}*/
