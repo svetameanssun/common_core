@@ -6,16 +6,16 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:56:07 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/26 18:54:53 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/26 21:43:10 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
-#include <stdio.h>
+/*#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h>*/
 
 /*size_t	ft_strlen(const char *str)
 {
@@ -51,32 +51,27 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     char            *new;
 
     s_len = (strlen(s));
-    new = malloc(sizeof(char) * (len + 1));
+    new = malloc(sizeof(char)*(len + 1));
     if (new == NULL)
-		return (NULL);
+        {free(new);
+		return (NULL);}
     if (s == NULL)
-        return (NULL);
+        {free(new);
+        return ((char*)s);}
     if (start >  s_len)
-        return ("");
-    if (len > ft_strlen(new))
-        len = ft_strlen(new);
+        {free(new);
+        return (ft_strdup(""));}
+    /*if (start > s_len)
+        return ((char*)s);
+        esto segun paco da igual*/
+        
     i = 0;
-    if (s_len <= len)
-    {
-        while(i + (size_t)start < s_len)
+    
+    while ((i + (size_t)start < (size_t)start + len) && (i < s_len) /*&& start < s_lenesto tmb*/)
         {
             new[i] = s[i + (size_t)start];
             i++;
         }
-    }
-    else if (s_len > len)
-    {
-        while ((i + (size_t)start < (size_t)start + len) && (i < s_len))
-        {
-            new[i] = s[i + (size_t)start];
-            i++;
-        }
-    }
     new[i] = '\0';
     return (new); 
 }
@@ -84,8 +79,8 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 /*int main (void)
 {
     char *str = "i just want this part #############";
-    size_t size = 22;
-    char *ret = ft_substr("", 0, 0);
+    size_t size = 20;
+    char *ret = ft_substr(str, 5, size);
  
     printf("%s", ret);
 }*/
