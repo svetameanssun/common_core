@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:07:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/22 16:56:18 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:07:03 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	little_len;
 	size_t	big_len;
 
-	little_len = ((size_t)ft_strlen((char *)little));
-	big_len = ((size_t)ft_strlen((char *)big));
+	little_len = (ft_strlen((char *)little));
+	big_len = (ft_strlen((char *)big));
 	if (little_len == 0)
 		return ((char *)big);
 	i = 0;

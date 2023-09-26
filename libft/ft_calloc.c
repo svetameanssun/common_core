@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:47:41 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/20 11:47:41 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:02:51 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *calloc(size_t nelem, size_t elsize)
+void *ft_calloc(size_t nelem, size_t elsize)
 {
     size_t i;
     void *res;
