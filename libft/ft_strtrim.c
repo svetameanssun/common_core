@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 18:51:05 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/26 21:04:13 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:55:13 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,29 +58,26 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*pntr;
 	char	*res;
-	size_t	i;
-	size_t	j;
-
-	pntr = ft_strnstr(s1, set, ft_strlen(s1));
-	if (!pntr)
-		return (pntr);
-    i = 0;
-	res = malloc(sizeof(char) * (ft_strlen(s1) - ft_strlen(set)));
-	while (s1+i != pntr+i)
+	size_t	s1_len;
+	
+	if (!s1 || !set)
+		return(0);
+	if (s1[0] == '\0'&& set[0] == '\0')
 	{
-		res[i] = s1[i];
-		i++;
+		res  = malloc(1);
+		if (!res)
+			return (NULL);
+		res[0] = '\0';
+		return (res);
 	}
-    j = i;
-    i = i + ft_strlen(set);
-    while (s1[i] != '\0')
-        res[j] = s1[i];
-        j++;
-        i++;
-    res[j] = '\0';
-	return (res);
+	while (*s1 && ft_strchr(set,*s1))
+		s1++;
+	s1_len = ft_strlen(s1);
+	while (s1_len > 0 && ft_strchr(set,s1[s1_len]))
+		s1_len--;
+	res = ft_substr(s1, 0, s1_len + 1);
+	return (res);		
 }
 
 /*int	main(void)
