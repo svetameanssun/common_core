@@ -20,3 +20,11 @@ void	ft_putstr(char *str)
 		str++;
 	}
 }
+/*#include <unistd.h>
+int main(void)
+{
+	char * st;
+	st = "sveta";
+	ft_putstr(st);
+
+}*/

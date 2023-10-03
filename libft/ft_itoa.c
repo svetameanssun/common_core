@@ -38,40 +38,51 @@ char	*ft_itoa(int n)
     int         i;
     int         final;
     long int    aux;
-    
+    printf("%d\n", n);
+    printf("ft_int_len(n) = %d\n",ft_int_len(n));
+    printf("\n");
     aux = n;
+
+    printf("if (n < 0)\n");
+    printf("{\n");
+    final = 0;
+    str = (char*)malloc(sizeof(char)*(ft_int_len(aux) + 1));
     if (n < 0)
     {
-        str = (char*)malloc(sizeof(char)*(ft_int_len(n) + 1 + final));
         str[0] = '-';
         n = n * -1;
         final++;
-        printf(" n IN the n < 0 if contition:  %d\n", n);
+        printf("-n = %d\n", n);
         printf("\n");
     }
-    str = (char*)malloc(sizeof(char)*(ft_int_len(n) + 1));
-    printf("ESTO ES ft_int_len: %d\n",ft_int_len(n));
+     printf("}\n");
+    
+    printf("ft_int_len(aux) = %d\n",ft_int_len(aux));
     if (str == 0)
         return (0);
     if (n == 0)
         str[0] = '0';
-    final = 0;
     
-    printf("final  %d\n", final);
+    printf("final = %d\n", final);
     printf("\n");
-    i = ft_int_len(n) - 1;
-    printf(" n AFTER the n < 0 if contition: %d\n", n);
-    printf(" i which iquals ft_int_len(n) - 1: %d\n", i);
+    i = ft_int_len(aux) - 1;
+    printf("n = %d\n", n);
+    printf("i = %d\n", i);
     printf("\n");
-    while (i > final)
+    printf("while (i > final)\n");
+    printf("{\n");
+    while (i >= final)
     {
-        printf(" i IN while: %d\n", i);
+        printf("i = %d\n", i);
         str[i] = n % 10 + '0';
-        printf(" str[%i] %c\n", i,str[i]);
+        printf("str[%i] = %c\n", i,str[i]);
+        printf("%d/10: = ", n);
         n = n/10;
-        printf("n after n/10: %d\n", n);
+        printf("%d\n", n);
         i--;
+        printf("\n");
     }
+    printf("}\n");
     printf("\n");
     printf("i AFTER while: %d\n", i);
     str[ft_int_len(aux)] = '\0';
@@ -79,7 +90,7 @@ char	*ft_itoa(int n)
 }
 int main(void)
 {
- int c = -123;
+ int c = 0;
  printf("%s",ft_itoa(c));
  return 0;
 }
