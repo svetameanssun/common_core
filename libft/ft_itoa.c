@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:30:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/02 17:54:46 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/04 18:33:29 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	ft_int_len(int n)
 
 	if (n == 0)
 		return (1);
-    n_len = 0;
+	n_len = 0;
 	if (n < 0)
 	{
 		n = -n;
-        n_len++;
+		n_len++;
 	}
 	while (n > 0)
 	{
@@ -32,65 +32,47 @@ int	ft_int_len(int n)
 	return (n_len);
 }
 
+char	*generate_string(char *str, int final, long int aux, int n)
+{
+	int	i;
+
+	i = ft_int_len(n) - 1;
+	while (i >= final)
+	{
+		str[i] = aux % 10 + '0';
+		aux = aux / 10;
+		i--;
+	}
+	return (str);
+}
 char	*ft_itoa(int n)
 {
-	char        *str;
-    int         i;
-    int         final;
-    long int    aux;
-    printf("%d\n", n);
-    printf("ft_int_len(n) = %d\n",ft_int_len(n));
-    printf("\n");
-    aux = n;
+	char		*str;
+	int			final;
+	long int	aux;
 
-    printf("if (n < 0)\n");
-    printf("{\n");
-    final = 0;
-    str = (char*)malloc(sizeof(char)*(ft_int_len(aux) + 1));
-    if (n < 0)
-    {
-        str[0] = '-';
-        n = n * -1;
-        final++;
-        printf("-n = %d\n", n);
-        printf("\n");
-    }
-     printf("}\n");
-    
-    printf("ft_int_len(aux) = %d\n",ft_int_len(aux));
-    if (str == 0)
-        return (0);
-    if (n == 0)
-        str[0] = '0';
-    
-    printf("final = %d\n", final);
-    printf("\n");
-    i = ft_int_len(aux) - 1;
-    printf("n = %d\n", n);
-    printf("i = %d\n", i);
-    printf("\n");
-    printf("while (i > final)\n");
-    printf("{\n");
-    while (i >= final)
-    {
-        printf("i = %d\n", i);
-        str[i] = n % 10 + '0';
-        printf("str[%i] = %c\n", i,str[i]);
-        printf("%d/10: = ", n);
-        n = n/10;
-        printf("%d\n", n);
-        i--;
-        printf("\n");
-    }
-    printf("}\n");
-    printf("\n");
-    printf("i AFTER while: %d\n", i);
-    str[ft_int_len(aux)] = '\0';
-    return (str);
+	aux = n;
+	final = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	str = (char *)malloc(sizeof(char) * (ft_int_len(aux) + 1));
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
+	{
+		str[0] = '-';
+		aux = aux * -1;
+		final++;
+	}
+	if (n == 0)
+		str[0] = '0';
+	str = generate_string(str, final, aux, n);
+	str[ft_int_len(n)] = '\0';
+	return (str);
 }
-int main(void)
+/*int main(void)
 {
  int c = 0;
  printf("%s",ft_itoa(c));
- return 0;
-}
+ return (0);
+}*/

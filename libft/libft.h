@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:26:59 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/28 19:54:52 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/04 18:52:46 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	ft_isdigit(int c);
 int	ft_isprint(int c);
 int	ft_isspace(int c);
 void *ft_calloc(size_t nelem, size_t elsize);
+char	*ft_itoa(int n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int	    ft_memcmp(const void *s1, const void *s2, size_t n);
 void    *ft_memcpy(void *dest, const void *src, size_t n);
