@@ -3,41 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:28:10 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/02 19:28:10 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:53:45 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*int ft_no_c_count(char const *s, char c)
+int ft_count_elems(char const *s, char c)
 {
-    int     count;
-    int     i;
+    int i;
+    int j;
+    int count;
     
+    i = 1;
+    j = 0;
     count = 0;
-    i = 0;
-    while (s[i] != '\0')
-    { 
-        if (s[i]!= c)
-        {
+    while (s[j]!='\0')
+    {
+        if (s[j] != c && (s[i] == c || s[i] == '\0'))
             count++;
-        }
         i++;
+        j++;
     }
     return (count);
-}*/
-
-size_t	ft_strlen(const char *str)
+}
+char *gen_string(char const *str, int n, char c)
 {
-	size_t count;
+    char *res;
+    int j;
 
-	count = 0;
-	while (str[count] != '\0')
-		count++;
-	return (count);
+    res = (char*)malloc(sizeof(char) * (n + 2));
+    j = 0;
+    while(str[j] != c)
+        res[j] = str[j];
+        j++;
+    res[j] = '\0';
+    return (res);
+    
 }
 
 char **ft_split(char const *s, char c)
@@ -46,36 +51,33 @@ char **ft_split(char const *s, char c)
     int     count;
     int     i;
     int     j;
+    int     k;
 
-    count = 0;
+    count = 1;
     i = 0;
     j = 0;
-    double_pointer = (char**)malloc(sizeof(char)*(ft_strlen(s) + 1));
-    if (double_pointer == 0)
-        return(0);
-    
-    while (s[i] != '\0')
-    {   
-        j = 0;
-        while (s[i + j] != c)
-        {   
-            printf("s[%d + %d]\n",count,j);
-            printf("double_pointer[%d][%d]\n",count,j);
-            double_pointer[count][j] = s[i+j];
+    k = 0;
+    double_pointer = (char**)malloc(sizeof(char*)*(ft_count_elems(s,c) + 1));
+    if (double_pointer == NULL)
+        return(NULL);
+    while (s[i] != '\0' && double_pointer)
+    {  
+        while((s[i+j] != c) && (s[count+j] != c || s[count+j] != '\0'))
+        {
             j++;
         }
+        double_pointer[k] = gen_string(s + i, j, c);
+        k++;
         i = i + j;
-        count++;
+        count = count + j;
+        j = 0;
     }
-    double_pointer[count][j] = '\0';
     return (double_pointer);
 }
-
-int main(void)
+/*int main(void)
 {
-    char  str[10] = "a b c d e";
+    char  str[100] = "      add bd cd d    ";
     char c = ' ';
-    printf("%d",ft_split(str,c));
+    printf("%d",ft_count_elems(str, c));
     return 0;
-}
-
+}*/
