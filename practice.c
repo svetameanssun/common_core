@@ -56,7 +56,7 @@ printf("\n%s\n", s1);
 printf("%s\n", s2);
 printf("%s\n", s3);
     return 0;
-}*/
+}
 //Trying malloc
 int main(void)
 {
@@ -69,14 +69,14 @@ int main(void)
     //printf("%p\n", str);
     //printf("%p", str1);
 
-    /*Malloc elements*/
+    //Malloc elements
     printf("%c\n", str_mal[0]);
     printf("%c\n", str_mal[1]);
     printf("%c\n", str_mal[2]);
     printf("%c\n", str_mal[3]);
     printf("%c\n", str_mal[4]);
 
-    /*Directions of malloc element*/
+    //Directions of malloc element
     printf("%p\n",&str_mal[0]);
     printf("%p\n",&str_mal[1]);
     printf("%p\n",&str_mal[2]);
@@ -84,14 +84,14 @@ int main(void)
     printf("%p\n",&str_mal[4]);
 
 
-    /*Calloc elements*/
+    //Calloc elements
     printf("%c\n", str_cal[0]);
     printf("%c\n", str_cal[1]);
     printf("%c\n", str_cal[2]);
     printf("%c\n", str_cal[3]);
     printf("%c\n", str_cal[4]);
 
-    /*Directions of calloc element*/
+    //Directions of calloc element
     printf("%p\n",&str_cal[0]);
     printf("%p\n",&str_cal[1]);
     printf("%p\n",&str_cal[2]);
@@ -110,6 +110,58 @@ int main(void)
         printf("%d\n", str_cal[j]);
         j++;
     }
+}*/
+/*int main(void)
+{  
+    //Two-Dimensional Arrays
+    /*int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
+
+    int i = 0;
+    int j = 0;
+    while ( i < 2)
+    {
+        while(j < 3)
+        {
+            printf("%d\n", matrix[i][j]);
+            j++;
+        }
+        j = 0;
+        i++;
+    }*/
+    
+    /*int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
+    int i = 0;
+    int j = 0;
+    for (i; i < 2; i++) {
+        for (j; j < 3; j++) {
+            printf("%d\n", matrix[i][j]);
+        }
+        j = 0;
+    }*/
+
+    /*int x[3][4];
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 4; j++){
+            x[i][j] = i + j;
+            printf("%d\n", x[i][j]);
+        }
+        printf("\n");
+    }
     
     return(0);
+}*/
+int main(void)
+{
+    // an array with 3 rows and 2 columns.
+    int x[3][2] = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
+ 
+    // output each array element's value
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("Element at x[%i][%i]: ", i, j);
+            printf("%d\n", x[i][j]);
+        }
+    }
+ 
+    return (0);
 }

@@ -31,7 +31,7 @@ int	main(void)
 	//printf("%lu", strlen(str));
 	return (0);
 }
-/*Each project of the Common Core contains an encoded hint. For each circle,
+/*Each project of the 42 Common Core contains an encoded hint. For each circle,
 only one project provides the correct hint needed for the next circle.
 This challenge is individual,
 	there is only a prize for one student winner providing all decoded messages.
