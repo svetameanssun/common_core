@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 22:53:09 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/04 22:53:09 by stitovsk         ###   ########.fr       */
+/*   Created: 2023/10/04 22:58:42 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/10/05 19:18:00 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+t_list *ft_lstnew(void *content)
 {
+    t_list *node;
     
+    node = malloc(sizeof(t_list));
+    if (node == NULL)
+        return (NULL);
+    node->content = content;
+    node->next = NULL;
+    return (node);
 }

@@ -6,78 +6,137 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:28:10 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/04 19:53:45 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:44:55 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//int check_c(char const *s, char c);
+/*size_t	ft_strlen(const char *str)
+{
+	size_t count;
+
+	count = 0;
+	while (str[count] != '\0')
+		count++;
+	return (count);
+}*/
+/*char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    size_t    i;
+    char            *new;
+
+    if (len > ft_strlen(s) - start)
+        len = ft_strlen(s) - start;
+    if (start >=  ft_strlen(s))
+    {
+        new = malloc(1);
+        if (!new) 
+            return(0);
+        new[0] = '\0';
+        return(new);
+    }
+    new = malloc(sizeof(char)*(len + 1));
+    if (new == NULL)
+		return (NULL);
+    i = 0;
+    while (s[start] && i < len)
+        {
+            new[i] = s[start];
+            i++;
+            start++;
+        }
+    new[i] = '\0';
+    return (new); 
+}*/
+
+
 int ft_count_elems(char const *s, char c)
 {
     int i;
-    int j;
     int count;
     
-    i = 1;
-    j = 0;
+    i = 0;
     count = 0;
-    while (s[j]!='\0')
+   
+    while (s[i]!='\0')
     {
-        if (s[j] != c && (s[i] == c || s[i] == '\0'))
+        if (s[i] != c )
+        {
+            
+            while (s[i] != c && s[i]!='\0')
+                i++;
             count++;
-        i++;
-        j++;
+        }
+        else
+            i++;
     }
     return (count);
 }
-char *gen_string(char const *str, int n, char c)
+static void ft_free(char ** str , int str_ind)
 {
-    char *res;
-    int j;
+    while (str_ind-- > 0)
+        free(str[str_ind]);
+    free(str);
+}
+size_t ft_substr_len(char const *s, char c)
+{
+    int i;
+    size_t count;
 
-    res = (char*)malloc(sizeof(char) * (n + 2));
-    j = 0;
-    while(str[j] != c)
-        res[j] = str[j];
-        j++;
-    res[j] = '\0';
-    return (res);
-    
+    i = 0;
+    count = 0;
+    while (s[i] == c && s[i] != '\0')
+        i++;
+    while (s[i] !=c && s[i] != '\0')
+    {
+        count++;
+        i++;
+    }
+    return (count);
 }
 
 char **ft_split(char const *s, char c)
 {   
-    char    **double_pointer;
+    char    **double_dimen;
     int     count;
-    int     i;
-    int     j;
-    int     k;
-
-    count = 1;
-    i = 0;
-    j = 0;
-    k = 0;
-    double_pointer = (char**)malloc(sizeof(char*)*(ft_count_elems(s,c) + 1));
-    if (double_pointer == NULL)
+    int     elem_num;
+    
+    
+    
+    count = 0;
+    elem_num = ft_count_elems(s,c);
+    double_dimen = (char**)malloc(sizeof(char*)*(ft_count_elems(s,c) + 1));
+    if  (double_dimen == NULL)
         return(NULL);
-    while (s[i] != '\0' && double_pointer)
-    {  
-        while((s[i+j] != c) && (s[count+j] != c || s[count+j] != '\0'))
-        {
-            j++;
-        }
-        double_pointer[k] = gen_string(s + i, j, c);
-        k++;
-        i = i + j;
-        count = count + j;
-        j = 0;
+   // while(*s + i  != '\0')
+    while(count < elem_num)
+    {
+        //if (*s + i != c && count < ft_count_elems(s,c))
+        while (*s == c)
+			s++;
+        double_dimen[count] = ft_substr(s, 0, ft_substr_len(s, c));
+		if (!(double_dimen[count]))
+		{
+			ft_free(double_dimen, count);
+			return (0);
+		}
+		while(*s != c && *s)
+            s++;
+        count++;
     }
-    return (double_pointer);
-}
+    double_dimen[count] = NULL;
+    return (double_dimen);
+    }
 /*int main(void)
 {
-    char  str[100] = "      add bd cd d    ";
+    char  str[100] = "Hello!";
     char c = ' ';
+    char ** dim;
+    dim = ft_split(str, c);
+    
     printf("%d",ft_count_elems(str, c));
+    printf("%s",dim[0]);
     return 0;
 }*/

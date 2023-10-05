@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 22:57:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/04 22:57:52 by stitovsk         ###   ########.fr       */
+/*   Created: 2023/10/04 22:59:33 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/10/05 17:41:12 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
-    
+    new->next = *lst;
+    *lst = new;
 }

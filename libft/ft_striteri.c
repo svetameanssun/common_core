@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:06:40 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/03 16:06:40 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/05 11:01:50 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    ft_striteri(char *s, void (*f)(unsigned int, char*))
     i = 0;
     while (s[i] != '\0')
     {
-        (*f)(i,s[i]);
+        (*f)(i,&s[i]);
         i++;
     }
 }

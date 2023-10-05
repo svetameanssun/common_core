@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:26:59 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/04 18:52:46 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/05 11:08:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 /**
  * @brief This function changes an int to positive
@@ -64,7 +70,7 @@ void	*ft_memset(void *s, size_t c, size_t n);
 void ft_putchar_fd(char c, int fd);
 void    ft_putchar(char c);
 void ft_putendl_fd(char *s, int fd);
-void ft_putnbr_fd(int nb, int fd);
+void ft_putnbr_fd(int n, int fd);
 void    ft_putstr_fd(char *s, int fd);
 void    ft_putstr(char *str);
 char **ft_split(char const *s, char c);
