@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:50:07 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/26 15:20:28 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:52:13 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (size > 0)

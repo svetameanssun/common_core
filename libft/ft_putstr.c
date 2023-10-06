@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:41:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/13 15:24:59 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:03:40 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putstr(char *str)
 	}
 }
 /*#include <unistd.h>
-int main(void)
+int	main(void)
 {
 	char * st;
 	st = "sveta";

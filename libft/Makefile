@@ -6,13 +6,13 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:17:08 by stitovsk          #+#    #+#              #
-#    Updated: 2023/10/05 18:26:39 by stitovsk         ###   ########.fr        #
+#    Updated: 2023/10/06 12:56:29 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS  = -Wall -Wextra -Werror
 NAME   = libft.a
-FILES_C = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
+FILES_C = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 	ft_isascii.c ft_isdigit.c ft_isprint.c ft_isspace.c  ft_itoa.c \
 	ft_calloc.c  ft_memchr.c ft_memcmp.c ft_memcpy.c \
 	ft_memmove.c ft_memset.c \
@@ -23,7 +23,7 @@ FILES_C = ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 	ft_strncmp.c \
 	ft_strnstr.c ft_strrchr.c ft_strtrim.c \
 	ft_substr.c ft_tolower.c ft_toupper.c
-FILES_O = $(FILES_C:.c=.o) # вместо точка с мы поставим точка о
+FILES_O = $(FILES_C:.c=.o)
 
 FILES_B = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c \

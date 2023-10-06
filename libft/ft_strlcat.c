@@ -1,13 +1,12 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:50:15 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/12 17:23:52 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:51:55 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +18,6 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	size_t	dest_len;
 	size_t	src_len;
 
-	// unsigned int	i;
-	// i = 0;
 	j = 0;
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 19:27:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/22 20:38:03 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:43:47 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int     i;
-	char    *dest;
-	char    *source;
+	int		i;
+	char	*dest;
+	char	*source;
 
 	dest = (char *)dst;
 	source = (char *)src;

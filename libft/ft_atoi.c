@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:38:58 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/21 16:22:26 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:57:04 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		res = res *10;
+		res = res * 10;
 		res = res + nptr[i] - '0';
 		i++;
 	}

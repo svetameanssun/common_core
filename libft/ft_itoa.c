@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:30:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/04 18:33:29 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:07:10 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*generate_string(char *str, int final, long int aux, int n)
 	}
 	return (str);
 }
+
 char	*ft_itoa(int n)
 {
 	char		*str;

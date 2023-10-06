@@ -6,13 +6,13 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:10:16 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/28 19:12:15 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:28:26 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	while (*s != '\0')
 	{

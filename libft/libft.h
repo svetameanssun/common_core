@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:26:59 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/05 11:08:05 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:56:09 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@ typedef struct s_list
  * 
  * @param j The int to change
  * @return int The int changed
- */
-int	ft_abs(int j);
-/**
- * @brief This function transforms a string ascii into an integer 
- * 
- * @param nptr the string to change
- * @return int The int returned
  */
 int	ft_atoi(const char *nptr);
 /**
