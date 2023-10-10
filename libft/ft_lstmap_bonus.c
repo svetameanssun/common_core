@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 22:59:53 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 13:21:00 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/10 13:46:47 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst)
 		return (NULL);
 	move_node = malloc(sizeof(t_list));
+	if (move_node == NULL)
+		return (NULL);
 	res_node = move_node;
 	while (lst->next != NULL)
 	{

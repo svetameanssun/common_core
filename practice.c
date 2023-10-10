@@ -152,8 +152,12 @@ int main(void)
 }*/
 int main(void)
 {
-    // an array with 3 rows and 2 columns.
-    int x[3][2] = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
+    int i = -1;
+    while(++i < 10)
+        printf("%d", i);
+    
+// an array with 3 rows and 2 columns.
+    /*int x[3][2] = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
  
     // output each array element's value
     for (int i = 0; i < 3; i++) {
@@ -162,6 +166,6 @@ int main(void)
             printf("%d\n", x[i][j]);
         }
     }
- 
+*/
     return (0);
 }

@@ -6,7 +6,7 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:17:08 by stitovsk          #+#    #+#              #
-#    Updated: 2023/10/06 12:56:29 by stitovsk         ###   ########.fr        #
+#    Updated: 2023/10/10 13:50:12 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,15 +41,15 @@ $(FILES_O) : $(FILES_C)
 all: $(NAME)
 
 clean:
-	rm -f $(FILES_O)
+	rm -f $(FILES_O) $(FILES_BO)
 
-fclean: clean
-	rm -f $(NAME) $(FILES_O)
+fclean:
+	rm -f $(NAME) $(FILES_O) $(FILES_BO)
 
 re: fclean all
 
 bonus:
 	gcc $(FLAGS) -c $(FILES_B)
-	ar rcs $(NAME) $(FILES_O) $(FILES_BO)
-	
-.PHONY: all clean fclean re bonus
+	ar rcs $(NAME) $(FILES_BO)
+
+.PHONY: all clean fclean re
