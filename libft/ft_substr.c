@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:56:07 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 13:54:03 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:32:48 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	new[i] = '\0';
 	return (new);
 }
-/*int main (void)
-{
-	char *str = "i just want this part #############";
-	size_t size = 20;
-	char *ret = ft_substr(str, 5, size);
-
-	printf("%s", ret);
-}*/
-/*int main (void)
-{
-	char * res;
-	res = "";
-	printf("%zu", ft_strlen(res));
-	return (1);
-}*/

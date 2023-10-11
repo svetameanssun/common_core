@@ -6,13 +6,13 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:30:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 13:07:10 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:29:53 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_int_len(int n)
+static int	ft_int_len(int n)
 {
 	int	n_len;
 
@@ -32,7 +32,7 @@ int	ft_int_len(int n)
 	return (n_len);
 }
 
-char	*generate_string(char *str, int final, long int aux, int n)
+static char	*generate_string(char *str, int final, long int aux, int n)
 {
 	int	i;
 
@@ -71,9 +71,3 @@ char	*ft_itoa(int n)
 	str[ft_int_len(n)] = '\0';
 	return (str);
 }
-/*int main(void)
-{
- int c = 0;
- printf("%s",ft_itoa(c));
- return (0);
-}*/

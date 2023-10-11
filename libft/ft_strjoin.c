@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 17:46:35 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 13:41:23 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:32:13 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i] = '\0';
 	return (new);
 }
-/*int main(void)
-{
-	printf("%s",ft_strjoin("abcd", "efghi"));
-	return (0);
-
-}*/

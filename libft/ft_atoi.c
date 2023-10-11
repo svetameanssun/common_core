@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:38:58 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 12:57:04 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:29:00 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * sign);
 }
-/*int	main(void)
-{
-	char *hw = "         +23h3";
-	printf("%d", atoi(hw));
-	// ft_strtonbr("123");
-	printf("%d", ft_atoi(hw));
-	return (0);
-	//'2' = 50 = 48 + 2 = '0' + 2
-}*/

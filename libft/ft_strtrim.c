@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 18:51:05 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/09/29 14:01:30 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:32:41 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = ft_substr(s1, 0, s1_len + 1);
 	return (res);
 }
-/*int	main(void)
-{
-	char *s1;
-	s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
-	char *s2;
-	s2 = "Hello \t  Please\n Trim me !";
-	printf("%s", ft_strtrim(s1, s2));
-	return (0);
-}*/

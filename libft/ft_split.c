@@ -6,13 +6,13 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:28:10 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 14:09:44 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:31:38 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_elems(char const *s, char c)
+static int	ft_count_elems(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -40,7 +40,7 @@ static void	ft_free(char **str, int str_ind)
 	free(str);
 }
 
-size_t	ft_substr_len(char const *s, char c)
+static size_t	ft_substr_len(char const *s, char c)
 {
 	int		i;
 	size_t	count;
@@ -85,14 +85,3 @@ char	**ft_split(char const *s, char c)
 	double_dimen[count] = NULL;
 	return (double_dimen);
 }
-/*int main(void)
-{
-	char  str[100] = "Hello!";
-	char c = ' ';
-	char ** dim;
-	dim = ft_split(str, c);
-
-	printf("%d",ft_count_elems(str, c));
-	printf("%s",dim[0]);
-	return (0);
-}*/

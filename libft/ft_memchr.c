@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 12:48:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 13:02:13 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:30:20 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	ft_memchr("abcd", 'd', 4);
-	return (0);
-}*/
