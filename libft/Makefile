@@ -26,6 +26,14 @@ FILES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 	ft_substr.c ft_tolower.c ft_toupper.c
 OBJECTS = $(FILES:.c=.o)
 
+# Colores
+
+RESET = "\033[0;m"
+RED = "\033[0;31m"
+GREEN = "\033[0;32m"
+YELLOW = "\033[0;33m"
+BLUE = "\033[0;34m"
+
 BONUSES = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c \
 	ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
@@ -34,22 +42,23 @@ BONUSES = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 
 OBJ_BONUS = $(BONUSES:.c=.o)
 $(NAME) : $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@
+	@echo $(GREEN)"Compiling $@...$(END)"
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJECTS) $(OBJ_BONUS)
+	@rm -f $(OBJECTS) $(OBJ_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
 bonus: $(OBJECTS) $(OBJ_BONUS)
-	ar rcs $(NAME) $(OBJ_BONUS) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJ_BONUS) $(OBJECTS)
 
 .PHONY: all clean fclean re bonus
