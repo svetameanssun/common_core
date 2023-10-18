@@ -131,28 +131,31 @@ int	main(void)
 }*/
 #define BUFFER_SIZE 4
 
+
 char *get_next_line(int fd)
 {   
     static char *remaining = NULL;
 	char *buffer;
     char *line;
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	//comprobar malloc
 
 
 
-	int res_read;
-	res_read = 1;
+	int i;
+	i = 1;
     // read while there's stuff left to read
-	while (("remaining doesnt include a newline") && res_read > 0)
+	while (("remaining doesn't include a newline") && i > 0)
 	{
-		res_read = read(fd, buffer, BUFFER_SIZE);
-		buffer[res_read] = '\0';
-
-        "strjoin remaining with buffer";
+		i = read(fd, buffer, BUFFER_SIZE);
+		buffer[i] = '\0';
+		//if i == -1, then BAD ERROR, we must free everything, buffer and remaining, and return NULL
+        "strjoin add buffer to remaining ";
 	}
-
-    line = "extract FIRST line from remaining";
 	free(buffer);
+    line = "put (extract) here a copy of the FIRST line from remaining";
+	remaining = "remaining (itself) but only after the line we extracted earlier or NULL if nothing left";
+	//esa funcion tiene que hacer la copia nueva y liberar el str antiguo
 	return (line);
 }
 
