@@ -129,7 +129,9 @@ int	main(void)
 	close(fd_reading);
 	return (0);
 }*/
-#define BUFFER_SIZE 4
+
+//preparation for get next line
+/*#define BUFFER_SIZE 4
 
 
 char *get_next_line(int fd)
@@ -168,4 +170,4 @@ int main(){
 	}
     printf("%s\n", get_next_line(fd_reading));
     close(fd_reading);
-}
+}*/
