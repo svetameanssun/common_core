@@ -95,8 +95,8 @@ and can do different tasks without code redundancy. Below is an example search f
 that can be used for any data type.
 In fact we can use this search function to find close elements (below a threshold) by writing a customized compare function.*/
   
-// A compare function that is used for searching an integer 
-// array 
+// A compare function that is used for searching
+// an integer in an array 
 
 bool compare (const void * a, const void * b)
 {
@@ -108,7 +108,8 @@ bool compare (const void * a, const void * b)
 // the function can be called by passing a pointer of 
 // any type.  ele_size is size of an array element 
 
-int search(void *arr, int arr_size, int ele_size, void *x, bool compare (const void *, const void *))
+int search(void *arr, int arr_size, int ele_size, void *x,
+            bool compare (const void *, const void *))
 { 
     // Since char takes one byte, we can use char pointer 
     // for any type/ To get pointer arithmetic correct, 
