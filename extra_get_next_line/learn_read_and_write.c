@@ -130,10 +130,11 @@ int	main(void)
 	return (0);
 }*/
 
-int main()
+/*int main()
 {
 	//char str[] = "1234567890";
 	char *str;
+
 	str = malloc(sizeof(char) * (9 + 1));
 	str[9] = '\0';
 	int fd = open("file_to_read.txt", O_RDONLY);
@@ -143,4 +144,59 @@ int main()
 	//close(fd);
 	return 0;
 	
+}*/
+
+/*int main()
+{
+	char buffer;
+
+	int fd_read = open("file_to_read.txt", O_RDONLY);
+	int fd_write = open("file_to_write.txt", O_APPEND);
+
+	if (fd_read < 0 || fd_write < 0)
+		{
+			printf("ERROR ERROR ERROR");
+			return(1);
+		}
+	int res_read = 1;//read(fd_read, &buffer,1);
+	//write(fd_write, &buffer,1);
+	while(res_read > 0)
+	{
+		//res_read= read(fd_read,&buffer,1);
+		res_read = read(fd_read, &buffer,1);
+		if (res_read)
+			write(fd_write, &buffer, 1);
+	}
+	
+	close(fd_read);
+	close(fd_write);
+	return(0);
+	
+}*/
+
+int main()
+{
+	static int buff_size = 3;
+	char *buffer;
+	buffer = malloc (sizeof(char) * (buff_size + 1));
+	int fd_read_open = open("file_to_read.txt", O_RDONLY);
+	//int fd_write_open = open("file_to_write.txt", O_WRONLY);
+	if(buffer==NULL || fd_read_open < 0) //||fd_write_open < 0
+	{
+		printf("ERROR ERROR ERROR");
+		return (0);
+	}
+	int fd_reading;
+	fd_reading = read(fd_read_open, buffer, buff_size);
+	while(fd_reading > 0)
+	{
+		printf("%s", buffer);
+		//write(fd_write_open, buffer, buff_size);
+		fd_reading = read(fd_read_open, buffer, buff_size);
+	}
+	
+	//close(fd_write_open);
+	close(fd_read_open);
+
+	return(0);
 }
