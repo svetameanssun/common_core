@@ -176,11 +176,12 @@ int	main(void)
 
 int main()
 {
-	int buff_size = 3;
+	int buff_size = 5;
 	char *buffer;
 	buffer = malloc (sizeof(char) * (buff_size + 1));
 	
 	int fd_read_open = open("file_to_read.txt", O_RDONLY);
+	printf("Print int_read_open: %d\n", fd_read_open);
 	//int fd_write_open = open("file_to_write.txt", O_WRONLY);
 	if(buffer==NULL || fd_read_open < 0) //||fd_write_open < 0
 	{
@@ -188,19 +189,23 @@ int main()
 		return (0);
 	}
 	
-	int fd_reading;
-	fd_reading = read(fd_read_open, buffer, buff_size);
-	buffer[3] = '\0';
+	int fd_reading = 1;
+	//fd_reading = read(fd_read_open, buffer, buff_size);
+	//printf("First reading: %d bytes\n", fd_reading);
+	int  i = 0;
 	while(fd_reading > 0)
 	{
-		int i = 0;
-		while(buffer[i]!='\0')
-		{
-		printf("%d - ( %c )\n", i,buffer[i] );
-		//write(fd_write_open, buffer, buff_size);
-		i++;
-		}
+		i = 0;
 		fd_reading = read(fd_read_open, buffer, buff_size);
+		printf("Reading: %d bytes\n", fd_reading);
+		buffer[fd_reading] = '\0';
+		while(buffer[i] !='\0')
+		{
+			printf("%d - ( %c )\n", i,buffer[i] );
+			//write(fd_write_open, buffer, buff_size);
+			i++;
+		}
+		
 	}
 	
 	//close(fd_write_open);
