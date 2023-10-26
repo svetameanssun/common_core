@@ -5,7 +5,7 @@
 # include <unistd.h>
 
 
-size_t	ft_strlen(const char *str)
+/*size_t	ft_strlen(const char *str)
 {
 	size_t	count;
 
@@ -35,7 +35,7 @@ size_t	ft_strlen(const char *str)
 	return (NULL);
 }*/
 
-int new_in_rem(char *rem)
+/*int new_in_rem(char *rem)
 {
 	int i;
 
@@ -155,9 +155,9 @@ char *get_next_line(int fd)
 	//remaining = "remaining (itself) but only after the line we extracted earlier or NULL if nothing left";
 	//esa funcion tiene que hacer la copia nueva y liberar el str antiguo
 	return (line);
-}
+}*/
 
-int main(){
+/*int main(){
 	int fd_reading = open("file_to_read.txt", O_RDONLY);
 	if (fd_reading < 0)
 	{
@@ -166,4 +166,4 @@ int main(){
 	}
     printf("%s\n", get_next_line(fd_reading));
     close(fd_reading);
-}
+}*/

@@ -42,6 +42,27 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
+char	*copy_str(char *dest, char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (size > 0)
+	{
+		while ((i < size - 1) && (src[i]))
+		{
+			dest[i] = src[i];
+			printf("Function copy_str:\n");
+			printf("%c\n", src[i]);
+			i++;
+		}
+		dest[i] = '\0';
+		printf("END\n");
+	}
+	return (src);
+}
+
+
 int count_till_nl(char *str)
 {
     int i;
@@ -57,8 +78,8 @@ int count_till_nl(char *str)
 	{
         return (i);
 	}
-	return(i++);// or ++i ?
-}*/
+	return(++i);// why not i++ ?
+}
 int count_after_nl(char *str)
 {
     int i;
@@ -82,7 +103,7 @@ int count_after_nl(char *str)
     return (count); 
 }
 
-/*int check_nl_escape(char *str)
+int check_nl_escape(char *str)
 {
 	int i;
 
@@ -95,7 +116,20 @@ int count_after_nl(char *str)
 	}
 	return (0);
 }
+char *copy_first_line(char * str)
+{
+	int count;
+	char *line;
 
+	count = count_till_nl(str);
+	line = malloc(sizeof(char) *(ft_strlen(str) + 1));
+	if (!line)
+		return (NULL);
+	//printf("%s\n",line);
+	copy_str(line, str, count); // why i cannot do line = copy_str(line, str, count);
+	printf("%s\n",line);
+	return (line);
+}
 char *read_till_nl(int fd, char *str) // const char?
 {
     char *buffer;
@@ -114,32 +148,55 @@ char *read_till_nl(int fd, char *str) // const char?
 		str = ft_strjoin(str, buffer);
 	}
     return (str);
-}*/
+}
 
 char *update_statik_str(char *old_str)
 {
 	char *new_str;
 	int size;
-	int i;
+	int start;
 
-	int size = count_after_nl(old_str);
-	if (size == 0);
+	size = count_after_nl(old_str);
+	start = count_till_nl(old_str);
+	if (size == 0)
 	{
 		free(old_str);
 		return(NULL);
 	}
 	new_str = malloc(sizeof(char) * (size + 1));
 	if (!new_str)
+	{
+		free(old_str);
 		return(NULL);
-	
-
+	}
+	new_str = copy_str(new_str, old_str + start, size);
+	free(old_str);
+	return(new_str);
 }
 
 int main()
 {
     //int fd_open = open("file_to_read.txt", O_RDONLY);
-    char str[10] = "abc\n123";
-	int res = count_after_nl(str);
-    //str = read_till_nl(fd_open, str);
-    printf("%d", res);
-}
+    char *str;
+	//char * line;
+	char c = 'a';
+
+	str = malloc(1 * (7));
+	int i = 0;
+	while(i < 7)
+	{
+		str[i] = c;
+		i++;
+		c++;
+	}
+	str[3] = '\n';
+	int before = count_till_nl(str);
+	int after = count_after_nl(str);
+	//printf("%d\n", before);
+	//printf("%d\n", after);
+	//printf("%s\n",str);
+	str = copy_first_line(str);
+	printf("%s",str);
+
+    
+}*/
