@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:57:41 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/25 15:41:45 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/26 14:29:45 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,50 @@ int count_till_nl(char *str)
     int i;
 
     i = 0;
-    if (str == NULL)
-        return (1);
-    while (str[i] != '\n'|| str[i] != '\0')
+    while (str[i] != '\0' && str[i] != '\n')
+    {
+		//printf("%d", i);
+        i++;
+		
+    }
+    if (str[i] == '\0')
+	{
+        return (i);
+	}
+	return(i++);// or ++i ?
+}
+
+int count_after_nl(char *str)
+{
+    int i;
+    int count;
+
+    i = 0;
+    count = 0;
+    while(str[i] != '\n' && str[i] != '\0')
     {
         i++;
     }
-    if (str[i] == '\0')
-        return (i);
-    i++;
-    return(i);
+	while(str[i] != '\0')
+    {
+		i++;
+        count++; 
+    }
+    return (count);   
+}
+
+int check_nl_escape(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i] != '\0')
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 char *read_till_nl(int fd, char *str) // const char?
@@ -75,14 +109,14 @@ char *read_till_nl(int fd, char *str) // const char?
     i = 0;
     fd_read = 1;
     buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    if (!buffer)
-        return (NULL);
-    while (fd_read != 0 || count_till_nl(str))
-    {
-        fd_read = read(fd, buffer, BUFFER_SIZE);
-        buffer[fd_read] = '\0';
-        ft_strjoin(str, buffer);
-    }
+	if (!buffer)
+		return (NULL);
+	while(!check_nl_escape(str) && fd_read > 0)
+	{
+		fd_read = read(fd, buffer, BUFFER_SIZE);
+		buffer[fd_read] = '\0';
+		str = ft_strjoin(str, buffer);
+	}
     return (str);
 }
 
