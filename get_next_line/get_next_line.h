@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:57:31 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/26 18:27:55 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/30 14:00:33 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 4
 #endif
-
-# include "get_next_line_utils.c"
 
 size_t  ft_strlen(const char*str);
 char    *ft_strjoin(char const *s1, char const *s2);
