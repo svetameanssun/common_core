@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:57:17 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/30 14:05:09 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:55:17 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char *get_next_line(int fd)
 	char		*line;
 	
 	statik = read_till_nl(fd, statik);
+	printf("1");
 	line = copy_first_line(statik);
 	statik = update_statik_str(statik);
 
