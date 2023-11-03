@@ -5,7 +5,7 @@
 
 // Read the file letter by letter
 
-/*int main(void)
+int main(void)
 {
 	char c;
 
@@ -18,16 +18,16 @@
 
 	int res_read;
 	res_read = read(file, &c, 1);
-	while(res_read > 0)
+	while(res_read > 0 && c != '\n')
 	{
+
 		printf("%c", c);
 		res_read = read(file, &c, 1);
 	}
 	close(file);
 
-
 	return(0);
-}*/
+}
 // reading a file and writing in another one letter by letter
 /*int main(void)
 {
@@ -174,7 +174,7 @@ int	main(void)
 	
 }*/
 
-int main()
+/*int main()
 {
 	int buff_size = 5;
 	char *buffer;
@@ -212,4 +212,4 @@ int main()
 	close(fd_read_open);
 
 	return(0);
-}
+}*/

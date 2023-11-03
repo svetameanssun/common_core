@@ -7,7 +7,9 @@
 size_t	ft_strlen(const char *str)
 {
 	size_t	count;
-
+	
+	if (!str)
+		return (0);
 	count = 0;
 	while (str[count] != '\0')
 		count++;
@@ -19,14 +21,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*new;
 	size_t	i;
 
-	if (!s1)
-		return ((char *)s2);
-	if (!s2)
-		return ((char *)s2);
 	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!new)
 	{
-		printf("ft_strjoin NULL\n");
 		return (NULL);
 	}
 	i = 0;
@@ -41,7 +38,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	new[i] = '\0';
-	printf("ft_strjoin done\n");
 	return (new);
 }
 
@@ -56,46 +52,40 @@ int check_nl_escape(char *str)
 	{
 		if (str[i] == '\n')
         {
-			printf("check_nl_escape done\n");
+			//printf("check_nl_escape done\n");
 			return (1);
         }
 		i++;
 	}
-	printf("check_nl_escape done\n");
+	//printf("check_nl_escape done\n");
 	return (0);
 }
-char *read_till_nl(int fd, char *str) // const char?
+
+char *read_all(int fd, char *str) // const char?
 {
     char *buffer;
     int i;
     int fd_read;
-    int BUFFER_SIZE = 4; // NOT IN THE REAL FUNCT;
+    int BUFFER_SIZE = 1; // NOT IN THE REAL FUNCT;
     
     i = 0;
     fd_read = 1;
     buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 	{
-		//printf("read_till_nl NULL\n");
 		return (NULL);
 	}
-	if(!str)
-	{
-		fd_read = read(fd, buffer, BUFFER_SIZE);
-		buffer[fd_read] = '\0';
-		//printf("%s\n",buffer);
-		str = ft_strjoin(str, buffer);
-	}
-	while(!check_nl_escape(str) && fd_read > 0)
-	{
-		fd_read = read(fd, buffer, BUFFER_SIZE);
-		buffer[fd_read] = '\0';
-		str = ft_strjoin(str, buffer);
-	}
-	//printf("%s\n", str);
-	printf("read_till_nl done\n");
+		while(!check_nl_escape(str)&& fd_read > 0)
+		{
+			fd_read = read(fd, buffer, BUFFER_SIZE);
+			buffer[fd_read] = '\0';
+			str = ft_strjoin(str, buffer);
+		}
+		return (str);
+
     return (str);
 }
+
 
 int count_till_nl(char *str)
 {
@@ -104,16 +94,13 @@ int count_till_nl(char *str)
     i = 0;
     while (str[i] != '\0' && str[i] != '\n')
     {
-		//printf("%d", i);
         i++;
 		
     }
     if (str[i] == '\0')
 	{
-		printf("count_till_nl done\n");
         return (i);
 	}
-	printf("count_till_nl done\n");
 	return(++i);// why not i++ ?
 }
 
@@ -126,7 +113,6 @@ char	*ft_strncpy(char *dest, char *src, size_t n)
 	i = 0;
 	if (dest == 0)
 	{
-		printf("ft_strncpy done\n");
 		return (src);
 	}
 	while (i < n)
@@ -135,7 +121,6 @@ char	*ft_strncpy(char *dest, char *src, size_t n)
 		i++;
 	}
 	dest[i] = '\0';
-	printf("ft_strncpy done\n");
 	return (dest);
 }
 
@@ -150,13 +135,11 @@ char *copy_first_line(char * str)
 	line = malloc(sizeof(char) *(count + 1)); 
 	if (!line)
 	{
-		printf("copy_first_line NULL\n");
+		//printf("copy_first_line NULL\n");
 		return (NULL);
 	}
 	line[count] = '\0';
-	//printf("%s\n",line);
-	ft_strncpy(line, str, count); // why i cannot do --- line = copy_str(line, str, count) --- ?
-	printf("copy_first_line done\n");
+	line = ft_strncpy(line, str, count); // why i cannot do --- line = copy_str(line, str, count) --- ?
 	return (line);
 }
 
@@ -170,11 +153,9 @@ int count_after_nl(char *str)
     while(str[i] != '\n' && str[i] != '\0')
     {
         i++;
-		//count++;
     }
 	if (str[i] == '\n')
 	{	
-		//count = 0;
 		i++;
 		while(str[i] != '\0')
     	{
@@ -182,7 +163,6 @@ int count_after_nl(char *str)
         	count++; 
     	}
 	}
-	printf("count_after_nl done\n");
     return (count); 
 }
 
@@ -198,45 +178,49 @@ char *update_statik_str(char *old_str)
 	new_str = malloc(sizeof(char) * (size + 1));
 	if (!new_str || !old_str)
 	{
-		printf("entered update");
 		free(old_str);
-		printf("update_statik_str NULL\n");
 		return(NULL);
 	}
 	
-	/*if ()
-	{
-		free(old_str);
-		return(NULL);
-	}*/
 	new_str = ft_strncpy(new_str, old_str + start, size);
 	free(old_str);
 	
-	printf("update_statik_str done: %s\n", new_str);
-	printf("\n");
 	return(new_str);
 }
 char *get_next_line(int fd)
 {
 	static char	*statik;
 	char		*line;
+	if (fd == -1)
+		return (NULL);
 	
-	statik = read_till_nl(fd, statik);// null;
+	statik = read_all(fd, statik);// null;
+	if (!statik)
+		return (NULL);
+	//rintf("statik 1:%s---\n", statik);
 	line = copy_first_line(statik);
-	printf("lineeeee: %s\n", line);
 	statik = update_statik_str(statik);
-	printf("line: %s\n", line);
+	
 	return (line);
+	
 
 }
 
 
-int main(void)
+/*int main(void)
 {
    //checking --- char *get_next_line(int fd)) ---
    	int fd_open = open("file_to_read.txt", O_RDONLY);
+	//get_next_line(fd_open);
 	printf("%s", get_next_line(fd_open));
-
+	printf("%s", get_next_line(fd_open));
+	printf("%s", get_next_line(fd_open));
+	printf("%s", get_next_line(fd_open));
+	printf("%s", get_next_line(fd_open));
+	printf("%s", get_next_line(fd_open));
+	close(fd_open);
+	   return (0);
+}*/
     //checking --- int check_nl_escape(char *str) ---
     /*char *str;
     int i = 0;
@@ -351,6 +335,3 @@ int main(void)
     //printf("%s\n", line);
 
 	//printf("%s", get_next_line(fd_open));
-
-    return (0);
-}
