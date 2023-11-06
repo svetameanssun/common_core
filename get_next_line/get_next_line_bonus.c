@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:16:30 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/06 18:18:30 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:15:12 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ char	*read_all(int fd, char *str)
 	fd_read = 1;
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
+	{
 		return (NULL);
+	}
 	while (!check_nl_escape(str) && fd_read != 0)
 	{
 		fd_read = read(fd, buffer, BUFFER_SIZE);
@@ -109,15 +111,15 @@ char	*update_statik_str(char *old_str)
 
 char	*get_next_line(int fd)
 {
-	static char	*statik;
+	static char	*statik[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	statik = read_all(fd, statik);
-	if (!statik)
+	statik[fd] = read_all(fd, statik[fd]);
+	if (!statik[fd])
 		return (NULL);
-	line = copy_first_line(statik);
-	statik = update_statik_str(statik);
+	line = copy_first_line(statik[fd]);
+	statik[fd] = update_statik_str(statik[fd]);
 	return (line);
 }

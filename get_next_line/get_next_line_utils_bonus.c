@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 13:57:41 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/06 18:04:55 by stitovsk         ###   ########.fr       */
+/*   Created: 2023/11/06 18:17:29 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/11/06 18:19:15 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	size_t	i;
-	size_t size_s1;
-	size_t size_s1_s2;
+	size_t	size_s1;
+	size_t	size_s1_s2;
 
 	size_s1 = ft_strlen(s1);
 	size_s1_s2 = ft_strlen(s1) + ft_strlen(s2);
