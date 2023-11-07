@@ -6,11 +6,11 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:16:30 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/06 18:15:12 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:42:15 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_all(int fd, char *str)
 {

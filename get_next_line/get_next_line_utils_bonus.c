@@ -6,11 +6,11 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:17:29 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/06 18:19:15 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:42:27 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
