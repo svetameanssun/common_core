@@ -98,7 +98,7 @@ In fact we can use this search function to find close elements (below a threshol
 // A compare function that is used for searching
 // an integer in an array 
 
-bool compare (const void * a, const void * b)
+/*bool compare (const void * a, const void * b)
 {
     return ( *(int*)a == *(int*)b );
 }
@@ -107,8 +107,8 @@ bool compare (const void * a, const void * b)
 // arr_size. Note that void pointers are used so that 
 // the function can be called by passing a pointer of 
 // any type.  ele_size is size of an array element 
-
-int search(void *arr, int arr_size, int ele_size, void *x,
+*/
+/*int search(void *arr, int arr_size, int ele_size, void *x,
             bool compare (const void *, const void *))
 { 
     // Since char takes one byte, we can use char pointer 
@@ -123,14 +123,27 @@ int search(void *arr, int arr_size, int ele_size, void *x,
             return i;
     // If element not found 
     return -1;
-}
-int main() 
+}*/
+/*int main() 
 { 
     int arr[] = {2, 5, 7, 90, 70}; 
     int num_el = sizeof(arr)/sizeof(arr[0]); 
     int x = 90; 
     printf ("Returned index is %d ", search(arr, num_el, sizeof(int), &x, compare)); 
     return 0; 
-} 
+}*/
 //Output: Returned index is 3
+
+//Derefencing NULL pointer:
+int main() 
+{ 
+    int *ptr = NULL;
+    printf ("%d", *ptr);
+    return 0; 
+}
+// zsh: segmentation fault  ./a.out
+
+
+
+
     

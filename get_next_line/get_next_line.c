@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:16:30 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/06 18:18:30 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:55:04 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 char	*read_all(int fd, char *str)
 {
 	char	*buffer;
-	int		i;
 	int		fd_read;
 
-	i = 0;
 	fd_read = 1;
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
