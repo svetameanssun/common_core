@@ -16,23 +16,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new;
 	size_t	i;
+	size_t len_s1 = ft_strlen(s1);
+	size_t len_s2 = ft_strlen(s2);
 
 	if (!s1)
 		return ((char *)s1);
 	if (!s2)
 		return ((char *)s2);
-	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	new = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!new)
 		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s1))
+	while (i < len_s1)
 	{
 		new[i] = s1[i];
 		i++;
 	}
-	while (i < (ft_strlen(s1) + ft_strlen(s2)))
+	while (i < (len_s1 + len_s2))
 	{
-		new[i] = s2[i - ft_strlen(s1)];
+		new[i] = s2[i - len_s1];
 		i++;
 	}
 	new[i] = '\0';
