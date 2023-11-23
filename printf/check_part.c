@@ -5,25 +5,8 @@ int check_part(const char *str)
     return(0);
 }
 
-int cspdiux(char c);
+char cspdiux(char c);
 {
-    if(c == 'c')
-        return(1);
-    if(c == 's')
-        return(2);
-    if(c == 'p')
-        return(3);
-    if(c == 'd')
-        return(4);
-    if(c == 'i')
-        return(5);
-    if(c == 'u')
-        return(6);
-    if(c == 'x')
-        return(7);
-    if(c == 'X')
-        return(8);
-    if(c == '%')
-        return(9);
-    return(0);
+    return(c == 'c' || c == 's'|| c == 'd'|| c == 'i'
+    || c == 'u'|| c == 'x'|| c == 'X'|| c == '%'|| c == 'p');
 }
