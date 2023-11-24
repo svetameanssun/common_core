@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchar.c                                       :+:      :+:    :+:   */
+/*   ft_check_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 14:03:55 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 14:03:58 by stitovsk         ###   ########.fr       */
+/*   Created: 2023/11/24 14:03:32 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/11/24 14:04:00 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 
-int	int_putchar(char c)
+int check_part(const char *str)
 {
-	write(1, &c, 1);
-    return(1);
+    if(str[0] == '%' && cspdiux(str[1]))
+        return(cspdiux(str[1]));
+    return(0);
 }
 
-int	int_putstr(char *str)
+char cspdiux(char c)
 {
-    int count;
-
-    count = 0;
-	while (str[count] != '\0')
-	{
-		write(1, &str[count], 1);
-        count++;
-	}
-    return(count);
+    return(c == 'c' || c == 's'|| c == 'd'|| c == 'i'
+    || c == 'u'|| c == 'x'|| c == 'X'|| c == '%'|| c == 'p');
 }

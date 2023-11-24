@@ -1,21 +1,34 @@
-#include <stdarg.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 14:03:37 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/11/24 14:24:05 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+# include "ft_printf.h"
 
 int print_arg(va_list ptr_args, char c)
 {
     if (c == 'c')
-        return(int_putchar(va_arg(ptr_args,char)))
+        return(int_putchar(va_arg(ptr_args,char)));//+
     if (c == 's')
-        return(int_putstr(va_arg(ptr_args,char *)));
+        return(int_putstr(va_arg(ptr_args,char *)));//+
     if (c == 'p')
-		return (int_putptr(va_arg(ptr_args, unsigned long int)));
+		return (int_putptr(va_arg(ptr_args, long unsigned int)));
 	if (c == 'd' || c == 'i')
-		return (int_putnbr(va_arg(ptr_args, int)));
+		return (int_putnbr(va_arg(ptr_args, int)));//+
 	if (c == 'u')
-		return (int_putus(va_arg(ptr_args, unsigned int)));
+		return (int_putnbr_unsign(va_arg(ptr_args, unsigned int)));//+
 	if (c == 'x' || c == 'X')
-		return (int_puthex(c, va_arg(ptr_args, unsigned int)));
+		return (int_puthex(c, va_arg(ptr_args, unsigned int)));//+
 	if (c == '%')
-		return (int_putchar(c));
+		return (int_putchar(c));//+
 	return (0);
 
 }
