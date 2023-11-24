@@ -6,11 +6,11 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:55 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 14:03:58 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:38:28 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 int	int_putchar(char c)
 {

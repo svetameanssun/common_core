@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:37 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 14:24:05 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:46:30 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 int print_arg(va_list ptr_args, char c)
 {
     if (c == 'c')
-        return(int_putchar(va_arg(ptr_args,char)));//+
+        return(int_putchar(va_arg(ptr_args,int)));
     if (c == 's')
-        return(int_putstr(va_arg(ptr_args,char *)));//+
+        return(int_putstr(va_arg(ptr_args,char *)));
     if (c == 'p')
 		return (int_putptr(va_arg(ptr_args, long unsigned int)));
 	if (c == 'd' || c == 'i')
-		return (int_putnbr(va_arg(ptr_args, int)));//+
+		return (int_putnbr(va_arg(ptr_args, int)));
 	if (c == 'u')
-		return (int_putnbr_unsign(va_arg(ptr_args, unsigned int)));//+
+		return (int_putnbr_unsign(va_arg(ptr_args, unsigned int)));
 	if (c == 'x' || c == 'X')
-		return (int_puthex(c, va_arg(ptr_args, unsigned int)));//+
+		return (int_puthex(c, va_arg(ptr_args, unsigned int)));
 	if (c == '%')
-		return (int_putchar(c));//+
+		return (int_putchar(c));
 	return (0);
 
 }
@@ -56,5 +56,15 @@ int ft_printf(const char *str, ...)
         }
         i++;
     }
+    va_end(ptr_args);
     return (char_number);
+}
+
+int	main(void)
+{
+    int a = ft_printf(" %p %p ", 0, 0);
+    ft_printf("\n%i\n", a);
+    /*int b = printf(" %p %p ", 0, 0);
+    printf("\n%i\n", b);*/
+    return (0);
 }
