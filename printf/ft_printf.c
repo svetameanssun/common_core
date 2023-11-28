@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:37 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/28 14:14:34 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:40:39 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	va_list	ptr_args;
 
+	if (write(1, "", 0) == -1)
+		return (-1);
 	char_number = 0;
 	i = 0;
 	va_start(ptr_args, str);
