@@ -19,6 +19,7 @@
 # include <stdarg.h>
 
 int ft_printf(const char *str, ...);
+int print_arg(va_list ptr_args, char c);
 int check_part(const char *str);
 char cspdiux(char c);
 int	int_putchar(char c);
@@ -31,6 +32,6 @@ int	count_hex(long unsigned int n);
 int	int_puthex(char c, unsigned int n);
 int puthex_ptr(long unsigned int ptr, int num);
 int	int_putptr(long unsigned int n);
-int print_arg(va_list ptr_args, char c);
+
 
 #endif

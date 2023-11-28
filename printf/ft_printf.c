@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 # include "ft_printf.h"
 
 int print_arg(va_list ptr_args, char c)
@@ -62,9 +61,7 @@ int ft_printf(const char *str, ...)
 
 int	main(void)
 {
-    int a = ft_printf(" %p %p ", 0, 0);
-    ft_printf("\n%i\n", a);
-    /*int b = printf(" %p %p ", 0, 0);
-    printf("\n%i\n", b);*/
+    int a = ft_printf("%i", 0);
+    printf("%i", a);
     return (0);
 }
