@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:37 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 17:46:30 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:05:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ int ft_printf(const char *str, ...)
     va_start(ptr_args, str);
     while(str[i] != '\0')
     {
-        if(!check_part(str+i))
+        if(str[i] == '%' && cspdiux(str[i+1]) != 0)
         {
-            int_putchar(str[i]);
-            char_number++;
+            char_number += print_arg(ptr_args, str[i + 1]);
+            i++;
         }
         else
         {
-            char_number += print_arg(ptr_args, check_part(str+i));
-            i++;
+            int_putchar(str[i]);
+            char_number++;
         }
         i++;
     }
@@ -59,9 +59,4 @@ int ft_printf(const char *str, ...)
     return (char_number);
 }
 
-int	main(void)
-{
-    int a = ft_printf("%i", 0);
-    printf("%i", a);
-    return (0);
-}
+

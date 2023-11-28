@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:47 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 14:21:37 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:10:28 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int	int_putnbr(int n)
 
     count = count_digits_int(n);
 	if (n == -2147483648)
-		write(1, "-2147483648", 11);
-	else
+	{	write(1, "-2147483648", 11);
+        return (11);
+    }
+    else
 	{
 		if (n < 0)
 		{

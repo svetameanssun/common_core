@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:20:59 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/24 17:47:43 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:59:30 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 int ft_printf(const char *str, ...);
 int print_arg(va_list ptr_args, char c);
-int check_part(const char *str);
 char cspdiux(char c);
 int	int_putchar(char c);
 int	int_putstr(char *str);
