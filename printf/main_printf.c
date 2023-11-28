@@ -3,7 +3,7 @@
 int	main(void)
 {
 
-    ft_printf("%i",ft_printf("%s", "hola"));
+    ft_printf("%%%diuxX%s, %c", 5,"hola", 'c');
     //printf("", a);
     return (0);
 }
