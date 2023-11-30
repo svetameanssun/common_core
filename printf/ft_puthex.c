@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/28 14:14:47 by stitovsk         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:58:38 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	count_hex(long unsigned int n)
 	return (count);
 }
 
-int	int_puthex(char c, unsigned int n)
+int	int_puthex(char c, long unsigned int n)
 {
 	char	*base;
 	int		count;
