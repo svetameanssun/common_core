@@ -2,7 +2,7 @@ FLAGS  = -Wall -Wextra -Werror
 NAME   = libftprintf.a
 CC = gcc
 FILES = ft_check_format.c ft_printf.c ft_put_int_unsign.c ft_put_int.c \
-		ft_putptr.c ft_puthex.c ft_strchar.c
+		ft_puthex.c ft_strchar.c
 OBJECTS = $(FILES:.c=.o)
 
 # Colors
