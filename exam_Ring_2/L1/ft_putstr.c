@@ -10,6 +10,8 @@ void ft_putstr(char * str)
     }
 }
 
+
+
 int main ()
 {
     char str[6] = "sveta";
