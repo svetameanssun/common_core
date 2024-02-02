@@ -1,32 +1,26 @@
 #include <unistd.h>
 
-void write_from_point(char *str, int point)
-{
-	int i = point;
-	while(str[i] != '\0')
-	{
-		if(str[i] != ' '&& str[i] != '\t')
-		{	
-			write(1,&str[i],1);
-		} i++;	
-	}
-}
 
 void last_word(char *str)
 {
 	int i = 0;
-	int save_point;
+	int save_point = 0;
 	while(str[i] != '\0')
 	{
-		if((str[i] == ' ') && (str[i+1] != ' ' && str[i+1] != '\0'))
+		if((str[i] == ' ') && (str[i+1] >= 33 && str[i +1] <=126))
 		{
-			save_point = i;
+			save_point = i+1;
 		}
 		i++;
 	}
-	
-	write_from_point(str, save_point);
-
+	while(str[save_point])
+	{
+		if(str[save_point] >= 33 && str[save_point] <= 126)
+		{
+			write(1, &str[save_point],1);
+		}
+		save_point++;
+	}
 }
 
 int main(int argc,char ** argv)
