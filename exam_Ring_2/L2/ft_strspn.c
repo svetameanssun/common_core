@@ -31,5 +31,5 @@ size_t ft_strspn(const char *s, const char *accept)
 
 int main()
 {
-	printf("%ld\n", ft_strspn("sveta", "atevs"));
+	printf("%ld\n", ft_strspn("sveta", "svutu"));
 }
