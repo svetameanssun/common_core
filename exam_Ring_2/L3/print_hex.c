@@ -23,14 +23,16 @@ int ft_atoi(char *str)
 }
 
 
-int print_hex(char *dec_str)
+void print_hex(char *dec_str)
 {
     int dec_num = ft_atoi(dec_str);
-    char hex_str[16] = "0123456789abcdef";
+    char hex_base[16] = "0123456789abcdef";
     
-
-    
-
+    if (dec_num >= 16)
+	{
+        print_hex(dec_num/16);
+	}
+    write(1, &hex_base[dec_num%16],1);
 }
 
 
