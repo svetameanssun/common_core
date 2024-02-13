@@ -43,7 +43,7 @@ void ft_putnbr(int n)
 {
     if (n >= 10)
     {
-        ft_putnbr(n/10);
+        ft_putnbr(n / 10);
     }
     char digit = n%10 + '0';
     write(1, &digit,1);
