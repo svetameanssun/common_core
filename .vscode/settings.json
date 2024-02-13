@@ -3,6 +3,7 @@
         "stdlib.h": "c",
         "sstream": "c",
         "get_next_line.h": "c",
-        "ft_printf.h": "c"
+        "ft_printf.h": "c",
+        "stdio.h": "c"
     }
 }
