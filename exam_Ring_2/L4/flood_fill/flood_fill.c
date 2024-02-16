@@ -1,21 +1,22 @@
 #include "flood_fill.h"
 
-void  fill(char **tab, t_point size, t_point cur, char to_fill)
+void	fill(char **tab, t_point size, t_point point, char start_char)
 {
-    if(cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-        || tab[cur.y][cur.x] != to_fill)
-        {
-            return;
-        }
+	if (point.x >= size.x ||  point.x < 0
+	|| point.y >= size.y || point.y < 0|| tab[point.y][point.x] != start_char)
+	{
+		return;
+	}
 
-        tab[cur.y][cur.x] = 'F';
-        fill(tab, size, (t_point){cur.x - cur.y}, to_fill);
-        fill(tab, size, (t_point){cur.x + 1, cur.y}, to_fill);
-        fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
-        fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
-
-
+	tab[point.y][point.x] = 'F';
+	fill(tab, size, (t_point){point.x - 1, point.y}, start_char);
+	fill(tab, size, (t_point){point.x + 1, point.y}, start_char);
+	fill(tab, size,(t_point){point.x, point.y -1}, start_char);
+	fill(tab, size, (t_point){point.x, point.y +1}, start_char);
 }
+
+
+
 void	flood_fill(char **tab, t_point size, t_point begin)
 {
 	fill(tab, size, begin, tab[begin.y][begin.x]);

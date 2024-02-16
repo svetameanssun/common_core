@@ -13,11 +13,11 @@ void sort_int_tab(int *tab, unsigned int size)
         
         while( j < (size-1-i))
         {
-            if(*(tab +j) > *(tab + j +1))
+            if(tab[j] > tab[j + 1])
             {
-                temp = *(tab + j);
-                *(tab + j) =  *(tab + j +1);
-                *(tab + j +1)  = temp;
+                temp = tab[j];
+                tab[j] =  tab [j];
+                tab[j +1]  = temp;
             }
             j++;
         }
