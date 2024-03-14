@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	main(void)
+int	run(void)
 {
 
     ft_printf("%%%diuxX%s, %c", 5,"hola", 'c');

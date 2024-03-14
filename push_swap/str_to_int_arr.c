@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:30:41 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/03/01 13:55:07 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:38:36 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "push_swap.h"
 
 int	is_digit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_atoi(char *str)
+int	funct_atoi(char *str)
 {
 	int	res;
 	int	sign;
@@ -32,6 +33,8 @@ int	ft_atoi(char *str)
 		sign = sign * -1;
 		str++;
 	}
+	if (*str == '+')
+		str++;
 	while (*str && *str != ' ')
 	{
 		res = res * 10 + *str - 48;
@@ -66,10 +69,8 @@ int	numbers_unique(int *arr, int len)
 int	input_valid(char *str)
 {
 	int	i;
-	int	j;
-
+	
 	i = 0;
-	j = 0;
 	if (!str[i] || str[i] == 32)
 		return (0);
 	while (str[i])
@@ -78,11 +79,11 @@ int	input_valid(char *str)
 			i++;
 		else
 		{
-			if (str[i] == '-' && is_digit(str[i + 1])
-				&& (i == 0 || str[i - 1] == ' '))
+			if ((str[i] == '-' || str[i] == '+') && is_digit(str[i + 1])
+				&& i == 0 || str[i - 1] == ' ')
 				i++;
 			else if (str[i] == ' ' && (is_digit(str[i + 1])
-					|| str[i + 1] == '-') && is_digit(str[i - 1]))
+					|| str[i + 1] == '-' || str[i + 1] == '+') && is_digit(str[i - 1]))
 				i++;
 			else
 				return (0);
@@ -121,13 +122,13 @@ int	*str_to_numbers(char *str)
 	res = (int *)malloc(sizeof(int) * (word_cnt));
 	if (res == 0)
 		return (0);
-	res[0] = ft_atoi(str + 0);
+	res[0] = funct_atoi(str + 0);
 	while (j < word_cnt)
 	{
 		while (str[i] && str[i] != ' ')
 			i++;
 		i++;
-		res[j] = ft_atoi(str + i);
+		res[j] = funct_atoi(str + i);
 		j++;
 	}
 	if (!numbers_unique(res, word_cnt))
@@ -199,28 +200,29 @@ int	main(int argc, char **argv)
 	{
 		if (str_to_numbers(argv[1]) == 0)
 		{
-			printf("Error");
+			ft_printf("Error");
 			return (0);
 		}
 		arr = str_to_numbers(argv[1]);
 		word_cnt = word_count(argv[1]);
-		printf("%p\n", arr);
+		ft_printf("%p\n", arr);
 	}
 	if (argc > 2)
 	{
 		if (str_to_numbers(words_to_str(argc, argv)) == 0)
 		{
-			printf("Error");
+			ft_printf("Error");
 			return (0);
 		}
 		arr = str_to_numbers(words_to_str(argc, argv));
 		word_cnt = word_count(words_to_str(argc, argv));
-		printf("%d\n", word_cnt);
-		printf("%p\n", arr);
+		ft_printf("%d\n", word_cnt);
+		ft_printf("%p\n", arr);
 	}
 
 	while (i < word_cnt)
 	{
-		printf("%d\n", arr[i++]);
+		ft_printf("%d\n", arr[i++]);
 	}
+	ft_printf("%d", ft_isdigit('0'));
 }

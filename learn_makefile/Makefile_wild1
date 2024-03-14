@@ -1,0 +1,48 @@
+# Wildcard * or %
+
+# * searches your filesystem for matching filenames
+# it is better ton wrap it in a wildcard function:
+# Print out file information about every .c file
+
+# % is useful, we can use it FOR PATTERN RULES! where it represents a wildcard that matches any string
+# MATCHING MODE:
+#	matches one or more characters in a string. this match is called STEM.
+
+# REPLLACING MODE:
+#	takes the STEM that was matched and replaces that in a string.
+# % is most often used in rule definitions and in some specific functions
+#Wildcard example with *:
+print: $(wildcard *.c)
+	ls -al $?
+# DANGER!!! 
+#			* may not be directly used in a variable definitions
+#			When * matches no files, it is left as it is (unless run in the wildcard function)
+#Variables with wildcard:
+thing_wrong := *.c # Don't do this! '*' will not get expanded
+thing_right := $(wildcard*.c)
+
+all: one two three four
+# Fails, because $(thing_wrong) is the string "*.c"
+one: $(thing_wrong)
+	rm -f 1.c 2.c 3.c 4.c
+
+# Stays as *.c if there are no files that match this pattern :(
+two: *.c
+	rm -f 1.c 2.c 3.c 4.c
+
+# Works as you would expect! In this case, it does nothing.
+three: $(thing_right)
+	rm -f 1.c 2.c 3.c 4.c
+
+# Same as rule three
+four: $(wildcard *.c)
+	rm -f 1.c 2.c 3.c 4.c
+
+make_c:
+	touch 1.c
+	touch 2.c
+	touch 3.c
+	touch 4.c
+
+clean:
+	rm -f 1.c 2.c 3.c 4.c

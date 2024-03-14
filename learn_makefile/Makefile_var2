@@ -1,0 +1,69 @@
+# Wildcards
+print: $(wildcard *.c)
+	ls -la $?
+
+# ALL TARGET
+one:
+	touch one
+two:
+	touch two
+three:
+	touch three
+all_targ: one two three
+
+## Variables
+fran := fran
+sveta := sveta
+mati := mati
+delfi := delfi
+names := $(fran) $(sveta) $(mati) $(delfi)
+
+some_file:
+	touch some_file
+	echo "Names: " $(names)
+
+## Target, Prerequisites and Dependencies
+blah: blah.o
+	cc blah.o -o blah
+
+blah.o: blah.c
+	cc -c blah.c -o blah.o
+
+blah.c:
+	echo "int main() { return 1; }" > blah.c
+
+## Simple example of Prerequesits
+main_rule: rule5
+	touch main_rule
+	echo "main_rule created"
+
+rule1:
+	touch rule1
+	echo "rule1 created"
+
+rule2: rule1
+	touch rule2
+	echo "rule2 created"
+
+rule3: rule2
+	touch rule3
+	echo "rule3 created"
+
+rule4: rule3
+	touch rule4
+	echo "rule4 created"
+
+rule5: rule4
+	touch rule5
+	echo "rule5 created"
+
+## Clean
+clean:
+	rm -f f1 f2 one two three fran sveta mati delfi some_file blah.c blah rule1 rule2 rule3 rule4 rule5 main_rule
+## ALL target
+all: some_file blah main_rule
+## Multiple Target
+all_rule: f1 f2
+
+f1 f2:
+	touch $@

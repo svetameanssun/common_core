@@ -1,0 +1,32 @@
+# AUTOMATIC VARIABLES:
+three:
+	touch three
+
+four:
+	touch four
+
+one:
+	touch one
+	
+two:
+	touch two
+
+
+hey: one two three four
+	echo "Outputs 'hey', since this is the target name"
+	echo $@
+
+	echo "Outputs all prerequisites newer than the target"
+	echo $?
+
+	echo "Outputs all prerequisites"
+	echo $^
+	touch hey
+
+
+
+
+clean:
+	rm -f hey one two three four
+
+

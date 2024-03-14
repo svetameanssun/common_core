@@ -3,9 +3,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <limits.h>
+#include "../libft/libft.h"
+#include "../ft_printf/ft_printf.h"
 
 int is_digit(int c);
-int ft_atoi(char *str);
+int funct_atoi(char *str);
 int numbers_unique(int * arr, int len);
 int input_valid(char * str);
 int word_count(char *str);

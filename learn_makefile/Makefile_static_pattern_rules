@@ -1,0 +1,29 @@
+# STATIC PATTERN RULES
+# static pattern rules are another way to write less in a Makefile
+
+# syntax:
+#targets...: target-pattern: prereq-pattern ...
+#	commands
+
+#charGPT syntax:
+#%.target_extension: %.source_extension
+#    <recipe>
+
+# The given target is matched by the target-pattern (via % wildacard).
+# Whatever was matched is called STEM.
+# The STEM is then substituded into the prereq-pattern,  to generate the target's prereqs.
+
+objects = foo.o bar.o all.o
+all: $(objects)
+
+# These files compile via implicit rules
+foo.o: foo.c 
+bar.o: bar.c
+all.o: all.c
+
+all.c:
+	echo "int main() {return 0;}" > all.c 
+%.c:
+	touch $@
+clean:
+	rm -f *.c *.o all
