@@ -1,8 +1,8 @@
 typedef struct best_node
 {
     char *content;
-    struct best_node *next_n;
-} bn;
+    struct best_node * next_n;
+}   bn;
 
 
 
