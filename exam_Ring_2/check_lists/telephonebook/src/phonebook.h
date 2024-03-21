@@ -12,3 +12,5 @@ typedef struct profile
     char * email;
     struct profile *next_prof;
 }   prof;
+
+int run();

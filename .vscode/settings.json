@@ -9,7 +9,9 @@
         "algorithm": "c",
         "bitset": "c",
         "chrono": "c",
-        "unordered_map": "c"
+        "unordered_map": "c",
+        "push_swap.h": "c",
+        "iterator": "c"
     },
     "window.autoDetectColorScheme": true,
     "workbench.preferredHighContrastLightColorTheme": "Default Dark Modern",
