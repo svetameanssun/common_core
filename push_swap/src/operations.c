@@ -1,17 +1,5 @@
 #include "push_swap.h"
 
-void print_stack_content(t_stack * stck)
-{
-    t_stack *temp = stck;
-    while(temp)
-    {
-        printf("%ld ", temp->content);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
-
 void swap(t_stack **stck, char stck_name)
 {
     t_stack *temp;
@@ -27,9 +15,9 @@ void swap(t_stack **stck, char stck_name)
     *stck = temp2;
 
     if(stck_name ==  'a')
-        printf("%s\n","sa");
+        write(1, "sa\n", 3);
     else if (stck_name == 'b')
-        printf("%s\n","sb");
+        write(1, "sb\n", 3);
 }
 
 
@@ -52,9 +40,9 @@ void push(t_stack **src, t_stack **dest, char dest_name)
     *dest = temp;
     *src = temp2;
     if (dest_name == 'a')
-        printf("%s\n","pa");
+        write(1, "pa\n", 3);
     else if (dest_name == 'b')
-        printf("%s\n","pb");
+        write(1, "pb\n", 3);
 }
 // ROTATE - and - REVERSE_ROTATE return void or s_stack * ???
 void rotate(t_stack **stck, char stck_name)
@@ -76,9 +64,9 @@ void rotate(t_stack **stck, char stck_name)
     temp->next = NULL;
 
     if (stck_name == 'a')
-        printf("%s\n","ra");
+        write(1, "ra\n", 3);
     else if (stck_name == 'b')
-        printf("%s\n","rb");
+        write(1, "rb\n", 3);
 }
 void double_rotate(t_stack **a, t_stack **b)
 {
@@ -106,9 +94,9 @@ void reverse_rotate(t_stack **stck, char stck_name)
     temp = NULL;
 
     if (stck_name == 'a')
-        printf("%s\n","rra");
+        write(1, "rra\n", 4);
     else if (stck_name == 'b')
-        printf("%s\n","rrb");
+        write(1, "rrb\n", 4);
 }
 
 
@@ -118,7 +106,7 @@ void double_reverse_rotate(t_stack **a, t_stack **b)
     reverse_rotate(b, 'b');
 }
 
-int main()
+/*int main()
 {
     int i = 1;
     int j = 121;
@@ -146,10 +134,9 @@ int main()
     }
     
     printf("original stacks: \n");
-    print_stack_content(aux);
-    print_stack_content(aux2);
-
+    print_stack_contents(aux);
+    print_stack_contents(aux2);
     push(&aux2, &aux, 'a');
-    print_stack_content(aux);
-    print_stack_content(aux2);
-}
+    print_stack_contents(aux);
+    print_stack_contents(aux2);
+}*/

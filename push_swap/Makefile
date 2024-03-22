@@ -42,3 +42,5 @@ fclean: clean
 	@make -C $(FT_PRINTF) fclean
 
 re: fclean all
+
+.PHONY: all clean fclean re
