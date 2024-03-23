@@ -2,19 +2,20 @@
 
 void print_stack_contents(t_stack * stck)
 {
-    t_stack *temp = stck;
-    while(temp)
+    printf("\nBeginning:\n");
+    while(stck)
     {
-        printf("%ld ", temp->content);
-        temp = temp->next;
+        printf("%ld\n", stck->content);
+        stck = stck->next;
     }
+    printf("End\n");
     printf("\n");
 }
 
 void print_node_content(t_stack * stck)
 {
-    printf("%ld ", stck->content);
-    printf("\n");
+    
+    printf("%ld\n", stck->content);
 }
 
 /*int main()

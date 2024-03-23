@@ -7,8 +7,6 @@ long	ft_atol(char *str)
 
 	res = 0;
 	sign = 1;
-	/*if (equal_str(str, "-2147483648"))
-		return(-2147483648);*/
 	if (*str == '-')
 	{
 		sign = sign * (-1);

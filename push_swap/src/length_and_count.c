@@ -5,7 +5,7 @@ int	word_count(char *str)
 	int	word_cnt;
 	int i;
 
-	word_cnt = 0;
+	word_cnt = 1;
 	i = 1;
 	while (str[i])
 	{
@@ -15,6 +15,7 @@ int	word_count(char *str)
 		}
 		i++;
 	}
+	printf("word_count: %d", word_cnt);
 	return (word_cnt);
 }
 

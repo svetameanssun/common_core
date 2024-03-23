@@ -36,26 +36,31 @@ void order_case_one(t_stack **stck)
 {
     swap(stck, 'a');
     rotate(stck, 'a');
+    printf("case1");
 }
 
 void order_case_two(t_stack **stck)
 {
     reverse_rotate(stck, 'a');
+    printf("case1");
 }
 
 void order_case_three(t_stack **stck)
 {
     swap(stck, 'a');
+    printf("case1");
 }
 void order_case_four(t_stack **stck)
 {
     rotate(stck, 'a');
+    printf("case1");
 }
 
 void order_case_five(t_stack **stck)
 {
-    swap(stck, 'a');
+    //swap(stck, 'a');
     reverse_rotate(stck, 'a');
+    printf("case1");
 }
 
 void order_three_elements(t_stack **stck)
