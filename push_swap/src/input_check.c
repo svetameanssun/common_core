@@ -43,11 +43,11 @@ int	input_valid_str(char *str)
 			i++;
 		else
 		{
-			if ((str[i] == '-' || str[i] == '+') && is_digit(str[i + 1])
+			if ((plus_or_minus(str[i])) && is_digit(str[i + 1])
 				&& (i == 0 || str[i - 1] == ' '))
 				i++;
-			else if (str[i] == ' ' && (is_digit(str[i + 1])
-					|| str[i + 1] == '-' || str[i + 1] == '+') && is_digit(str[i - 1]))
+			else if (is_space(str[i]) && (is_digit(str[i + 1])
+					|| plus_or_minus(str[i + 1])) && is_digit(str[i - 1]))
 				i++;
 			else
 			{
@@ -67,20 +67,18 @@ int	input_valid_word(char *str)
 		return (0);
 	while(str[i])
 	{
-		if(str[i] == '+' || str[i] == '-')
+		if(plus_or_minus(str[i]))
 		{
 			i++;
-			printf("%d", str[i]);
 		}
 		if(is_digit(str[i]))
 		{
 			i++;
-			printf("%d", str[i]);
 		}
 		else
 			return(0);
 	}
-	if((str[0] == '-' || str[0] == '+') && i == 1)
+	if((plus_or_minus(str[0])) && i == 1)
 		return(0);
 	return(i);
 }

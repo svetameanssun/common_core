@@ -6,14 +6,14 @@ int ft_error()
 	exit(0);
 }
 
-void	free_stack(t_stack **head)
+void	free_stack(t_stack **stck)
 {
 	t_stack	*aux;
 	t_stack	*temp;
 	int		size;
 
-	aux = *head;
-	size = stack_size(*head);
+	aux = *stck;
+	size = stack_size(stck);
 	while (size > 0)
 	{
 		temp = aux;
@@ -21,5 +21,5 @@ void	free_stack(t_stack **head)
 		free(temp);
 		size--;
 	}
-	head = NULL;
+	stck = NULL;
 }

@@ -6,28 +6,30 @@ int	word_count(char *str)
 	int i;
 
 	word_cnt = 1;
-	i = 1;
-	while (str[i])
+	i = 0;
+	while(str[i] && str[i + 1])
 	{
-		if (is_digit(str[i]) && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+		if(str[i] != ' ' && end_or_space(str[i + 1]))
 		{
 			word_cnt++;
 		}
 		i++;
 	}
-	printf("word_count: %d", word_cnt);
 	return (word_cnt);
 }
 
-int stack_size(t_stack *stck)
+int stack_size(t_stack **stck)
 {
     int stck_size;
+	t_stack * temp;
+
+	temp = *stck;
 
     stck_size = 0;
-    while(stck)
+    while(temp)
     {
         stck_size++;
-        stck = stck->next;
+        temp = temp->next;
     }
     return(stck_size);
 }

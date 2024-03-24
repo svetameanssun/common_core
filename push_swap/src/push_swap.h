@@ -16,6 +16,7 @@ typedef struct structure_stack
     int position;
     int cost_a;
     int cost_b;
+    int cost;
     struct structure_stack *next;
 
 } t_stack;
@@ -25,9 +26,18 @@ typedef struct structure_stack
 int ft_error();
 void	free_stack(t_stack **head);
 
-/*   Valid input check  */
-int is_digit(int c);
+/*      NUMBERS     */
+int ft_abs(int num);
 long ft_atol(char *str);
+int stack_contents_mean(t_stack ** stck);
+
+/*   Valid input check  */
+
+int is_digit(int c);
+int is_space(int c);
+int end_or_space(int c);
+int plus_or_minus(int c);
+
 int longs_unique(long * arr, int len);
 int input_valid_str(char * str);
 int	input_valid_word(char *str);
@@ -54,12 +64,17 @@ t_stack *find_largest_cont(t_stack * stck);
 
 /*   SIZE & LEN  */
 
-int stack_size(t_stack *stck);
+int stack_size(t_stack **stck);
 
 /*   Print   */
 
 void print_stack_contents(t_stack * stck);
 void print_node_content(t_stack * stck);
+void print_stack_positions(t_stack * stck);
+void print_stack_targets(t_stack * stck);
+void print_stack_cost_b(t_stack * stck);
+void print_stack_cost_a(t_stack * stck);
+void print_stack_cost(t_stack * stck);
 
 /*   Funtions to Order list of THREE elements  */
 
@@ -76,6 +91,14 @@ t_stack *create_node();
 t_stack *array_to_stack(long *array, int array_len);
 t_stack	*args_to_stack(int argc, char **argv);
 t_stack *create_a(int argc, char **argv);
-
-/* Apply Order Operations */
 void push_to_b(t_stack ** a, t_stack **b);
+
+
+/*      Positions, Targets, Costs       */
+
+int get_target(t_stack ** a, t_stack **b);
+void set_positions(t_stack ** stck);
+void set_targets(t_stack ** a, t_stack **b);
+int calc_cost(t_stack **b, int index);
+void set_cost(t_stack **b);
+t_stack *find_lowest_cost(t_stack **b);
