@@ -18,48 +18,36 @@ void set_positions(t_stack ** stck)
     stck = &start_stck;
 }
 
-int get_target(t_stack ** a, t_stack **b)
+void set_targets(t_stack ** stck_a, t_stack ** stck_b)
 {
-    int flg;
-    int targ;
-    long cont;
-    t_stack * temp_a;
-    t_stack *temp_b;
-    
-    flg = 0;
-    targ = 0;
-    cont = 2147483647;
-    temp_a = *a;
-    temp_b = *b;
-    while(temp_a)
+    t_stack * a;
+    t_stack * b;
+    t_stack * save_a;
+    t_stack * save_b;
+    long larger;
+
+    a = *stck_a;
+    b = *stck_b;
+    save_a = a;
+    save_b = b;
+    larger = 2147483647;
+
+    while(b)
     {
-        if(temp_a->content < cont && temp_a->content > temp_b->content)
+        while(a)
         {
-            cont = temp_a->content;
-            targ = temp_a->position;
-            flg++;
+            if(a->content < larger && a->content > b->content)
+            {
+                b->target = a->position;
+                larger = a->content;                                                                                                                                                            
+            }
+            a = a->next;
+            larger = 2147483647;
         }
-       temp_a = temp_a->next;        
+        
+        a = save_a;
+        b = b->next;
     }
-    if (flg == 0)
-        targ = 0;
-    printf("TARGET%d\n",targ);
-    return(targ);
-}
-
-void set_targets(t_stack ** a, t_stack **b)
-{
-    t_stack * temp_b;
-    t_stack *temp_a;
-    t_stack *save_temp_b;
-
-    temp_b = *b;
-    save_temp_b = temp_b;
-    while(temp_b)
-    {
-        temp_b->target = get_target(a, b);
-        temp_b = temp_b->next;
-    }
-    b = &save_temp_b;
-
+    stck_a = &save_a;
+    stck_b = &save_b;
 }

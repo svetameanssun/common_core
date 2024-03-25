@@ -22,14 +22,17 @@ int stack_size(t_stack **stck)
 {
     int stck_size;
 	t_stack * temp;
-
-	temp = *stck;
+	t_stack * save;
+	
 
     stck_size = 0;
+	temp = *stck;
+	save = temp;
     while(temp)
     {
         stck_size++;
         temp = temp->next;
     }
+	stck = &save;
     return(stck_size);
 }

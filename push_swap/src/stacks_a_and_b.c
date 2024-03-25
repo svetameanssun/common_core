@@ -12,7 +12,7 @@ t_stack *create_node()
     stck->target = 0;
     stck->cost_a = 0;
     stck->cost_b = 0;
-    stck->cost = ft_abs(stck->cost_a) + ft_abs(stck->cost_b);
+    stck->cost = 0;
     stck->next = NULL;
     return(stck);
     
@@ -30,7 +30,7 @@ t_stack *create_a(int argc, char **argv)
 void push_to_b(t_stack ** a, t_stack **b)
 {
     int stck_size;
-
+    
     stck_size = stack_size(a);
     while(stck_size > 3)
     {

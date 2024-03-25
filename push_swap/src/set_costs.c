@@ -1,34 +1,33 @@
 #include "push_swap.h"
 
-int calc_cost(t_stack **b, int index)
+int calc_cost(t_stack **stck, int index)
 {
     int cost;
-    int size_b;
+    int size_stck;
 
     cost = 0;
-    size_b = stack_size(b);
-    if(index > size_b/2)
-        cost = (size_b - index) * -1;
+    size_stck = stack_size(stck);
+    if(index > size_stck/2)
+        cost = (size_stck - index) * -1;
     else
         cost = index;
     return(cost);
 }
 
-void set_cost(t_stack **b)
+void set_cost(t_stack **stck_a, t_stack **stck_b)
 {
-    t_stack * temp_b;
-    t_stack *save_temp_b;
+    t_stack * b = *stck_b;
+    t_stack *save_b;
     
-    temp_b = *b;
-    save_temp_b = temp_b;
-    while(temp_b)
+    save_b = b;
+    while(b)
     {
-        temp_b->cost_a = calc_cost(b, temp_b->target);
-        temp_b->cost_b = calc_cost(b, temp_b->position);
-        temp_b->cost = ft_abs(temp_b->cost_a) + ft_abs(temp_b->cost_a);
-        temp_b = temp_b->next;
+        b->cost_a = calc_cost(stck_a, b->target);
+        b->cost_b = calc_cost(stck_b, b->position);
+        b->cost = ft_abs(b->cost_a) + ft_abs(b->cost_b);
+        b = b->next;
     }
-    b = &save_temp_b;
+    stck_b = &save_b;
 }
 
 t_stack *find_lowest_cost(t_stack **b)
@@ -51,5 +50,7 @@ t_stack *find_lowest_cost(t_stack **b)
     }
     return(lowest_cost_node);
 }
+
+
 
 

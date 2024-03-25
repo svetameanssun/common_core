@@ -2,63 +2,13 @@
 
 void print_stack_contents(t_stack * stck)
 {
+    
+    printf("-------------------------------------------------:\n");
+    printf("%5s %5s %5s %7s %7s %5s\n", "| cont |", "| pos |", "| targ |", "| cost_a |", "| cost_b |", "| cost |");
     printf("-------------------------------------------------:\n");
     while(stck)
     {
-        printf("%ld\n", stck->content);
-        stck = stck->next;
-    }
-    printf("---------------------------------------------------\n");
-}
-
-void print_stack_positions(t_stack * stck)
-{
-    printf("-------------------------------------------------:\n");
-    while(stck)
-    {
-        printf("%d\n", stck->position);
-        stck = stck->next;
-    }
-    printf("---------------------------------------------------\n");
-}
-void print_stack_targets(t_stack * stck)
-{
-    printf("-------------------------------------------------:\n");
-    while(stck)
-    {
-        printf("%d\n", stck->target);
-        stck = stck->next;
-    }
-    printf("---------------------------------------------------\n");
-}
-
-void print_stack_cost_b(t_stack * stck)
-{
-    printf("-------------------------------------------------:\n");
-    while(stck)
-    {
-        printf("%d\n", stck->cost_b);
-        stck = stck->next;
-    }
-    printf("---------------------------------------------------\n");
-}
-
-void print_stack_cost_a(t_stack * stck)
-{
-    printf("-------------------------------------------------:\n");
-    while(stck)
-    {
-        printf("%d\n", stck->cost_a);
-        stck = stck->next;
-    }
-    printf("---------------------------------------------------\n");
-}
-void print_stack_cost(t_stack * stck)
-{
-    printf("-------------------------------------------------:\n");
-    while(stck)
-    {
-        printf("%d\n", stck->cost);
+        printf("%7ld %7d %7d %9d %9d %7d\n", stck->content, stck->position, stck->target, stck->cost_a, stck->cost_b, stck->cost);
         stck = stck->next;
     }
     printf("---------------------------------------------------\n");

@@ -47,7 +47,7 @@ long * words_to_arr(int argc, char **argv);
 t_stack	*words_to_stack(int argc, char **argv);
 
 
-/*   Operations  */
+/*   Movements  */
 
 void swap(t_stack **stck, char stck_name);
 void double_swap(t_stack **a, t_stack **b);
@@ -56,6 +56,16 @@ void rotate(t_stack **stck, char stck_name);
 void double_rotate(t_stack **a, t_stack **b);
 void reverse_rotate(t_stack **stck, char stck_name);
 void double_reverse_rotate(t_stack **a, t_stack **b);
+
+/*      OPERATIONS          */
+
+void pa(t_stack **b, t_stack **a);
+void ra(t_stack **a);
+void rb(t_stack **b);
+void rr(t_stack **a, t_stack **b);
+void rra(t_stack **a);
+void rrb(t_stack **b);
+void rrr(t_stack **a, t_stack **b);
 
 /*   MIN & MAX   */
 
@@ -70,11 +80,6 @@ int stack_size(t_stack **stck);
 
 void print_stack_contents(t_stack * stck);
 void print_node_content(t_stack * stck);
-void print_stack_positions(t_stack * stck);
-void print_stack_targets(t_stack * stck);
-void print_stack_cost_b(t_stack * stck);
-void print_stack_cost_a(t_stack * stck);
-void print_stack_cost(t_stack * stck);
 
 /*   Funtions to Order list of THREE elements  */
 
@@ -84,6 +89,7 @@ void order_case_two(t_stack **stck);
 void order_case_three(t_stack **stck);
 void order_case_four(t_stack **stck);
 void order_case_five(t_stack **stck);
+void order_elements(t_stack **a, t_stack **b);
 
 /*   Make Stacks  */
 
@@ -96,9 +102,9 @@ void push_to_b(t_stack ** a, t_stack **b);
 
 /*      Positions, Targets, Costs       */
 
-int get_target(t_stack ** a, t_stack **b);
 void set_positions(t_stack ** stck);
 void set_targets(t_stack ** a, t_stack **b);
 int calc_cost(t_stack **b, int index);
-void set_cost(t_stack **b);
+void set_cost(t_stack **stck_a, t_stack **stck_b);
 t_stack *find_lowest_cost(t_stack **b);
+void push_lower_cost(t_stack **a,t_stack **b);

@@ -55,14 +55,13 @@ void rotate(t_stack **stck, char stck_name)
     temp = *stck;
     temp2 = temp;
 
-    while(temp2->next != NULL)
+    while(temp2->next)
     {
         temp2 = temp2->next;
     }
     temp2->next = temp;
     *stck = (*stck)->next;
     temp->next = NULL;
-
     if (stck_name == 'a')
         write(1, "ra\n", 3);
     else if (stck_name == 'b')
