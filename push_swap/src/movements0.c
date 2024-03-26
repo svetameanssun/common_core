@@ -92,7 +92,7 @@ void push_lower_cost(t_stack **stck_a,t_stack **stck_b)
 
     while(b)
     {
-
+        
     }
     
     

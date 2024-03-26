@@ -11,19 +11,21 @@ int main(int argc, char **argv)
 	
     //PUSH from A to B
 	push_to_b(&a, &b);
+
 	//ORDER 3 Elements:
 	order_three_elements(&a);
+	printf("Sorted A:\n");
+	print_stack_contents(a);
 	
 	//SET targets
 	set_targets(&a, &b);
-	printf("Print A and B:\n");
-	print_stack_contents(a);
+	printf("Targets B:\n");
+	//print_stack_contents(a);
 	print_stack_contents(b);
-	set_cost(&a, &b);
+	/*set_cost(&a, &b);
 	print_stack_contents(a);
-	print_stack_contents(b);
+	print_stack_contents(b);*/
 
-	print_node_content(find_lowest_cost(&b));
 	
     free_stack(&a);
     free_stack(&b);

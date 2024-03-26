@@ -38,13 +38,14 @@ void set_targets(t_stack ** stck_a, t_stack ** stck_b)
         {
             if(a->content < larger && a->content > b->content)
             {
+                
                 b->target = a->position;
+                printf("%d\n", b->target);
                 larger = a->content;                                                                                                                                                            
             }
             a = a->next;
-            larger = 2147483647;
         }
-        
+        larger = 2147483647;
         a = save_a;
         b = b->next;
     }
