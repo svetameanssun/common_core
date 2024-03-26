@@ -26,10 +26,11 @@ typedef struct structure_stack
 int ft_error();
 void	free_stack(t_stack **head);
 
+
 /*      NUMBERS     */
 int ft_abs(int num);
 long ft_atol(char *str);
-int stack_contents_mean(t_stack ** stck);
+long stack_contents_mean(t_stack ** stck);
 
 /*   Valid input check  */
 
@@ -57,15 +58,6 @@ void double_rotate(t_stack **a, t_stack **b);
 void reverse_rotate(t_stack **stck, char stck_name);
 void double_reverse_rotate(t_stack **a, t_stack **b);
 
-/*      OPERATIONS          */
-
-void pa(t_stack **b, t_stack **a);
-void ra(t_stack **a);
-void rb(t_stack **b);
-void rr(t_stack **a, t_stack **b);
-void rra(t_stack **a);
-void rrb(t_stack **b);
-void rrr(t_stack **a, t_stack **b);
 
 /*   MIN & MAX   */
 
@@ -81,15 +73,15 @@ int stack_size(t_stack **stck);
 void print_stack_contents(t_stack * stck);
 void print_node_content(t_stack * stck);
 
-/*   Funtions to Order list of THREE elements  */
+/*   Funtions to sort list of THREE elements  */
 
-void order_three_elements(t_stack **stck);
-void order_case_one(t_stack **stck);
-void order_case_two(t_stack **stck);
-void order_case_three(t_stack **stck);
-void order_case_four(t_stack **stck);
-void order_case_five(t_stack **stck);
-void order_elements(t_stack **a, t_stack **b);
+void sort_three_elements(t_stack **stck);
+void sort_case_one(t_stack **stck);
+void sort_case_two(t_stack **stck);
+void sort_case_three(t_stack **stck);
+void sort_case_four(t_stack **stck);
+void sort_case_five(t_stack **stck);
+void sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size);
 
 /*   Make Stacks  */
 
@@ -97,7 +89,7 @@ t_stack *create_node();
 t_stack *array_to_stack(long *array, int array_len);
 t_stack	*args_to_stack(int argc, char **argv);
 t_stack *create_a(int argc, char **argv);
-void push_to_b(t_stack ** a, t_stack **b);
+void divide_stacks(t_stack ** a, t_stack **b, int stck_a_size);
 
 
 /*      Positions, Targets, Costs       */
@@ -105,6 +97,12 @@ void push_to_b(t_stack ** a, t_stack **b);
 void set_positions(t_stack ** stck);
 void set_targets(t_stack ** a, t_stack **b);
 int calc_cost(t_stack **b, int index);
-void set_cost(t_stack **stck_a, t_stack **stck_b);
+void set_costs(t_stack **stck_a, t_stack **stck_b);
 t_stack *find_lowest_cost(t_stack **b);
-void push_lower_cost(t_stack **a,t_stack **b);
+
+
+/*      SORTING ALGORHITHMS     */
+int first_is_smallest(t_stack **stck_a);
+int is_sorted(t_stack **stck);
+void    push_smaller(t_stack **stck_a, t_stack **stck_b, long mean);
+void sorting_alg(t_stack **stck_a, t_stack **stck_b, t_stack *current_stck);

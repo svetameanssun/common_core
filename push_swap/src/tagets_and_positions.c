@@ -40,7 +40,6 @@ void set_targets(t_stack ** stck_a, t_stack ** stck_b)
             {
                 
                 b->target = a->position;
-                printf("%d\n", b->target);
                 larger = a->content;                                                                                                                                                            
             }
             a = a->next;

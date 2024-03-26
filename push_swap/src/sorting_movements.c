@@ -13,18 +13,11 @@ void swap(t_stack **stck, char stck_name)
     temp->next = temp2->next;
     temp2->next = temp;
     *stck = temp2;
-
+    set_positions(stck);
     if(stck_name ==  'a')
         write(1, "sa\n", 3);
     else if (stck_name == 'b')
         write(1, "sb\n", 3);
-}
-
-
-void double_swap(t_stack ** a, t_stack **b)
-{
-    swap(a, 'a');
-    swap(b, 'b');
 }
 
 void push(t_stack **src, t_stack **dest, char dest_name)
@@ -39,6 +32,8 @@ void push(t_stack **src, t_stack **dest, char dest_name)
     temp->next = *dest;
     *dest = temp;
     *src = temp2;
+    set_positions(src);
+    set_positions(dest);
     if (dest_name == 'a')
         write(1, "pa\n", 3);
     else if (dest_name == 'b')
@@ -62,16 +57,13 @@ void rotate(t_stack **stck, char stck_name)
     temp2->next = temp;
     *stck = (*stck)->next;
     temp->next = NULL;
+    set_positions(stck);
     if (stck_name == 'a')
         write(1, "ra\n", 3);
     else if (stck_name == 'b')
         write(1, "rb\n", 3);
 }
-void double_rotate(t_stack **a, t_stack **b)
-{
-    rotate(a, 'a');
-    rotate(b, 'b');
-}
+
 
 void reverse_rotate(t_stack **stck, char stck_name)
 {
@@ -91,18 +83,11 @@ void reverse_rotate(t_stack **stck, char stck_name)
     *stck = last;
     last = NULL;
     temp = NULL;
-
+    set_positions(stck);
     if (stck_name == 'a')
         write(1, "rra\n", 4);
     else if (stck_name == 'b')
         write(1, "rrb\n", 4);
-}
-
-
-void double_reverse_rotate(t_stack **a, t_stack **b)
-{
-    reverse_rotate(a, 'a');
-    reverse_rotate(b, 'b');
 }
 
 /*int main()

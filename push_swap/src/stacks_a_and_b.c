@@ -26,20 +26,18 @@ t_stack *create_a(int argc, char **argv)
     return(a);
 }
 
-//this function sends nodes from a to b till the size of a is 3 nodes
-void push_to_b(t_stack ** a, t_stack **b)
+int first_is_smallest(t_stack **stck)
 {
-    int stck_size;
+    t_stack * smallest_cont;
     
-    stck_size = stack_size(a);
-    while(stck_size > 3)
-    {
-        push(a, b, 'b');
-        stck_size = stack_size(a);
-    }
-    set_positions(a);
-    set_positions(b);
+    smallest_cont = find_smallest_cont(*stck);
+    if(smallest_cont->position == 0)
+        return(1);
+    return(0);
 }
+
+//this function sends nodes from a to b till the size of a is 3 nodes
+
 
 
 

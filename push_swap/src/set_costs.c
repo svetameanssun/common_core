@@ -14,7 +14,7 @@ int calc_cost(t_stack **stck, int index)
     return(cost);
 }
 
-void set_cost(t_stack **stck_a, t_stack **stck_b)
+void set_costs(t_stack **stck_a, t_stack **stck_b)
 {
     t_stack * b = *stck_b;
     t_stack *save_b;

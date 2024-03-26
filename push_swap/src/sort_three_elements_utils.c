@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-/*Here I order the list of three elements.
+/*Here I sort the list of three elements.
 As far as the only possible number of combination of three numbers is SIX
 I just detect one of the six variants (Judging by the position of the largest and the smallest number)
 and apply the movements to this list depending on the variant of destribution of its elements
@@ -11,7 +11,7 @@ Detailed explanation ex00:
 */
 
 /*
-    Right order:
+    Right sort:
                 1 10 100 -  | min node.cont | node.pos = 0
                             | max node.cont | node.pos = 2
     Others:                        
@@ -32,31 +32,31 @@ Detailed explanation ex00:
 */
 
 
-void order_case_one(t_stack **stck)
+void sort_case_one(t_stack **stck)
 {
     swap(stck, 'a');
     rotate(stck, 'a');
     set_positions(stck);
 }
 
-void order_case_two(t_stack **stck)
+void sort_case_two(t_stack **stck)
 {
     reverse_rotate(stck, 'a');
     set_positions(stck);
 }
 
-void order_case_three(t_stack **stck)
+void sort_case_three(t_stack **stck)
 {
     swap(stck, 'a');
     set_positions(stck);
 }
-void order_case_four(t_stack **stck)
+void sort_case_four(t_stack **stck)
 {
     rotate(stck, 'a');
     set_positions(stck);
 }
 
-void order_case_five(t_stack **stck)
+void sort_case_five(t_stack **stck)
 {
     swap(stck, 'a');
     reverse_rotate(stck, 'a');

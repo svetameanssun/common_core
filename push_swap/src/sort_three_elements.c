@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	order_three_elements(t_stack **stck)
+void	sort_three_elements(t_stack **stck)
 {
 	t_stack	*aux;
 	t_stack	*min_node;
@@ -12,15 +12,15 @@ void	order_three_elements(t_stack **stck)
 	if (min_node->position == 0 && max_node->position == 2)
 		return;
 	else if (min_node->position == 0 && max_node->position == 1)
-		order_case_one(stck);
+		sort_case_one(stck);
 	else if (min_node->position == 2 && max_node->position == 1)
-		order_case_two(stck);
+		sort_case_two(stck);
 	else if (min_node->position == 1 && max_node->position == 2)
-		order_case_three(stck);
+		sort_case_three(stck);
 	else if (min_node->position == 1 && max_node->position == 0)
-		order_case_four(stck);
+		sort_case_four(stck);
 	else if (min_node->position == 2 && max_node->position == 0)
-		order_case_five(stck);
+		sort_case_five(stck);
 }
 
 
@@ -43,6 +43,6 @@ void	order_three_elements(t_stack **stck)
 
 	
 
-	order_three_elements(&node0);
+	sort_three_elements(&node0);
 	print_stack_contents(node0);
 }*/

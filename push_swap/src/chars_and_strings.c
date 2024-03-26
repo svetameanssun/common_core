@@ -30,19 +30,3 @@ int plus_or_minus(int c)
 	else
 		return(0);
 }
-
-int equal_str(char * s1, char *s2)
-{
-	int i;
-
-	i = 0;
-	while(s1[i] && s2[i])
-	{
-		if(s1[i]!=s2[i])
-		{
-			return(0);
-		}
-		i++;
-	}
-	return(i);
-}

@@ -29,7 +29,7 @@ long	ft_atol(char *str)
 	return (res * sign);
 }
 
-int stack_contents_mean(t_stack ** stck)
+long stack_contents_mean(t_stack ** stck)
 {
 	long divident;
 	int divisor;
@@ -48,3 +48,5 @@ int stack_contents_mean(t_stack ** stck)
 	return(divident/divisor);
 
 }
+
+

@@ -105,6 +105,7 @@ t_stack	*args_to_stack(int argc, char **argv)
 	t_stack *stck;
 
     word_cnt = 0;
+    stck = NULL;
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
