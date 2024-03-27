@@ -45,6 +45,7 @@ long stack_contents_mean(t_stack ** stck)
 		divisor++;
 		temp_stck = temp_stck->next;
 	}
+	divisor--;
 	return(divident/divisor);
 
 }
