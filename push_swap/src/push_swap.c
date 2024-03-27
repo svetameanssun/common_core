@@ -28,8 +28,10 @@ void divide_stacks(t_stack ** stck_a, t_stack **stck_b, int stck_a_size)
     if(stck_a_size == 4)
     {
         while(!first_is_smallest(stck_a))
+		{
             rotate(stck_a, 'a');
-        push(stck_a, stck_b, 'b');
+		}
+		push(stck_a, stck_b, 'b');
         return;
     }
     while(stck_a_size > 3)
@@ -46,13 +48,11 @@ void sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size)
 	
 	while(*stck_b)
 	{
-		if(stack_size(stck_b) == 2 && is_sorted(stck_b))
-			rotate(stck_b, 'b');
 		set_targets(stck_a, stck_b);
 		set_costs(stck_a, stck_b);
-		sorting_alg(stck_a, stck_b, find_lowest_cost(stck_b));
 		set_positions(stck_a);
 		set_positions(stck_b);
+		sorting_alg(stck_a, stck_b, find_lowest_cost(stck_b));
 	}
 	while(!is_sorted(stck_a))
 	{
@@ -70,6 +70,7 @@ int main(int argc, char **argv)
 	b = NULL;
 	
 	push_swap(&a, &b);
+	//printf("VAR1");
 	//print_stack_contents(a);
 	//print_stack_contents(b);
     free_stack(&a);

@@ -2,7 +2,6 @@
 
 void	sorting_alg(t_stack **stck_a, t_stack **stck_b, t_stack *cheapest)
 {
-    
 	if (cheapest->cost_a == 0 && cheapest->cost_b == 0)
         push(stck_b, stck_a, 'a');
     else if (cheapest->cost_a < 0 && cheapest->cost_b < 0)
