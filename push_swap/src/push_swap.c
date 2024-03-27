@@ -29,10 +29,9 @@ void divide_stacks(t_stack ** stck_a, t_stack **stck_b, int stck_a_size)
 {
     if(stck_a_size == 4)
     {
-        while(!first_is_smallest(stck_a))
+        while(first_is_smallest(stck_a) != 0)
 		{
             rotate(stck_a, 'a');
-			//printf("CASE2\n");
 		}
 		push(stck_a, stck_b, 'b');
         return;

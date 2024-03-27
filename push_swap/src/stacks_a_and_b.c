@@ -32,8 +32,10 @@ int first_is_smallest(t_stack **stck)
     
     smallest_cont_pos = find_smallest_cont_pos(stck);
     if(smallest_cont_pos == 0)
-        return(1);
-    return(0);
+    {
+        return(smallest_cont_pos);
+    }
+    return(smallest_cont_pos);
 }
 
 //this function sends nodes from a to b till the size of a is 3 nodes

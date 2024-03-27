@@ -29,12 +29,15 @@ int find_largest_cont_pos(t_stack ** stck_stck)
  
     stck = *stck_stck;
     max_content = -2147483648;
-    max_content_pos = 0;
+    max_content_pos = stck->position;
     
     while(stck)
     {
-        if(max_content > stck->content)
+        if(max_content < stck->content)
+        {
             max_content_pos = stck->position;
+            max_content = stck->content;
+        }
         stck = stck->next;
     }
     return(max_content_pos);
@@ -48,12 +51,15 @@ int find_smallest_cont_pos(t_stack ** stck_stck)
  
     stck = *stck_stck;
     min_content = 2147483647;
-    min_content_pos = 0;
+    min_content_pos = stck->position;
     
     while(stck)
     {
         if(min_content > stck->content)
+        {
             min_content_pos = stck->position;
+            min_content = stck->content;
+        }
         stck = stck->next;
     }
     return(min_content_pos);
