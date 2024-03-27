@@ -21,7 +21,7 @@ void    push_smaller(t_stack **stck_a, t_stack **stck_b, long mean)
     else
 	{
         rotate(stck_a, 'a');
-		printf("CASE1\n");
+		//printf("CASE1\n");
 	}
 }
 
@@ -32,7 +32,7 @@ void divide_stacks(t_stack ** stck_a, t_stack **stck_b, int stck_a_size)
         while(!first_is_smallest(stck_a))
 		{
             rotate(stck_a, 'a');
-			printf("CASE2\n");
+			//printf("CASE2\n");
 		}
 		push(stck_a, stck_b, 'b');
         return;
@@ -48,7 +48,7 @@ void sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size)
 {
 	divide_stacks(stck_a, stck_b, stck_a_size);
 	sort_three_elements(stck_a);
-	printf("GOT OUT\n");
+	//printf("GOT OUT\n");
 	
 	while(*stck_b)
 	{
@@ -81,8 +81,8 @@ int main(int argc, char **argv)
 	
 	push_swap(&a, &b);
 	//printf("VAR1");
-	print_stack_contents(a);
-	print_stack_contents(b);
+	//print_stack_contents(a);
+	//print_stack_contents(b);
 	
     free_stack(&a);
     return(1);
