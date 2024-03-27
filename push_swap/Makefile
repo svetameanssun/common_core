@@ -13,11 +13,9 @@ src/%.o : src/%.c
 
 clean:
 	@rm -f $(OBJS)
-	@make -C include clean
 
 fclean:
 	@rm -f $(OBJS) $(NAME)
-	@make -C include fclean
 
 re: fclean all
 

@@ -52,10 +52,6 @@ void sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size)
 	
 	while(*stck_b)
 	{
-		if(stack_size(stck_b) == 2 && is_sorted(stck_b))
-		{
-			rotate(stck_b, 'b');
-		}
 		set_positions(stck_a);
 		set_positions(stck_b);
 		set_targets(stck_a, stck_b);

@@ -1,9 +1,17 @@
 #include "push_swap.h"
 
-t_stack *find_largest_cont(t_stack * stck)
+/*int find_largest_cont_pos(t_stack ** stck_stck)
 {
-    t_stack *max_content = malloc(sizeof(t_stack));
+    t_stack *stck;
+    t_stack *max_content;
+
+    stck = *stck_stck;
+    max_content = malloc(sizeof(t_stack));
+    if(!max_content)
+        return(NULL);
     max_content->content = -2147483648;
+    if(!stck)
+        return(NULL);
     while(stck)
     {
         if(max_content->content < stck->content)
@@ -11,19 +19,44 @@ t_stack *find_largest_cont(t_stack * stck)
         stck = stck->next;
     }
     return(max_content);
-}
+}*/
 
-t_stack *find_smallest_cont(t_stack * stck)
+int find_largest_cont_pos(t_stack ** stck_stck)
 {
-    t_stack *min_content = malloc(sizeof(t_stack));
-    min_content->content = 2147483647;
+    long max_content;
+    int max_content_pos;
+    t_stack *stck;
+ 
+    stck = *stck_stck;
+    max_content = -2147483648;
+    max_content_pos = 0;
+    
     while(stck)
     {
-        if(min_content->content > stck->content)
-            min_content = stck;
+        if(max_content > stck->content)
+            max_content_pos = stck->position;
         stck = stck->next;
     }
-    return(min_content);
+    return(max_content_pos);
+}
+
+int find_smallest_cont_pos(t_stack ** stck_stck)
+{
+    long min_content;
+    int min_content_pos;
+    t_stack *stck;
+ 
+    stck = *stck_stck;
+    min_content = 2147483647;
+    min_content_pos = 0;
+    
+    while(stck)
+    {
+        if(min_content > stck->content)
+            min_content_pos = stck->position;
+        stck = stck->next;
+    }
+    return(min_content_pos);
 }
 
 int	word_count(char *str)

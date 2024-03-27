@@ -61,8 +61,8 @@ void double_reverse_rotate(t_stack **a, t_stack **b);
 
 /*   MIN & MAX   */
 
-t_stack *find_smallest_cont(t_stack * stck);
-t_stack *find_largest_cont(t_stack * stck);
+int find_largest_cont_pos(t_stack ** stck_stck);
+int find_smallest_cont_pos(t_stack ** stck_stck);
 
 /*   SIZE & LEN  */
 

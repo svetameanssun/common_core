@@ -28,10 +28,10 @@ t_stack *create_a(int argc, char **argv)
 
 int first_is_smallest(t_stack **stck)
 {
-    t_stack * smallest_cont;
+    int smallest_cont_pos;
     
-    smallest_cont = find_smallest_cont(*stck);
-    if(smallest_cont->position == 0)
+    smallest_cont_pos = find_smallest_cont_pos(stck);
+    if(smallest_cont_pos == 0)
         return(1);
     return(0);
 }

@@ -42,6 +42,7 @@ t_stack	*words_to_stack(int argc, char **argv)
         return(0);
     }
     stck = array_to_stack(arr,arr_len);
+    free(arr);
     return(stck);
 }
 
