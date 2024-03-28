@@ -26,6 +26,8 @@ void set_targets(t_stack ** stck_a, t_stack ** stck_b)
     t_stack * save_b;
     long larger;
 
+    if(!stck_a ||!stck_b)
+        ft_error();
     a = *stck_a;
     b = *stck_b;
     save_a = a;

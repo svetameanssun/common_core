@@ -34,6 +34,8 @@ Detailed explanation ex00:
 
 void sort_case_one(t_stack **stck)
 {
+    if(!*stck)
+        ft_error();
     swap(stck, 'a');
     rotate(stck, 'a');
     set_positions(stck);
@@ -41,23 +43,32 @@ void sort_case_one(t_stack **stck)
 
 void sort_case_two(t_stack **stck)
 {
+    if(!*stck)
+        ft_error();
     reverse_rotate(stck, 'a');
     set_positions(stck);
 }
 
 void sort_case_three(t_stack **stck)
 {
+    if(!*stck)
+        ft_error();
     swap(stck, 'a');
     set_positions(stck);
 }
 void sort_case_four(t_stack **stck)
+
 {
+    if(!*stck)
+        ft_error();
     rotate(stck, 'a');
     set_positions(stck);
 }
 
 void sort_case_five(t_stack **stck)
 {
+    if(!*stck)
+        ft_error();
     swap(stck, 'a');
     reverse_rotate(stck, 'a');
     set_positions(stck);

@@ -5,6 +5,8 @@ void	sort_three_elements(t_stack **stck)
 
 	int min_node_pos;
 	int max_node_pos;
+	if(!*stck)
+        ft_error();
 
 	min_node_pos = find_smallest_cont_pos(stck);
 	max_node_pos = find_largest_cont_pos(stck);

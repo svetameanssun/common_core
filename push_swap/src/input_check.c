@@ -6,20 +6,20 @@ int	longs_unique(long *arr, int len)
 	int	i;
 	int	j;
 
+	if (!arr)
+		ft_error();
 	i = 0;
 	j = 0;
 	while (i < len)
 	{
 		if (arr[i] > MAX || arr[i] < MIN)
-		{
-			return(0);
-		}
+			ft_error();
 		j = 0;
 		while (j < len)
 		{
 			if (arr[i] == arr[j] && i != j)
 			{
-				return (0);
+				ft_error();
 			}
 			j++;
 		}
@@ -34,9 +34,7 @@ int	input_valid_str(char *str)
 	
 	i = 0;
 	if (!str[i] || str[i] == 32)
-	{
-		return (0);
-	}
+		ft_error();
 	while (str[i] && str[i+1])
 	{
 		if (is_digit(str[i]))
@@ -50,9 +48,7 @@ int	input_valid_str(char *str)
 					|| plus_or_minus(str[i + 1])) && is_digit(str[i - 1]))
 				i++;
 			else
-			{
-				return (0);
-			}
+				ft_error();
 		}
 	}
 	return (i);
@@ -64,22 +60,23 @@ int	input_valid_word(char *str)
 
 	i = 0;
 	if (!str[i] || str[i] == 32)
-		return (0);
+		ft_error();
+	if(plus_or_minus(str[i]))
+		i++;
 	while(str[i])
 	{
 		if(plus_or_minus(str[i]))
-		{
-			i++;
-		}
+			ft_error();
+
 		if(is_digit(str[i]))
 		{
 			i++;
 		}
 		else
-			return(0);
+			ft_error();
 	}
 	if((plus_or_minus(str[0])) && i == 1)
-		return(0);
+		ft_error();
 	return(i);
 }
 

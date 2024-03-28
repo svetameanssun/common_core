@@ -58,6 +58,8 @@ void sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size)
 		sorting_alg(stck_a, stck_b, find_lowest_cost(stck_b));
 		set_positions(stck_a);
 		set_positions(stck_b);
+		//print_stack_contents(*stck_a);
+		//print_stack_contents(*stck_b);
 	}
 	while(!is_sorted(stck_a))
 	{

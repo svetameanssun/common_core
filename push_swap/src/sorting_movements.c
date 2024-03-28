@@ -6,7 +6,7 @@ void swap(t_stack **stck, char stck_name)
     t_stack *temp2;
     
     if (((*stck)->next == NULL) || (*stck == NULL) )
-        return;
+        ft_error();
     // maybe there will be some some operationes done without printing the result??
     temp = *stck;
     temp2 = temp->next;
@@ -23,7 +23,7 @@ void swap(t_stack **stck, char stck_name)
 void push(t_stack **src, t_stack **dest, char dest_name)
 {
     if(!src)
-        return;
+        ft_error();
     t_stack *temp;
     t_stack *temp2;
 
@@ -43,7 +43,7 @@ void push(t_stack **src, t_stack **dest, char dest_name)
 void rotate(t_stack **stck, char stck_name)
 {
     if(*stck == NULL || (*stck)->next == NULL)
-        return;
+        ft_error();
     t_stack *temp;
     t_stack *temp2;
 
@@ -68,7 +68,7 @@ void rotate(t_stack **stck, char stck_name)
 void reverse_rotate(t_stack **stck, char stck_name)
 {
     if ((*stck) == NULL || (*stck)->next == NULL)
-        return;
+        ft_error();
     t_stack *temp;
     t_stack *last;
 

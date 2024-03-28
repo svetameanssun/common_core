@@ -10,13 +10,13 @@ long * words_to_arr(int argc, char **argv)
     arr_len = argc -1;
     arr = (long*)malloc(arr_len * sizeof(long));
     if(!arr || argc <= 2 || !argv)
-        return(0);
+        ft_error();
     while(index < arr_len)
     {
         if (!input_valid_word(argv[1 + index]))
         {
             free(arr);
-            return(0);
+            ft_error();
         }
         arr[index] = atol(argv[1 + index]);
         index++;
@@ -24,7 +24,7 @@ long * words_to_arr(int argc, char **argv)
     if (!longs_unique(arr,arr_len))
     {
         free(arr);
-        return(0);
+        ft_error();
     }
 	return(arr);
 }
@@ -39,7 +39,8 @@ t_stack	*words_to_stack(int argc, char **argv)
     arr = words_to_arr(argc, argv);
     if(argc <= 2 || !argv || !arr)
     {
-        return(0);
+        free(arr);
+        ft_error();
     }
     stck = array_to_stack(arr,arr_len);
     free(arr);
@@ -52,6 +53,8 @@ t_stack *array_to_stack(long *array, int array_len)
     t_stack *stck;
     t_stack * stck_start;
     
+    if(!array || array_len < 1)
+        ft_error();
     index = 0;
     stck = create_node();
     stck->content = array[index++];
@@ -81,7 +84,7 @@ t_stack	*str_to_stack(char *str, int word_cnt)
 	j = 1;
 	res = (long *)malloc(sizeof(long) * (word_cnt));
 	if (!res)
-		return (0);
+		ft_error();
 	res[0] = ft_atol(str);
 	while (j < word_cnt)
 	{
@@ -107,24 +110,26 @@ t_stack	*args_to_stack(int argc, char **argv)
 
     word_cnt = 0;
     stck = NULL;
-	if (argc == 1)
-		return (0);
+	if(!argc || argc < 1)
+        ft_error();
 	if (argc == 2)
 	{
 		str = argv[1];
+        if(input_valid_word(str))
+            ft_error();
         if(!input_valid_str(str))
             ft_error();
-		word_cnt = word_count(str);
+        word_cnt = word_count(str);
 		stck = str_to_stack(str, word_cnt);
 		if (!stck)
 			ft_error();
-	}
+    }
 	else if (argc > 2)
 	{
 		stck = words_to_stack(argc, argv);
 		if (!stck)
-			ft_error(); 
-	}
+			ft_error();
+    }
 	return(stck);
 }
 

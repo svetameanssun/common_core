@@ -2,9 +2,12 @@
 
 int calc_cost(t_stack **stck, int index)
 {
+    
     int cost;
     int size_stck;
-
+    
+    if(!*stck)
+        ft_error();
     cost = 0;
     size_stck = stack_size(stck);
     if(index > size_stck/2)
@@ -16,9 +19,12 @@ int calc_cost(t_stack **stck, int index)
 
 void set_costs(t_stack **stck_a, t_stack **stck_b)
 {
-    t_stack * b = *stck_b;
+    t_stack * b;
     t_stack *save_b;
     
+    if(!*stck_a || !*stck_b)
+        ft_error();
+    b = *stck_b;
     save_b = b;
     while(b)
     {
@@ -32,6 +38,8 @@ void set_costs(t_stack **stck_a, t_stack **stck_b)
 
 t_stack *find_lowest_cost(t_stack **b)
 {
+    if(!*b)
+        ft_error();
     int lowest;
     t_stack * temp_b;
     t_stack *lowest_cost_node;

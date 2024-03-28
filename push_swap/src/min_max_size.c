@@ -26,10 +26,13 @@ int find_largest_cont_pos(t_stack ** stck_stck)
     long max_content;
     int max_content_pos;
     t_stack *stck;
- 
+
+    if(!stck_stck)
+        ft_error();
     stck = *stck_stck;
     max_content = -2147483648;
     max_content_pos = stck->position;
+
     
     while(stck)
     {
@@ -48,7 +51,10 @@ int find_smallest_cont_pos(t_stack ** stck_stck)
     long min_content;
     int min_content_pos;
     t_stack *stck;
- 
+
+    if(!stck_stck)
+        ft_error();
+
     stck = *stck_stck;
     min_content = 2147483647;
     min_content_pos = stck->position;
@@ -70,6 +76,8 @@ int	word_count(char *str)
 	int	word_cnt;
 	int i;
 
+    if(!str)
+        ft_error();
 	word_cnt = 1;
 	i = 0;
 	while(str[i] && str[i + 1])
@@ -88,8 +96,9 @@ int stack_size(t_stack **stck)
     int stck_size;
 	t_stack * temp;
 	t_stack * save;
-	
 
+    if(!stck)
+        ft_error();
     stck_size = 0;
 	temp = *stck;
 	save = temp;

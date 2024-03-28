@@ -6,7 +6,7 @@ t_stack *create_node()
 
     stck = malloc(sizeof(t_stack));
     if(!stck)
-        return(0);
+        ft_error();
     stck->content = 0;
     stck->position = 0;
     stck->target = 0;
@@ -22,6 +22,8 @@ t_stack *create_a(int argc, char **argv)
 {
     t_stack * a;
 
+    if(!argc || argc < 1)
+        ft_error();
     a = args_to_stack(argc, argv);
     return(a);
 }
@@ -29,7 +31,8 @@ t_stack *create_a(int argc, char **argv)
 int first_is_smallest(t_stack **stck)
 {
     int smallest_cont_pos;
-    
+    if(!stck)
+        ft_error();
     smallest_cont_pos = find_smallest_cont_pos(stck);
     if(smallest_cont_pos == 0)
     {

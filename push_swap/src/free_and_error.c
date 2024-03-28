@@ -2,7 +2,7 @@
 
 int ft_error()
 {
-	write(1, "error\n", 6);
+	write(2, "Error\n", 6);
 	exit(0);
 }
 

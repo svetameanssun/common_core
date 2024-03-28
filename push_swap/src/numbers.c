@@ -33,9 +33,9 @@ long stack_contents_mean(t_stack ** stck)
 {
 	long divident;
 	int divisor;
-
 	t_stack * temp_stck;
-
+	if(!stck)
+		ft_error();
 	divident = 0;
 	divisor = 1;
 	temp_stck = *stck;
