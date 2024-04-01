@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 15:22:05 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/04/01 13:41:14 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #define MIN -2147483648
 #define MAX 2147483647
 
@@ -38,10 +50,12 @@ int is_digit(int c);
 int is_space(int c);
 int end_or_space(int c);
 int plus_or_minus(int c);
+int is_not_valid(int c);
+int is_alpha(int c);
 
 int longs_unique(long * arr, int len);
-int input_valid_str(char * str);
-int	input_valid_word(char *str);
+//int input_valid_str(char * str);
+int	input_valid(char *str);
 int word_count(char *str);
 t_stack	*str_to_stack(char *str, int word_cnt);
 long * words_to_arr(int argc, char **argv);
@@ -95,7 +109,7 @@ void divide_stacks(t_stack ** a, t_stack **b, int stck_a_size);
 /*      Positions, Targets, Costs       */
 
 void set_positions(t_stack ** stck);
-void set_targets(t_stack ** a, t_stack **b);
+void set_targets(t_stack ** a, t_stack **b, long larger);
 int calc_cost(t_stack **b, int index);
 void set_costs(t_stack **stck_a, t_stack **stck_b);
 t_stack *find_lowest_cost(t_stack **b);

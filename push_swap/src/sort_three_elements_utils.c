@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three_elements_utils.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 15:21:43 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/03/29 15:21:44 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*Here I sort the list of three elements.
@@ -31,7 +43,6 @@ Detailed explanation ex00:
                             | max node.cont | node.pos = 0
 */
 
-
 void sort_case_one(t_stack **stck)
 {
     if(!*stck)
@@ -56,8 +67,8 @@ void sort_case_three(t_stack **stck)
     swap(stck, 'a');
     set_positions(stck);
 }
-void sort_case_four(t_stack **stck)
 
+void sort_case_four(t_stack **stck)
 {
     if(!*stck)
         ft_error();
@@ -73,3 +84,4 @@ void sort_case_five(t_stack **stck)
     reverse_rotate(stck, 'a');
     set_positions(stck);
 }
+

@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_movements_double.c                         :+:      :+:    :+:   */
+/*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 15:21:30 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/03/29 15:21:31 by stitovsk         ###   ########.fr       */
+/*   Created: 2024/03/29 15:22:54 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/03/29 15:22:57 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void double_swap(t_stack ** a, t_stack **b)
+t_stack	*create_node(void)
 {
-    swap(a, 'a');
-    swap(b, 'b');
+	t_stack	*stck;
+
+	stck = malloc(sizeof(t_stack));
+	if (!stck)
+		ft_error();
+	stck->content = 0;
+	stck->position = 0;
+	stck->target = 0;
+	stck->cost_a = 0;
+	stck->cost_b = 0;
+	stck->cost = 0;
+	stck->next = NULL;
+	return (stck);
 }
 
-void double_rotate(t_stack **a, t_stack **b)
+t_stack	*create_a(int argc, char **argv)
 {
-    rotate(a, 'a');
-    rotate(b, 'b');
-}
+	t_stack	*a;
 
-void double_reverse_rotate(t_stack **a, t_stack **b)
-{
-    reverse_rotate(a, 'a');
-    reverse_rotate(b, 'b');
+	if (!argc || argc < 1)
+		ft_error();
+	a = args_to_stack(argc, argv);
+	return (a);
 }
-
