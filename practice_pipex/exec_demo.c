@@ -43,7 +43,7 @@ int main(int argc, char *argv[], char *envp[])
     //      5 and 6 are not available in my version of linux.
     char * args[] = {"/usr/bin/ping", "google.com", NULL};
     char * env[] = {"TEST=environment variable", NULL};
-    execve(args[0], args, env);
+    execve(args[0], args, envp);
 
     int err = errno;
     printf("err = %d\n", err);
