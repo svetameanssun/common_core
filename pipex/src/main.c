@@ -1,6 +1,7 @@
 #include "../include/pipex.h"
+#include "../libft/libft.h"
 
-int main(int argc, char **argv, char **envv)
+int main(int argc, char **argv, char **envp)
 {
 	int	pipe_fd[2];
 	int	i;
@@ -17,9 +18,11 @@ int main(int argc, char **argv, char **envv)
 		if (pipe(pipe_fd) == -1)
 			manage_error("Could not create pipe");
 		else
-			ft_fork(argv, envv, pipe_fd);
+			ft_fork(argv, envp, pipe_fd);
 	}
 	else
+	{
 		manage_error("Wrong number of args");
+	}
 	return(0);
 }

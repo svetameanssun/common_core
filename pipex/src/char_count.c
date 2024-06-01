@@ -1,4 +1,5 @@
 #include "../include/pipex.h"
+#include "../libft/libft.h"
 
 int char_count(int c, char *str)
 {
