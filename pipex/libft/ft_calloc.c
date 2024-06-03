@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:47:41 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/10/06 12:59:03 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/03 16:08:44 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	size_t	i;
 	void	*res;
 
-	i = 0;
 	res = malloc(nelem * elsize);
 	if (res != 0)
 	{

@@ -7,7 +7,7 @@ void start_child_one(char ** argv, char **envp, int * pipe_fd)
     char *cmd_path;
 
     close(pipe_fd[READ]);
-    if ((infile_fd = open(argv[1], O_RDONLY | O_CREAT, 0662)) == -1)
+    if ((infile_fd = open(argv[1], O_RDONLY | O_CREAT)) == -1)
         manage_error("Could not open infile");
     if ((dup2(infile_fd, STDIN_FILENO)) == -1)
         manage_error("Could not redirect infile_fd");

@@ -41,16 +41,18 @@ int main(int argc, char *argv[], char *envp[])
     //   5)        int execvpe(const char *file, char *const argv[],char *const envp[]);
     //   6)        int execlpe(const char *file, const char *arg, ..., char *const envp[]);
     //      5 and 6 are not available in my version of linux.
-    char * args[] = {"/usr/bin/ping", "google.com", NULL};
-    char * env[] = {"TEST=environment variable", NULL};
-    execve(args[0], args, envp);
+    //   7)        int execve(cinst char *pathname, char *const argv[], char *const envp[]);
+    char * path = "/usr/bin/ls";
+    char * args[] = {"ls", "-la", NULL};
+    //char * env[] = {"TEST=environment variable", NULL};
+    execve(path, args, envp);
 
     int err = errno;
     printf("err = %d\n", err);
 
     //   6)        int execle(const char *path, const char *arg, .../*, (char *) NULL, char * const envp[] */);
 
-    //   7)        int execve(cinst char *pathname, char *const argv[], char *const envp[]);
+    
     printf("Ending-----");
     return(0);
 }

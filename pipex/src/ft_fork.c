@@ -1,28 +1,26 @@
 #include "../include/pipex.h"
-#include "../libft/libft.h"
 
-void ft_fork(char ** argv, char ** envp, int *pipe_fd)
+/*void ft_fork(int argc, char **argv, char **envp, int pipe_fd[2])
 {
-    int pid_1;
-    int pid_2;
+    int pid;
+    int infile_fd;
+    int status;
 
-    if ((pid_1 = fork()) == -1)
-        manage_error("Could not fork 1st time");
-    if (pid_1 == 0)
-        start_child_one(argv, envp, pipe_fd);
+    infile_fd = open(argv[1], O_RDONLY | O_CREAT, 0644);
+    if ((pid = fork())== -1)
+        manage_errror("Error forking");
+    else if (pid == 0)
+    {
+        close(pipe_fd[1]);
+        dup2(infile_fd,STDIN_FILENO);
+        dup2(pipe_fd[0], STDOUT_FILENO);
+        execve(set_path(manage_cmd(argv[2]),envp),manage_cmd(argv[2]), envp);
+    }
     else
     {
-        close(pipe_fd[WRITE]);
-        waitpid(pid_1, NULL, 0);
-        if ((pid_2 = fork()) == -1)
-            manage_error("Could not fork 2nd time");
-        if (pid_2 == 0)
-            start_child_two(argv, envp, pipe_fd);
-        else
-        {
-            close(pipe_fd[0]);
-            waitpid(pid_2, NULL, 0);
-        }
+        waitpid(pid, &status, 0);
+        close(pipe_fd[0]);
+        dup2(pipe_fd[1], STDIN_FILENO);
+        dup2()
     }
-
-}
+}*/
