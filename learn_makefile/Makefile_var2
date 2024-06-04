@@ -16,7 +16,8 @@ fran := fran
 sveta := sveta
 mati := mati
 delfi := delfi
-names := $(fran) $(sveta) $(mati) $(delfi)
+alberto := alberto
+names := $(fran) $(sveta) $(mati) $(delfi) $(alberto)
 
 some_file:
 	touch some_file

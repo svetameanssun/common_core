@@ -1,2 +1,2 @@
-clean:
-	rm -f %.c %.o all
+hello:
+    echo "Hello, World"
