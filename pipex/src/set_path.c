@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:00:50 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/06/04 20:28:19 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/05 14:07:03 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char *set_path(char **cmd, char **envp)
     while (*split_paths)
     {
         path = ft_strjoin(ft_strjoin(*split_paths, "/"), cmd[0]);
+        
         if (path == NULL)
             manage_error("Error joining path's elements");
         if (access(path, X_OK) == 0)
