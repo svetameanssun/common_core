@@ -6,12 +6,12 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/04 19:00:48 by stitovsk          #+#    #+#              #
-#    Updated: 2024/06/05 11:22:36 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/06/05 16:33:31 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 NAME = pipex
 LIBFT = libft
 SRC_FILES = main.c \
@@ -43,10 +43,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(MAKE) -C $(LIBFT)
 	mv $(LIBFT)/$(LIBFT).a $(LIBFT).a
-	$(MAKE) -C $(LIBFT) clean
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT).a -o $(NAME)
 
 clean:
+	$(MAKE) -C $(LIBFT) clean
 	rm -f $(OBJ) $(LIBFT).a
 
 fclean: clean

@@ -6,11 +6,11 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:17:08 by stitovsk          #+#    #+#              #
-#    Updated: 2024/06/05 11:04:48 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/06/05 16:29:58 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -g3
 NAME   = libft.a
 CC = gcc
 FILES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \

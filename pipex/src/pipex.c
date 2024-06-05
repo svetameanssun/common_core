@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:00:38 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/06/05 15:44:29 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:58:25 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ static void	ft_child(char **argv, char **envp, int infile_fd, int pipe_fd[2])
 	close(pipe_fd[1]);
 	close(infile_fd);
 	execve(path, cmd, envp);
+	manage_error("The child is not executed");
 }
 
-static void	ft_parent(char **argv, char **envp, int outfile_fd, int pipe_fd[2])
+static void	ft_child2(char **argv, char **envp, int outfile_fd, int pipe_fd[2])
 {
 	char	*path;
 	char	**cmd;
@@ -45,6 +46,7 @@ static void	ft_parent(char **argv, char **envp, int outfile_fd, int pipe_fd[2])
 	close(pipe_fd[0]);
 	close(outfile_fd);
 	execve(path, cmd, envp);
+	manage_error("The child 2 is not executed");
 }
 
 void	pipex(char **argv, char **envp, int pipe_fd[2])
@@ -62,5 +64,9 @@ void	pipex(char **argv, char **envp, int pipe_fd[2])
 		manage_error("Error forking");
 	if (pid == 0)
 		ft_child(argv, envp, infile_fd, pipe_fd);
-	ft_parent(argv, envp, outfile_fd, pipe_fd);
+	pid = fork();
+	if (pid == -1)
+		manage_error("Error forking");
+	if (pid == 0)
+		ft_child2(argv, envp, outfile_fd, pipe_fd);
 }
