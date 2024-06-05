@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:00:16 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/06/05 15:50:13 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/05 17:17:19 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	**manage_cmd(char *arg);
 void	manage_error(char *msg);
 void	pipex(char **argv, char **envp, int pipe_fd[2]);
 char	*set_path(char **cmd, char **envp);
+void	ft_free_table(char **table);
 
 #endif
