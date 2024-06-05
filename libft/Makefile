@@ -6,7 +6,7 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 16:17:08 by stitovsk          #+#    #+#              #
-#    Updated: 2024/03/15 19:23:11 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/06/05 11:01:02 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,11 @@ FILES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 OBJECTS = $(FILES:.c=.o)
 
 # Colores
-RESET = "\033[0;m"
-RED = "\033[0;31m"
-GREEN = "\033[0;32m"
-YELLOW = "\033[0;33m"
-BLUE = "\033[0;34m"
+RESET = \033[0;m
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
 
 BONUSES = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c \
@@ -45,7 +45,7 @@ $(NAME) : $(OBJECTS)
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $^ -o $@
-	@echo $(GREEN)"Compiling $@...$(END)"
+	@echo "$(GREEN)Compiling $@...$(RESET)"
 
 all: $(NAME)
 
