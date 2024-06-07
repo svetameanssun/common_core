@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:00:38 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/06/05 16:58:25 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:28:57 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	pipex(char **argv, char **envp, int pipe_fd[2])
 	int	infile_fd;
 	int	outfile_fd;
 
-	infile_fd = open(argv[1], O_RDONLY, 0444);
+	infile_fd = open(argv[1], O_RDONLY);
 	outfile_fd = open(argv[4], O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (infile_fd == -1 || outfile_fd == -1)
 		manage_error("Cound not open file");
@@ -65,8 +65,8 @@ void	pipex(char **argv, char **envp, int pipe_fd[2])
 	if (pid == 0)
 		ft_child(argv, envp, infile_fd, pipe_fd);
 	pid = fork();
-	if (pid == -1)
-		manage_error("Error forking");
 	if (pid == 0)
 		ft_child2(argv, envp, outfile_fd, pipe_fd);
+	else
+		waitpid(0, NULL, 0);
 }

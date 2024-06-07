@@ -6,7 +6,7 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/04 19:00:48 by stitovsk          #+#    #+#              #
-#    Updated: 2024/06/05 16:33:31 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/06/06 15:38:26 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,13 @@ MAGENTA = \033[0;35m
 	@$(CC) $(CFLAGS) -c $^ -o $@
 	@echo "$(BLUE)Compiling $@...$(RESET)"
 all: $(NAME)
-	echo "$(MAGENTA)$(NAME) executable created...$(RESET)"
+	@echo "$(MAGENTA)$(NAME) executable created...$(RESET)"
 
 
 $(NAME): $(OBJ)
-	$(MAKE) -C $(LIBFT)
-	mv $(LIBFT)/$(LIBFT).a $(LIBFT).a
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT).a -o $(NAME)
+	@$(MAKE) -C $(LIBFT)
+	@mv $(LIBFT)/$(LIBFT).a $(LIBFT).a
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT).a -o $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBFT) clean

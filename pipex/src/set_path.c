@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 17:00:50 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/06/05 17:24:17 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:50:02 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static char	**find_path(char **envp)
 		envp++;
 	}
 	split_paths = ft_split(full_path, ':');
-	free(full_path);
 	return (split_paths);
 }
 
