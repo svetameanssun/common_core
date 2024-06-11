@@ -1,64 +1,34 @@
 #include "../include/so_long.h"
 
-int	check_nl_escape(char *str)
+int check_chars(char ** matrix)
 {
-	int	i;
+	int i;
+	int j;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
+	j = 0;
+	while(matrix[i]!= NULL)
 	{
-		if (str[i] == '\n')
+		j = 0;
+		while(matrix[i][j])
 		{
-			return (1);
+			if ((matrix[i][j] == '1') || (matrix[i][j] == '0')
+			|| (matrix[i][j] == 'P') || (matrix[i][j] == 'N')
+			|| (matrix[i][j] == 'E') || (matrix[i][j] == 'C'))
+				j++;
+			else
+				return(1);
 		}
 		i++;
 	}
-	return (0);
+	return(0);
 }
 
-char **file_to_marix(int fd)
+/*int main()
 {
-    char **matrix;
-    char *buffer;
-
-    buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    
-    while(!check_nl_escape())
-
-    return(matrix);
-}
-
-char	*read_all(int fd, char *str)
-{
-	char	*buffer;
-	int		fd_read;
-
-	fd_read = 1;
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buffer)
-		return (NULL);
-	while (!check_nl_escape(str) && fd_read != 0)
-	{
-		fd_read = read(fd, buffer, BUFFER_SIZE);
-		if (fd_read == -1)
-		{
-			free(buffer);
-			free(str);
-			return (NULL);
-		}
-		buffer[fd_read] = '\0';
-		str = ft_strjoin(str, buffer);
-	}
-	free(buffer);
-	return (str);
-}
-
-
-
-int check_chars(char *map_name, int fd)
-{
-    
-    
-}
+	char **split_str;
+	char str[] = {"11111111,11111111,11111111,00000000,00000009,CC1CCCCC,EEEEEEEE,NNNNPPPP"};
+	split_str = ft_split(str,',');
+	printf("%d", check_chars(split_str));
+	return(0);
+}*/
