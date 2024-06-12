@@ -8,7 +8,7 @@ int check_walls(char** map_matrix)
 
     x = 0;
     matrix_len = ft_matrix_len(map_matrix);
-    lines_len = ft_strlen(*map_matrix);
+    lines_len = ft_strlen_sl(*map_matrix);
     while(x < lines_len) 
     {
         if(map_matrix[0][x] == '1' && map_matrix[matrix_len-1][x] == '1')

@@ -64,7 +64,7 @@ int valid_map(char * map_name)
 	printf("Perfect enclosure.\n");
 	if (check_elem(map_matrix, 0) != 0)
 	{	
-		printf("Not right ammount of elements.\n");
+		printf("Wrong elements.\n");
 		return(5);
 	}
 	printf("Perfect ammount of elements.\n");
@@ -75,5 +75,4 @@ int valid_map(char * map_name)
 int main(int argc, char**argv)
 {
 	valid_map(argv[1]);
-	
 }

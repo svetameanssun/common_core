@@ -10,7 +10,7 @@ int check_chars(char ** matrix)
 	while(matrix[i]!= NULL)
 	{
 		j = 0;
-		while(matrix[i][j])
+		while(matrix[i][j] != '\0' && matrix[i][j] != '\n')
 		{
 			if ((matrix[i][j] == '1') || (matrix[i][j] == '0')
 			|| (matrix[i][j] == 'P') || (matrix[i][j] == 'N')

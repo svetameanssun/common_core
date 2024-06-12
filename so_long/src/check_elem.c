@@ -6,11 +6,22 @@
 /*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:05:46 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/06/11 21:30:57 by svetameanss      ###   ########.fr       */
+/*   Updated: 2024/06/12 12:41:06 by svetameanss      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+static int is_elem(int c, int elem)
+{
+    int res;
+
+    res = 0;
+    if (c == elem)
+        return(1);
+    return(0);
+}
+
 
 int check_elem(char ** map_matrix, int i)
 {
@@ -20,31 +31,27 @@ int check_elem(char ** map_matrix, int i)
     int exit;
     int enemy;
 
-    i = 0;
     j = 0;
     collect = 0;
-
+    player = 0;
+    exit = 0;
+    enemy = 0;
     while(map_matrix[i])
     {
         j = 0;
-        while(map_matrix[i][j])
+        while(map_matrix[i][j] != '\0' && map_matrix[i][j] != '\n')
         {
-            if (map_matrix[i][j] == 'C')
-                collect++;
-            else if (map_matrix[i][j] == 'E')
-                exit++;
-            else if (map_matrix[i][j] == 'P')
-                player++;
-            else if (map_matrix[i][j] == 'N')
-                enemy++;
+            collect+= is_elem(map_matrix[i][j],'C');
+            exit+= is_elem(map_matrix[i][j],'E');
+            player+= is_elem(map_matrix[i][j],'P');
+            enemy+= is_elem(map_matrix[i][j],'N');
             j++;
         }
         i++;
-    }
-    if (collect < 1 || exit != 1 || player != 1 || enemy < 1)
-        return(1);
-    return(0);
-    
+    }  
+    if (collect >= 1 && exit == 1 && player == 1 && enemy == 1)
+        return(0);
+    return(1);
 }
 
 /*int main()

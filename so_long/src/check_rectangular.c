@@ -7,13 +7,12 @@ int check_rectangular(char ** map_matrix)
     size_t current_line_len;
 
     i = 1;
-    example_line_len = ft_strlen(*map_matrix);
+    example_line_len = ft_strlen_sl(*map_matrix);
     current_line_len = 0;
     while(map_matrix[i])
     {
         
-        current_line_len = ft_strlen(map_matrix[i]);
-        printf("%ld\n", current_line_len);
+        current_line_len = ft_strlen_sl(map_matrix[i]);
         if (example_line_len != current_line_len)
             return(1);
         i++;
