@@ -16,14 +16,13 @@
 #  define BUFFER_SIZE 1000
 # endif
 
-# define PIX 64
+# define PIX 100
 
 typedef struct s_images
 {
     mlx_image_t *floor;
     mlx_image_t *wall;
-    mlx_image_t *gate;
-    mlx_image_t *open_gate;
+    mlx_image_t *door;
     mlx_image_t *player_left;
     mlx_image_t *player_right;
     mlx_image_t *enemy_left;
@@ -78,6 +77,9 @@ size_t	ft_strlen_sl(const char *str); //the 3rd strlen in the project
 void ft_print_matrix(char **matrix); // REMOVE OR CHANGE
 
 void	set_game(t_map *game);
-
+void	show_game(t_map	*game);
+void	load_floor(t_map	*game, int i, int j);
+void	load_images(t_map	*game);
+mlx_image_t	*get_png(t_map *game, char pos);
 
 # endif

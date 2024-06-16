@@ -18,7 +18,12 @@ int main(int argc, char ** argv)
 	map_to_matrix(argv[1], game);
 	valid_matrix = valid_map(argv[1], game);
 	manage_errors(valid_matrix, game);
-	
+
+	/*game->mlx = mlx_init(PIX * (game->columns -1), PIX * (game->rows),
+				"So Long", true);
+		game->images = malloc(sizeof(t_images));
+		show_game(game);*/
+
 	
 
 
