@@ -6,7 +6,7 @@
 /*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:05:46 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/06/12 12:41:06 by svetameanss      ###   ########.fr       */
+/*   Updated: 2024/06/12 16:36:40 by svetameanss      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ static int is_elem(int c, int elem)
 }
 
 
-int check_elem(char ** map_matrix, int i)
+int check_elem(char ** map_matrix, int i, int j)
 {
-    int j;
     int collect;
     int player;
     int exit;
     int enemy;
 
-    j = 0;
     collect = 0;
     player = 0;
     exit = 0;

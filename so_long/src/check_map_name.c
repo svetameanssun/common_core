@@ -6,7 +6,7 @@
 /*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:23:18 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/06/11 21:42:02 by svetameanss      ###   ########.fr       */
+/*   Updated: 2024/06/16 12:36:47 by svetameanss      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ int check_map_name(char *map_name)
 {
     int len;
     int i;
+    int res;
 
     i = 0;
     len = ft_strlen(map_name);
+    if (len < 4)
+		return (1);
     /*while(i < len - 4)
     {
         if ((map_name[i] >= 33 && map_name[i] <= 39)
@@ -31,7 +34,7 @@ int check_map_name(char *map_name)
         i++;
     }*/
     //with the while above map.berhas to be in the local directory.
-    int res = ft_strncmp(map_name + (len - 4), ".ber", 4);
+    res = ft_strncmp(map_name + (len - 4), ".ber", 4);
     if (res != 0)
         return(1);
     return(0);
