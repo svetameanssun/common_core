@@ -4,6 +4,7 @@
         "libft.h": "c",
         "get_next_line.h": "c",
         "string_view": "c",
-        "so_long.h": "c"
+        "so_long.h": "c",
+        "*.tcc": "c"
     }
 }
