@@ -71,15 +71,13 @@ int check_walls(t_map * game)
     return(0);
 }
 
-int check_characters(t_map * game)
+int check_player(t_map * game)
 {
     int player;
-    int enemy;
     int i;
     int j;
 
     player = 0;
-    enemy = 0;
     i  = 0;
     j = 0;
     while(game->matrix[i])
@@ -87,20 +85,21 @@ int check_characters(t_map * game)
         j = 0;
         while(game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
         {
-            player+= is_elem(game->matrix[i][j],'P');
-            enemy+= is_elem(game->matrix[i][j],'N');
+            player += is_elem(game->matrix[i][j],'P');
             game->player.x = j;
             game->player.y = i;
             j++;
         }
         i++;
     }  
-    if (player == 1 && enemy == 1)
-        return(0);
-    return(ERROR_NO_PLAYER);
+    if (player >= 2)
+        return(ERROR_DUPLIC_PLAYER);
+    if (player < 1)
+        return(ERROR_NO_PLAYER);
+    return(0);
 }
-
-int check_collect(t_map * game)
+ 
+int check_exit(t_map * game)
 {
     int exit;
     int i;
@@ -114,10 +113,12 @@ int check_collect(t_map * game)
         j = 0;
         while(game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
         {
-            game->n_collects+= is_elem(game->matrix[i][j],'C');
-            exit+= is_elem(game->matrix[i][j],'E');
-            game->exit.x = j;
-            game->exit.y = i;
+            if (is_elem(game->matrix[i][j],'E') == 1)
+            {
+                game->exit.x = j;
+                game->exit.y = i;
+                exit++;
+            }
             j++;
         }
         i++;

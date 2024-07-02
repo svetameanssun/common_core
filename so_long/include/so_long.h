@@ -16,7 +16,7 @@
 #  define BUFFER_SIZE 1000
 # endif
 
-# define PIX 100
+# define PIX 150
 # define SECONDS 0.03
 # define ERROR_MAP_NAME 1
 # define ERROR_EMPTY_FILE 7
@@ -35,6 +35,7 @@
 
 # define ERROR_DUPLIC_PLAYER 13
 # define ERROR_DUPLIC_EXIT 14
+# define ERROR_NO_ENEMY 15
 
 
 
@@ -72,12 +73,15 @@ typedef struct s_texture
 typedef struct s_map
 {
 	char ** matrix;
+	t_point *enemies_pos;
+	t_point *coll_pos;
 	t_point map_dim;
 	t_point player;
 	t_point exit;
-	t_point *coll_pos;
+
 	int n_collects;
 	int n_collected;
+	int n_enemies;
 	
 	int moves;
 	mlx_t *mlx;
@@ -154,9 +158,10 @@ int check_elements(t_map * game);
  * 
  * @param data      t_map *game                  
 */
-int check_characters(t_map * game);
+int check_player(t_map * game);
+int check_exit(t_map * game);
 
-
+void position_collects(t_map *game, int collects);
 /**
  * @brief		checks the number of elements and characters,
  *              whether it is allowed number.
@@ -171,6 +176,9 @@ int check_characters(t_map * game);
  *                       
 */
 int check_collect(t_map * game);
+
+void position_enemies(t_map *game, int enemies);
+int check_enemy(t_map * game);
 
 
 /**
@@ -300,7 +308,7 @@ void free_point(t_map *game);
 
 void	init_game(t_map *game);
 
-
+void n_to_one(char **copymap);
 static char	*fill(char **map, int rows, int columns);
 int	part_floodfill(char	**copymap, t_map *game);
 int	floodfill(t_map *game);

@@ -35,6 +35,26 @@ int	part_floodfill(char	**copymap, t_map *game)
 	free_matrix(copymap);
 	return (0);
 }
+void n_to_one(char **copymap)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	
+	while(copymap[i]!= NULL)
+	{
+		j = 0;
+		while(copymap[i][j] != '\0')
+		{
+			if(copymap[i][j] == 'N')
+				copymap[i][j] = '1';
+			j++;
+		}
+		i++;
+	}
+}
 
 int	floodfill(t_map *game)
 {
@@ -45,7 +65,7 @@ int	floodfill(t_map *game)
 
 	i = 0;
 	pos_player(game);
-	copymap = malloc(sizeof(char *) * game->map_dim.y + 1);
+	copymap = malloc(sizeof(char *) * (game->map_dim.y + 1));
 	if(copymap == NULL)
 		manage_map_error(game, ERROR_MALLOC);
 	while (i < game->map_dim.y)
@@ -54,6 +74,7 @@ int	floodfill(t_map *game)
 		i++;
 	}
 	copymap[i] = NULL;
+	n_to_one(copymap);
 	fill(copymap, game->player.y, game->player.x);
 	part_floodfill(copymap, game);
 	return (0);

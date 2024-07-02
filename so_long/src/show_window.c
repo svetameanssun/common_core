@@ -2,12 +2,12 @@
 
 void	load_textures(t_map	*game)
 {
-	game->textures.floor = mlx_load_png("./assets/floor.png");
-	game->textures.wall = mlx_load_png("./assets/wall.png");
-	game->textures.exit = mlx_load_png("./assets/izbushka.png");
-	game->textures.player_r = mlx_load_png("./assets/vasilisa_right.png");
-	game->textures.enemy_l = mlx_load_png("./assets/baba_yaga_left.png");
-	game->textures.collect = mlx_load_png("./assets/candle.png");
+	game->textures.floor = mlx_load_png("./assets/floor 150.png");
+	game->textures.wall = mlx_load_png("./assets/wall 150.png");
+	game->textures.exit = mlx_load_png("./assets/izbushka 150.png");
+	game->textures.player_r = mlx_load_png("./assets/Vasilisa 200.png");
+	game->textures.enemy_l = mlx_load_png("./assets/baba_yaga 200.png");
+	game->textures.collect = mlx_load_png("./assets/candle 150.png");
 }
 
 void	textures_to_img(t_map *game)
@@ -37,12 +37,14 @@ void	delete_textures(t_map *game)
 	mlx_delete_texture(game->textures.collect);
 }
 
-int32_t	show_window(t_map *data)
+int32_t	show_window(t_map *game)
 {
-	create_playwindow(data);
-	load_textures(data);
-	textures_to_img(data);
-	delete_textures(data);
-	show_images(data);
+	create_playwindow(game);
+	load_textures(game);
+	textures_to_img(game);
+	delete_textures(game);
+	show_images(game);
+	mlx_loop(game->mlx);
+	mlx_terminate(game->mlx);
 	return (EXIT_SUCCESS);
 }
