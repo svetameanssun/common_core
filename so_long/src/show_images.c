@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-static void	ft_displ_wall_floor(t_map *game)
+void	ft_displ_wall_floor(t_map *game)
 {
 	int	i;
 	int	j;
@@ -27,7 +27,7 @@ static void	ft_displ_wall_floor(t_map *game)
 	//mlx_image_to_window(d->mlx, d->images.chest, 1, 1);
 }
 
-static void	ft_displ_collec(t_map *game)
+void	ft_displ_collec(t_map *game)
 {
 	int	i;
 
@@ -41,18 +41,18 @@ static void	ft_displ_collec(t_map *game)
 	}	
 }
 
-static void	ft_displ_exit(t_map *game)
+void	ft_displ_exit(t_map *game)
 {
 	mlx_image_to_window(game->mlx, game->images.exit, game->exit.x * PIX, game->exit.y * PIX);
 	//mlx_image_to_window(game->mlx, game->im.hiv, game->exi.x * P, game->exi.y * P);
 	//game->images.exit->instances[0].enabled = false;
 }
 
-static void	ft_displ_player(t_map *game)
+void	ft_displ_player(t_map *game)
 {
 	mlx_image_to_window(game->mlx, game->images.player_right, game->player.x * PIX, game->player.y * PIX);
 }
-static void	ft_displ_enemies(t_map *game)
+void	ft_displ_enemies(t_map *game)
 {
 	int	i;
 

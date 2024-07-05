@@ -1,5 +1,16 @@
 #include "../include/so_long.h"
 
+void manage_error(t_map *game)
+{
+	ft_putstr("Error \n");
+	if (game)
+	{
+		free_game(game);
+	}
+	exit(1);
+
+}
+
 void manage_game_error(t_map *game, int exit_code)
 {
 	if (exit_code == ERROR_MLX)
@@ -8,9 +19,6 @@ void manage_game_error(t_map *game, int exit_code)
         free_game(game);
 		exit(exit_code);
 }
-
-
-
 
 void manage_map_error(t_map *game, int exit_code)
 {
@@ -79,9 +87,7 @@ int check_map(char * map_name, t_map *game)
 	}
 	printf("Player and enemy present.\n");
 	if (check_collect(game) != error)
-	{
 		manage_map_error(game, ERROR_NO_COLLECTABLES);
-	}
 	if (check_exit(game)!= error)
 	{
 		error = check_exit(game);

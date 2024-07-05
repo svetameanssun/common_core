@@ -1,18 +1,16 @@
 #include "../include/so_long.h"
 
-void free_point(t_map *game)
+void free_point(t_point *positions, int size)
 {
-    int size;
     int i;
 
-    size = game->n_collects;
     i = 0;
-    if (game->coll_pos)
+    if (positions)
     {
         while(i < size)
         {
-            free(game->coll_pos);
-            game->coll_pos++;
+            free(positions);
+            positions++;
             i++;
         }
     }
@@ -37,7 +35,8 @@ void	free_matrix(char **map)
 void free_game(t_map *game)
 {
     free_matrix(game->matrix);
-    free_point(game);
-    
-	game->mlx = NULL;
+    free_point(game->coll_pos, game->n_collects);
+    free_point(game->enemies_pos, game->n_enemies);
+	free(game->mlx);
+
 }

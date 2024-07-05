@@ -6,6 +6,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -160,6 +161,7 @@ int check_elements(t_map * game);
 */
 int check_player(t_map * game);
 int check_exit(t_map * game);
+int	check_exit_access(t_map *game);
 
 void position_collects(t_map *game, int collects);
 /**
@@ -278,6 +280,7 @@ int count_map_lines(char * map_name);
 */
 void manage_map_error(t_map *game, int exit_code);
 void manage_game_error(t_map *game, int exit_code);
+void manage_error(t_map *game);
 
 
 
@@ -301,7 +304,7 @@ void free_game(t_map *game);
 */
 void	free_matrix(char **map);
 void ft_print_matrix(char **matrix); // REMOVE OR CHANGE
-void free_point(t_map *game);
+void free_point(t_point *positions, int size);
 
 
 
@@ -319,8 +322,18 @@ void	load_textures(t_map	*game);
 void	textures_to_img(t_map *game);
 void	create_playwindow(t_map *game);
 void	delete_textures(t_map *game);
+
+void	ft_displ_wall_floor(t_map *game);
+void	ft_displ_collec(t_map *game);
+void	ft_displ_exit(t_map *game);
+void	ft_displ_player(t_map *game);
+void	ft_displ_enemies(t_map *game);
 int32_t	show_window(t_map *data);
 void	show_images(t_map *data);
+
+
+void delete_candles(t_map * game);
+void collect_candles(t_map * game);
 
 
 size_t	ft_strlen_sl(const char *str); //the 3rd strlen in the project
