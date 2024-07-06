@@ -335,6 +335,11 @@ void	show_images(t_map *data);
 void delete_candles(t_map * game);
 void collect_candles(t_map * game);
 
+void my_keyhook(mlx_key_data_t keydata, void *param);
+void key_w(t_map * game);
+void key_s(t_map * game);
+void key_d(t_map * game);
+void key_a(t_map * game);
 
 size_t	ft_strlen_sl(const char *str); //the 3rd strlen in the project
 

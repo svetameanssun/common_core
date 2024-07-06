@@ -28,4 +28,5 @@ int main(int argc, char ** argv)
 	init_game(&game);
 	check_map(argv[1], &game);
 	show_window(&game);
+	
 }
