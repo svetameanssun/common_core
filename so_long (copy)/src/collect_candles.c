@@ -4,14 +4,14 @@ int	check_exit_access(t_map *game)
 {
 	if (game->n_collects == 0)
 	{
-		write(1, "¡Enhorabuena! 🎮🏆\n", 23);
+		ft_putchar("Congratulations! 🎮🏆\n");
 		free_game(game);
 		exit(1);
 	}
 	if (game->n_collects != 0)
 	{
-		write(1, "Necesitas recoger todos los consumibles!\n", 41);
-		return (1);
+		ft_putchar("You need to collect all the collectables\n");
+		return(1);
 	}
 	else
 	{
