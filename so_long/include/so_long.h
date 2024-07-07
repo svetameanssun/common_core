@@ -19,24 +19,25 @@
 
 # define PIX 150
 # define SECONDS 0.03
+
 # define ERROR_MAP_NAME 1
-# define ERROR_EMPTY_FILE 7
+# define ERROR_EMPTY_FILE 14
 # define ERROR_NO_RECT 2
 # define ERROR_FORBIDDEN_ELEM 3
 # define ERROR_NO_WALLS 4
 # define ERROR_NO_PLAYER 5
-# define ERROR_NO_EXIT 6
+# define ERROR_EXIT 6
 # define ERROR_NO_COLLECTABLES 7
 # define ERROR_INPUT 8
 # define ERROR_NO_PATH 9
 # define ERROR_MALLOC 10
 # define ERROR_FD 11
+# define ERROR_DUPLIC_PLAYER 12
+# define ERROR_NO_ENEMY 13
 
-# define ERROR_MLX 12
+# define ERROR_MLX 15
 
-# define ERROR_DUPLIC_PLAYER 13
-# define ERROR_DUPLIC_EXIT 14
-# define ERROR_NO_ENEMY 15
+
 
 
 
@@ -279,6 +280,7 @@ int count_map_lines(char * map_name);
  * 
 */
 void manage_map_error(t_map *game, int exit_code);
+void manage_prog_error(t_map *game, int exit_code);
 void manage_game_error(t_map *game, int exit_code);
 void manage_error(t_map *game);
 
@@ -332,7 +334,7 @@ int32_t	show_window(t_map *data);
 void	show_images(t_map *data);
 
 
-void delete_candles(t_map * game);
+//void delete_candles(t_map * game);
 void collect_candles(t_map * game);
 
 void my_keyhook(mlx_key_data_t keydata, void *param);

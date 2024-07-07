@@ -43,9 +43,7 @@ int32_t	show_window(t_map *game)
 	load_textures(game);
 	textures_to_img(game);
 	delete_textures(game);
-	show_images(game);
-	mlx_key_hook(game->mlx, &my_keyhook, game);
-	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
+	show_images(game);	
+	printf("actualized windows");
 	return (EXIT_SUCCESS);
 }

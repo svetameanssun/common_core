@@ -123,7 +123,7 @@ int check_exit(t_map * game)
         }
         i++;
     }  
-    if (game->n_collects >= 1 && exit == 1)
-        return(0);
-    return(ERROR_NO_EXIT);
+    if (exit != 1)
+        return(ERROR_EXIT);
+    return(0);
 }

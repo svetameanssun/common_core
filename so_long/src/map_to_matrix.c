@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_to_matrix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:53:39 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/06/21 00:34:00 by svetameanss      ###   ########.fr       */
+/*   Updated: 2024/07/07 17:55:47 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_print_matrix(char **matrix)
 
     while(*matrix)
     {
-        printf("%s\n", *matrix);
+        ft_printf("%s\n", *matrix);
         matrix++;
     }
 }
@@ -35,10 +35,10 @@ int map_to_matrix(char *map_name, t_map *game)
     game->map_dim.y = lines_num;
     fd = open(map_name,O_RDONLY);
     if (fd < 0)
-        manage_map_error(game, ERROR_FD);
+        manage_prog_error(game, ERROR_FD);
     game->matrix = (char **)malloc(sizeof(char*) * (lines_num + 1));
     if(game->matrix == NULL)
-        manage_map_error(game, ERROR_MALLOC);
+        manage_prog_error(game, ERROR_MALLOC);
     i = 0;
     while(i < lines_num)
     {   

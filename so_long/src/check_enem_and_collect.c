@@ -1,31 +1,6 @@
 #include "../include/so_long.h"
 
-void position_enemies(t_map *game, int enemies)
-{
-	int i;
-	int j;
-    int k;
 
-    i = 0;
-	j = 0;
-    k = 0;
-    game->enemies_pos = malloc(sizeof(t_point) * enemies);
-    while(game->matrix[i] && k < enemies)
-    {
-        j = 0;
-        while(game->matrix[i][j])
-        {
-            if(game->matrix[i][j] == 'N')
-            {
-                game->enemies_pos[k].x = j;
-                game->enemies_pos[k].y = i;
-                k++;
-            }
-            j++;
-        }
-        i++;
-    }
-}
 
 int check_enemy(t_map * game)
 {
@@ -51,6 +26,35 @@ int check_enemy(t_map * game)
     game->n_enemies = enemy;
     position_enemies(game, enemy);
     return(0);
+}
+
+void position_enemies(t_map *game, int enemies)
+{
+	int i;
+	int j;
+    int k;
+
+    i = 0;
+	j = 0;
+    k = 0;
+    game->enemies_pos = malloc(sizeof(t_point) * enemies);
+    if(game->enemies_pos == NULL)
+        manage_prog_error(game, ERROR_MALLOC);
+    while(game->matrix[i] && k < enemies)
+    {
+        j = 0;
+        while(game->matrix[i][j])
+        {
+            if(game->matrix[i][j] == 'N')
+            {
+                game->enemies_pos[k].x = j;
+                game->enemies_pos[k].y = i;
+                k++;
+            }
+            j++;
+        }
+        i++;
+    }
 }
 
 
@@ -86,6 +90,8 @@ void position_collects(t_map *game, int collects)
 	j = 0;
     k = 0;
     game->coll_pos = malloc(sizeof(t_point) * collects);
+    if(game->coll_pos == NULL)
+        manage_prog_error(game, ERROR_MALLOC);
     while(game->matrix[i] && k < collects)
     {
         j = 0;

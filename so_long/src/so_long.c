@@ -24,9 +24,11 @@ int main(int argc, char ** argv)
 	int exit_code;
 
 	if (argc != 2)
-		manage_map_error(&game,ERROR_INPUT);
+		manage_prog_error(&game,ERROR_INPUT);
 	init_game(&game);
 	check_map(argv[1], &game);
 	show_window(&game);
-	
+	mlx_key_hook(game.mlx, &my_keyhook, &game);
+	mlx_loop(game.mlx);
+	mlx_terminate(game.mlx);
 }

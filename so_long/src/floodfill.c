@@ -67,7 +67,7 @@ int	floodfill(t_map *game)
 	pos_player(game);
 	copymap = malloc(sizeof(char *) * (game->map_dim.y + 1));
 	if(copymap == NULL)
-		manage_map_error(game, ERROR_MALLOC);
+		manage_prog_error(game, ERROR_MALLOC);
 	while (i < game->map_dim.y)
 	{
 		copymap[i] = ft_strdup(game->matrix[i]);
@@ -93,7 +93,7 @@ t_point *find_collects(t_map *game)
 	k = 0;
 	collects = (t_point *)malloc(sizeof(t_point) * game->n_collects);
 	if(collects == NULL)
-		manage_map_error(game, ERROR_MALLOC);
+		manage_prog_error(game, ERROR_MALLOC);
 	while(i < game->map_dim.y && k < game->n_collects)
 	{
 		j = 0;

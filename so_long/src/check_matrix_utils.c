@@ -28,7 +28,7 @@ int count_map_lines(char * map_name)
 
 	fd = open(map_name, O_RDONLY);
     if (fd < 0)
-        manage_map_error(NULL, ERROR_FD);
+        manage_prog_error(NULL, ERROR_FD);
 	str = get_next_line(fd);
 	free(str);
     count = 0;
@@ -51,9 +51,9 @@ int check_map_name(char *map_name)
     i = 0;
     len = ft_strlen(map_name);
     if (len < 4)
-		return (1);
+		return (ERROR_MAP_NAME);
     res = ft_strncmp(map_name + (len - 4), ".ber", 4);
     if (res != 0)
-        return(1);
+        return(ERROR_MAP_NAME);
     return(0);
 }

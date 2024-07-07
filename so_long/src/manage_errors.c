@@ -20,16 +20,26 @@ void manage_game_error(t_map *game, int exit_code)
 		exit(exit_code);
 }
 
+void manage_prog_error(t_map *game, int exit_code)
+{
+	if (exit_code == ERROR_INPUT)
+		ft_putstr("Error:\n Invalid number of arguments\n");
+	if (exit_code == ERROR_EMPTY_FILE)
+		ft_putstr("Error:\n The file is empty.\n");
+	if (exit_code == ERROR_MALLOC)
+		ft_putstr("Error:\n Memory not allocated using malloc.\n");
+	if (exit_code == ERROR_FD)
+		ft_putstr("Error:\n Could not open file.\n");
+	free_game(game);
+	exit(exit_code);
+}
+
 void manage_map_error(t_map *game, int exit_code)
 {
-		if (exit_code == ERROR_INPUT)
-		    ft_putstr("Error:\n Invalid number of arguments\n");
+		if (exit_code == ERROR_MAP_NAME)
+			ft_putstr("Error:\n Wrong map name.\n");
 		if (exit_code == ERROR_NO_PATH)
 			ft_putstr("Error:\n Invalid path to exit\n");
-        if (exit_code == ERROR_MAP_NAME)
-		    ft_putstr("Error:\n Wrong map name.\n");
-		if (exit_code == ERROR_EMPTY_FILE)
-			ft_putstr("Error:\n The file is empty.\n");
         if (exit_code == ERROR_NO_RECT)
             ft_putstr("Error:\n Map is not rectangular.\n");
         if (exit_code == ERROR_FORBIDDEN_ELEM)
@@ -42,16 +52,10 @@ void manage_map_error(t_map *game, int exit_code)
 			ft_putstr("Error:\n More than one player.\n");
 		if (exit_code == ERROR_NO_ENEMY)
 			ft_putstr("Error:\n Wrong enemy number.\n");
-        if (exit_code == ERROR_NO_EXIT)
-            ft_putstr("Error:\n Wrong exit or collect number.\n");
-		if (exit_code == ERROR_DUPLIC_EXIT)
-            ft_putstr("Error:\n More than one exit.\n");
+        if (exit_code == ERROR_EXIT)
+            ft_putstr("Error:\n Wrong number of exits.\n");
 		if (exit_code == ERROR_NO_COLLECTABLES)
             ft_putstr("Error:\n Wrong collect number.\n");
-		if (exit_code == ERROR_MALLOC)
-			ft_putstr("Error:\n Memory not allocated using malloc.\n");
-		if (exit_code == ERROR_FD)
-			ft_putstr("Error:\n Could not open file.\n");
         free_game(game);
 		exit(exit_code);
 }
@@ -62,7 +66,7 @@ int check_map(char * map_name, t_map *game)
 
 	error = 0;
 	if (map_to_matrix(map_name, game) != error)
-		manage_map_error(game, ERROR_EMPTY_FILE);
+		manage_prog_error(game, ERROR_EMPTY_FILE);
 	printf("The file is not empty.\n");
 	if (check_map_name(map_name) != error)
 		manage_map_error(game, ERROR_MAP_NAME);
@@ -81,10 +85,12 @@ int check_map(char * map_name, t_map *game)
 		error = check_player(game);
 		manage_game_error(game,error);
 	}
+	printf("Correct number of players.\n");
 	if(check_enemy(game)!= error)
 	{
 		manage_map_error(game, ERROR_NO_ENEMY);
 	}
+	printf("Correct number of enemies.\n");
 	printf("Player and enemy present.\n");
 	if (check_collect(game) != error)
 		manage_map_error(game, ERROR_NO_COLLECTABLES);
