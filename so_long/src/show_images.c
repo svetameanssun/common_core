@@ -1,79 +1,62 @@
 #include "../include/so_long.h"
 
-void	ft_displ_wall_floor(t_map *game)
-{
-	int	i;
-	int	j;
 
-	i = -1;
-	j = -1;
-	while (++i < game->map_dim.y)
+mlx_image_t	*get_image(t_map *game, char symbol)
+{
+	mlx_image_t	*img;
+
+	if (symbol == '1')
+		img = game->images.wall;
+	if (symbol == '0')
+		img = game->images.floor;
+	if (symbol == 'C')
+		img = game->images.collect;
+	if (symbol == 'P')
+		img = game->images.player_right;
+	if (symbol == 'E')
+		img = game->images.exit;
+	if (symbol == 'N')
+		img = game->images.enemy_left;
+	if (!img)
+		manage_prog_error(game, ERROR_MLX);
+	return (img);
+}
+
+void load_elem(t_map *game, int x, int y, char symbol)
+{
+	mlx_image_t	*img;
+
+	img = get_image(game, symbol);
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+}
+
+
+void	show_map(t_map	*game)
+{
+	mlx_image_t	*img;
+	int			i;
+	int			j;
+
+	j = 0;
+	i = 0;
+	while (game->matrix[j])
 	{
-		while (++j < game->map_dim.x)
+		i = 0;
+		while (game->matrix[j][i] != '\n' && game->matrix[j][i] != '\0')
 		{
-			if (game->matrix[i][j] == '1')
-			{
-				mlx_image_to_window(game->mlx, game->images.wall, j * PIX, i * PIX);
-			}
-			if (game->matrix[i][j] == '0' || game->matrix[i][j] == 'P'
-				|| game->matrix[i][j] == 'C' || game->matrix[i][j] == 'E'
-                || game->matrix[i][j] == 'N')
-			{
-				mlx_image_to_window(game->mlx, game->images.floor, j * PIX, i * PIX);
-			}
+			load_elem(game, i, j, '0');
+			if (game->matrix[j][i] == '1')
+				load_elem(game, i, j, '1');
+			else if (game->matrix[j][i] == 'E')
+				load_elem(game, i, j, 'E');
+			else if (game->matrix[j][i] == 'C')
+				load_elem(game, i, j, 'C');
+			else if (game->matrix[j][i] == 'N')
+				load_elem(game, i, j, 'N');
+			
+			i++;
 		}
-		j = -1;
+		j++;
 	}
-	//mlx_image_to_window(d->mlx, d->images.chest, 1, 1);
-}
-
-void	ft_displ_collec(t_map *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < game->n_collects)
-	{
-	
-		mlx_image_to_window(game->mlx, game->images.collect, game->coll_pos[i].x * PIX, game->coll_pos[i].y * PIX);
-		//game->images.collect->instances[i].enabled = false;
-	}	
-}
-
-void	ft_displ_exit(t_map *game)
-{
-	mlx_image_to_window(game->mlx, game->images.exit, game->exit.x * PIX, game->exit.y * PIX);
-	//game->images.exit->instances[0].enabled = false;
-}
-
-void	ft_displ_player(t_map *game)
-{
-	mlx_image_to_window(game->mlx, game->images.player_right, game->player.x * PIX, game->player.y * PIX);
-}
-void	ft_displ_enemies(t_map *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < game->n_enemies)
-	{
-		
-		mlx_image_to_window(game->mlx, game->images.enemy_left, game->enemies_pos[i].x * PIX, game->enemies_pos[i].y * PIX);
-		//game->images.collect->instances[i].enabled = false;
-	}	
-}
-
-/**
- * @brief DISPLAy:
- * 		'1'->wall / '0'->floor / 'P'->player / 'C'->collec
- * 
- * @param game 
- */
-void	show_images(t_map *game)
-{
-	ft_displ_wall_floor(game);
-	ft_displ_collec(game);
-	ft_displ_exit(game);
-	ft_displ_player(game);
-	ft_displ_enemies(game);
+	load_elem(game, game->player_pos.x, game->player_pos.y, 'P');
 }

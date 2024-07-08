@@ -64,7 +64,7 @@ int	floodfill(t_map *game)
 	int		i;
 
 	i = 0;
-	pos_player(game);
+	player_current_pos(game);
 	copymap = malloc(sizeof(char *) * (game->map_dim.y + 1));
 	if(copymap == NULL)
 		manage_prog_error(game, ERROR_MALLOC);
@@ -75,65 +75,7 @@ int	floodfill(t_map *game)
 	}
 	copymap[i] = NULL;
 	n_to_one(copymap);
-	fill(copymap, game->player.y, game->player.x);
+	fill(copymap, game->player_pos.y, game->player_pos.x);
 	part_floodfill(copymap, game);
 	return (0);
-}
-
-t_point *find_collects(t_map *game)
-{
-	t_point *collects;
-	t_point pnt;
-	int i;
-	int j;
-	int k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	collects = (t_point *)malloc(sizeof(t_point) * game->n_collects);
-	if(collects == NULL)
-		manage_prog_error(game, ERROR_MALLOC);
-	while(i < game->map_dim.y && k < game->n_collects)
-	{
-		j = 0;
-		while(j < game->map_dim.x)
-		{
-			if(game->matrix[i][j] == 'C')
-			{
-				pnt.x = j;
-				pnt.y = i;
-				collects[k] = pnt;
-				k++;
-			}
-			j++;
-		}
-		i++;
-	}
-	return(collects);
-}
-
-void	pos_player(t_map *game)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (game->matrix[i][j] != 'P')
-	{
-		j = 0;
-		while (game->matrix[i][j] != '\n')
-		{
-			if (game->matrix[i][j] == 'P')
-				break ;
-			else
-				j++;
-		}
-		if (game->matrix[i][j] == 'P')
-			break ;
-		i++;
-	}
-	game->player.y = i;
-	game->player.x = j;
 }

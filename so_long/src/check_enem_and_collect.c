@@ -4,11 +4,9 @@
 
 int check_enemy(t_map * game)
 {
-    int enemy;
     int i;
     int j;
 
-    enemy = 0;
     i  = 0;
     j = 0;
     while(game->matrix[i])
@@ -16,19 +14,19 @@ int check_enemy(t_map * game)
         j = 0;
         while(game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
         {
-            enemy+= is_elem(game->matrix[i][j],'N');
+            game->n_enemies+= is_elem(game->matrix[i][j],'N');
             j++;
         }
         i++;
     }
-    if (enemy < 1)
+    if (game->n_enemies == 0)
         return(ERROR_NO_ENEMY);
-    game->n_enemies = enemy;
-    position_enemies(game, enemy);
+    game->n_enemies = game->n_enemies;
+    position_enemies(game);
     return(0);
 }
 
-void position_enemies(t_map *game, int enemies)
+void position_enemies(t_map *game)
 {
 	int i;
 	int j;
@@ -37,10 +35,10 @@ void position_enemies(t_map *game, int enemies)
     i = 0;
 	j = 0;
     k = 0;
-    game->enemies_pos = malloc(sizeof(t_point) * enemies);
+    game->enemies_pos = malloc(sizeof(t_point) * game->n_enemies);
     if(game->enemies_pos == NULL)
         manage_prog_error(game, ERROR_MALLOC);
-    while(game->matrix[i] && k < enemies)
+    while(game->matrix[i] && k < game->n_enemies)
     {
         j = 0;
         while(game->matrix[i][j])
@@ -76,11 +74,11 @@ int check_collect(t_map * game)
     }  
     if (game->n_collects < 1)
         return(ERROR_NO_COLLECTABLES);
-    position_collects(game, game->n_collects);
+    position_collects(game);
     return(0);
 }
 
-void position_collects(t_map *game, int collects)
+void position_collects(t_map *game)
 {
 	int i;
 	int j;
@@ -89,10 +87,10 @@ void position_collects(t_map *game, int collects)
     i = 0;
 	j = 0;
     k = 0;
-    game->coll_pos = malloc(sizeof(t_point) * collects);
+    game->coll_pos = malloc(sizeof(t_point) * game->n_collects);
     if(game->coll_pos == NULL)
         manage_prog_error(game, ERROR_MALLOC);
-    while(game->matrix[i] && k < collects)
+    while(game->matrix[i] && k < game->n_collects)
     {
         j = 0;
         while(game->matrix[i][j])
@@ -108,3 +106,5 @@ void position_collects(t_map *game, int collects)
         i++;
     }
 }
+
+

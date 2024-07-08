@@ -1,24 +1,5 @@
 #include "../include/so_long.h"
 
-void manage_error(t_map *game)
-{
-	ft_putstr("Error \n");
-	if (game)
-	{
-		free_game(game);
-	}
-	exit(1);
-
-}
-
-void manage_game_error(t_map *game, int exit_code)
-{
-	if (exit_code == ERROR_MLX)
-			write(2, "Error:\n Could not create MXL.\n", 31);
-	
-        free_game(game);
-		exit(exit_code);
-}
 
 void manage_prog_error(t_map *game, int exit_code)
 {
@@ -30,7 +11,9 @@ void manage_prog_error(t_map *game, int exit_code)
 		ft_putstr("Error:\n Memory not allocated using malloc.\n");
 	if (exit_code == ERROR_FD)
 		ft_putstr("Error:\n Could not open file.\n");
-	free_game(game);
+	if (exit_code == ERROR_MLX)
+		ft_putstr("Error:\n Could not create MXL.\n");
+	free_if_game(game);
 	exit(exit_code);
 }
 
@@ -56,50 +39,43 @@ void manage_map_error(t_map *game, int exit_code)
             ft_putstr("Error:\n Wrong number of exits.\n");
 		if (exit_code == ERROR_NO_COLLECTABLES)
             ft_putstr("Error:\n Wrong collect number.\n");
-        free_game(game);
+        free_if_game(game);
 		exit(exit_code);
 }
+
+//printf("The file is not empty.\n");
+//printf("Name checked.\n");
+//printf("Map rectangular.\n");
+//printf("All elements checked.\n");
+//printf("Perfect enclosure.\n");
+//printf("Correct number of enemies.\n");
+//printf("Player and enemy present.\n");
+//printf("Right ammount of collect and exit.\n");
+
 
 int check_map(char * map_name, t_map *game)
 {
 	int error;
 
-	error = 0;
-	if (map_to_matrix(map_name, game) != error)
+	if (map_to_matrix(map_name, game) != 0)
 		manage_prog_error(game, ERROR_EMPTY_FILE);
-	printf("The file is not empty.\n");
-	if (check_map_name(map_name) != error)
+	if (check_map_name(map_name) != 0)
 		manage_map_error(game, ERROR_MAP_NAME);
-	printf("Name checked.\n");
-	if (check_rectangular(game) != error)
+	if (check_rectangular(game) != 0)
 		manage_map_error(game, ERROR_NO_RECT);
-	printf("Map rectangular.\n");
-	if (check_elements(game) != error)
+	if (check_elements(game) != 0)
 		manage_map_error(game, ERROR_FORBIDDEN_ELEM);
-	printf("All elements checked.\n");
-	if (check_walls(game) != error)
+	if (check_walls(game) != 0)
 		manage_map_error(game, ERROR_NO_WALLS);
-	printf("Perfect enclosure.\n");
-	if (check_player(game) != error)
-	{
-		error = check_player(game);
-		manage_game_error(game,error);
-	}
-	printf("Correct number of players.\n");
-	if(check_enemy(game)!= error)
-	{
+	error = check_player(game);
+	if (error != 0)
+		manage_prog_error(game, error);
+	if(check_enemy(game)!= 0)
 		manage_map_error(game, ERROR_NO_ENEMY);
-	}
-	printf("Correct number of enemies.\n");
-	printf("Player and enemy present.\n");
-	if (check_collect(game) != error)
+	if (check_collect(game) != 0)
 		manage_map_error(game, ERROR_NO_COLLECTABLES);
-	if (check_exit(game)!= error)
-	{
-		error = check_exit(game);
-		manage_map_error(game, error);
-	}
-	printf("Right ammount of collect and exit.\n");
+	if (check_exit(game)!= 0)
+		manage_map_error(game, ERROR_EXIT);
 	if(floodfill(game) != 0)
 		manage_map_error(game, ERROR_NO_PATH);
 	return(0);

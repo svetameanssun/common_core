@@ -1,32 +1,37 @@
 #include "../include/so_long.h"
 
-void key_w(t_map *game)
-{
-	if(game->matrix[game->player.y - 1][game->player.x] != '1')
-	{
-		game->images.player_right->instances[0].y -= PIX;
-		game->player.y--;
-		game->moves++;
-		ft_printf("Moves: %d\n", game->moves);
-	}
-}
 void key_s(t_map *game)
 {
-	if (game->matrix[game->player.y + 1][game->player.x] != '1')
+	if (game->matrix[game->player_pos.y + 1][game->player_pos.x] != '1')
 	{
 		game->images.player_right->instances[0].y += PIX;
-		game->player.y++;
+		game->player_pos.y++;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
 	}
 
 }
+
+void key_w(t_map *game)
+{
+	
+	if(game->matrix[game->player_pos.y - 1][game->player_pos.x] != '1')
+	{
+		
+		game->images.player_right->instances[0].y -= PIX;
+		game->player_pos.y--;
+		game->moves++;
+		ft_printf("Moves: %d\n", game->moves);
+	}
+}
+	
+
 void key_a(t_map *game)
 {
-	if(game->matrix[game->player.y][game->player.x - 1] != '1')
+	if(game->matrix[game->player_pos.y][game->player_pos.x - 1] != '1')
 	{
 		game->images.player_right->instances[0].x -= PIX;
-		game->player.x--;
+		game->player_pos.x--;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
 	}
@@ -35,12 +40,12 @@ void key_a(t_map *game)
 
 void key_d(t_map * game)
 {
-	if(game->matrix[game->player.y][game->player.x + 1] != '1')
+	if(game->matrix[game->player_pos.y][game->player_pos.x + 1] != '1')
 	{
 		game->images.player_right->instances[0].x += PIX;
-		game->player.x++;
+		game->player_pos.x++;
 		game->moves++;
-		ft_printf("Moves: %d", game->moves);
+		ft_printf("Moves: %d\n", game->moves);
 	}
 
 }
@@ -58,7 +63,6 @@ void my_keyhook(mlx_key_data_t keydata, void *param)
 		key_s(game);
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
 		&& keydata.action == MLX_PRESS)
-
 		key_d(game);
 	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
 		&& keydata.action == MLX_PRESS)

@@ -54,6 +54,7 @@ typedef struct s_images
 	mlx_image_t *floor;
 	mlx_image_t *wall;
 	mlx_image_t *exit;
+	mlx_image_t	*exit_ready;
 	//mlx_image_t *player_left;
 	mlx_image_t *player_right;
 	mlx_image_t *enemy_left;
@@ -66,6 +67,7 @@ typedef struct s_texture
 	mlx_texture_t	*floor;
 	mlx_texture_t	*wall;
 	mlx_texture_t	*exit;
+	mlx_texture_t	*exit_ready;
 
 	mlx_texture_t	*player_r;
 	mlx_texture_t	*enemy_l;
@@ -78,8 +80,8 @@ typedef struct s_map
 	t_point *enemies_pos;
 	t_point *coll_pos;
 	t_point map_dim;
-	t_point player;
-	t_point exit;
+	t_point player_pos;
+	t_point exit_pos;
 
 	int n_collects;
 	int n_collected;
@@ -164,7 +166,7 @@ int check_player(t_map * game);
 int check_exit(t_map * game);
 int	check_exit_access(t_map *game);
 
-void position_collects(t_map *game, int collects);
+void position_collects(t_map *game);
 /**
  * @brief		checks the number of elements and characters,
  *              whether it is allowed number.
@@ -180,7 +182,7 @@ void position_collects(t_map *game, int collects);
 */
 int check_collect(t_map * game);
 
-void position_enemies(t_map *game, int enemies);
+void position_enemies(t_map *game);
 int check_enemy(t_map * game);
 
 
@@ -281,8 +283,8 @@ int count_map_lines(char * map_name);
 */
 void manage_map_error(t_map *game, int exit_code);
 void manage_prog_error(t_map *game, int exit_code);
-void manage_game_error(t_map *game, int exit_code);
-void manage_error(t_map *game);
+//void manage_game_error(t_map *game, int exit_code);
+void free_if_game(t_map *game);
 
 
 
@@ -317,24 +319,22 @@ void n_to_one(char **copymap);
 static char	*fill(char **map, int rows, int columns);
 int	part_floodfill(char	**copymap, t_map *game);
 int	floodfill(t_map *game);
-void	pos_player(t_map *game);
-t_point *find_collects(t_map *game);
+void	player_current_pos(t_map *game);
+//t_point *find_collects(t_map *game);
 
 void	load_textures(t_map	*game);
 void	textures_to_img(t_map *game);
 void	create_playwindow(t_map *game);
 void	delete_textures(t_map *game);
 
-void	ft_displ_wall_floor(t_map *game);
-void	ft_displ_collec(t_map *game);
-void	ft_displ_exit(t_map *game);
-void	ft_displ_player(t_map *game);
-void	ft_displ_enemies(t_map *game);
+void	show_map(t_map	*game);
 int32_t	show_window(t_map *data);
-void	show_images(t_map *data);
+void load_elem(t_map *game, int x, int y, char symbol);
+mlx_image_t	*get_image(t_map *game, char symbol);
 
 
-//void delete_candles(t_map * game);
+
+void delete_candles(t_map * game);
 void collect_candles(t_map * game);
 
 void my_keyhook(mlx_key_data_t keydata, void *param);

@@ -4,64 +4,53 @@ int	check_exit_access(t_map *game)
 {
 	if (game->n_collects == 0)
 	{
-		ft_putchar("Congratulations! 🎮🏆\n");
-		free_game(game);
+		ft_putstr("Congratulations! 🎮🏆\n");
+		free_if_game(game);
 		exit(1);
 	}
 	if (game->n_collects != 0)
 	{
-		ft_putchar("You need to collect all the collectables\n");
+		ft_putstr("You need to collect all the candles\n");
 		return(1);
 	}
 	else
 	{
-		manage_error(game);
+		free_if_game(game);
 		return (0);
 	}
 }
 
-/*void delete_candles(t_map * game)
+void	delete_candles(t_map *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (game->matrix[game->player.y][game->player.x] == 'C')
+	if (game->matrix[game->player_pos.y][game->player_pos.x] == 'C')
 	{
-		game->matrix[game->player.y][game->player.x] = '0';
-		//show_images(game);
-
-		//ft_displ_wall_floor(game);
-		//ft_displ_player(game);
+		game->images.floor->instances[game->player_pos.y].enabled = false;
+		game->matrix[game->player_pos.y][game->player_pos.x] = '0';
+		
 		game->n_collects--;
-		game->n_collected++;
 	}
-}*/
+}
 
-void collect_candles(t_map *game)
+void	collect_candles(t_map *game)
 {
-	if (game->matrix[game->player.y][game->player.x] == 'C')
-	{
-		game->matrix[game->player.y][game->player.x] = '0';
-		//if (game->matrix[game->player.y][game->player.x] == '0')
-		printf("%c\n", game->matrix[game->player.y][game->player.x]);
-		//show_images(game);
 
-		//ft_displ_wall_floor(game);
-		//ft_displ_player(game);
-		game->n_collects--;
-		game->n_collected++;
-		//delete_candles(game);
-		if (game->n_collects == 0)
-		{
-			game->images.exit->instances->enabled = false;
-		}
-	}
-	/*if(game->matrix[game->images.player_right->instances->y / PIX]
-		[game->images.player_right->instances->x / PIX] == 'E')*/
-	if (game->matrix[game->player.y][game->player.x] == 'E')
+	//delete_candles(game);
+
+	if (game->n_collects == 0)
 	{
-		check_exit_access(game);
+		game->images.exit->instances->enabled = false;
+		load_elem(game, game->exit_pos.y, game->exit_pos.x, 'E');
+	}
+	if (game->matrix[game->images.player_right->instances->y / PIX]
+		[game->images.player_right->instances->x / PIX] == 'E')
+	{
+		check_exit(game);
 		if (game->n_collects == 0)
 			mlx_close_window(game->mlx);
 	}
 }
+
+

@@ -40,3 +40,14 @@ void free_game(t_map *game)
 	free(game->mlx);
 
 }
+
+void free_if_game(t_map *game)
+{
+	//ft_putstr("Error \n");
+	if (game)
+	{
+		free_game(game);
+	}
+	exit(1);
+
+}
