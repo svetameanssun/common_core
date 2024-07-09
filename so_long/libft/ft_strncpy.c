@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:38:59 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/06/10 15:51:05 by svetameanss      ###   ########.fr       */
+/*   Updated: 2024/07/09 17:22:08 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

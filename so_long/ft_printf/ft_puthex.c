@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:03:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/12/01 19:18:55 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:23:54 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	int_puthex(char c, long unsigned int n)
 		write(1, &base[n], 1);
 	return (count);
 }
+
 int	int_putptr(long unsigned int n)
 {
 	return (write(1, "0x", 2) + int_puthex('x', n));

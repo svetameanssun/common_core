@@ -1,7 +1,5 @@
 #include "../include/so_long.h"
 
-
-
 int check_enemy(t_map * game)
 {
     int i;
@@ -55,7 +53,6 @@ void position_enemies(t_map *game)
     }
 }
 
-
 int check_collect(t_map * game)
 {
     int i;
@@ -74,11 +71,11 @@ int check_collect(t_map * game)
     }  
     if (game->n_collects < 1)
         return(ERROR_NO_COLLECTABLES);
-    position_collects(game);
+    //position_collects(game);
     return(0);
 }
 
-void position_collects(t_map *game)
+/*void position_collects(t_map *game)
 {
 	int i;
 	int j;
@@ -105,6 +102,4 @@ void position_collects(t_map *game)
         }
         i++;
     }
-}
-
-
+}*/

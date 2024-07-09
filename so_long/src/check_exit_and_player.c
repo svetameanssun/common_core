@@ -12,7 +12,6 @@ int check_player(t_map * game)
     while(i < game->map_dim.y)
     {
         j = 0;
-        //while(game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
 		while(i < game->map_dim.y && j < game->map_dim.x)
         {
             player += is_elem(game->matrix[i][j],'P');
@@ -22,9 +21,6 @@ int check_player(t_map * game)
         }
         i++;
     }
-	printf("pos.x = %d", game->player_pos.x);
-	printf("pos.y = %d", game->player_pos.y);
-	
     if (player >= 2)
         return(ERROR_DUPLIC_PLAYER);
     if (player < 1)
@@ -87,6 +83,4 @@ void	player_current_pos(t_map *game)
 	}
 	game->player_pos.y = i;
 	game->player_pos.x = j;
-	printf("pos.x = %d", game->player_pos.x);
-	printf("pos.y = %d", game->player_pos.y);
 }

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:53:39 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/07/07 17:55:47 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/09 17:45:01 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void ft_print_matrix(char **matrix)
         matrix++;
     }
 }
-
 
 int map_to_matrix(char *map_name, t_map *game)
 {
@@ -45,18 +44,7 @@ int map_to_matrix(char *map_name, t_map *game)
         game->matrix[i] = get_next_line(fd);
         i++;
     }
-    game->matrix[i] = NULL;
+    game->matrix[i]= NULL;
     close(fd);
     return (0);
 }
-
-
-//this main worked when the function returned char **
-//and there was only one param (char *map_name)
-/*int main(int argc, char ** argv)
-{
-    char ** matrix;
-    matrix = map_to_matrix(argv[1]);
-    ft_print_matrix(matrix);
-    return(0);
-}*/

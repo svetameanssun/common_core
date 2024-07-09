@@ -70,5 +70,3 @@ int check_walls(t_map * game)
     }
     return(0);
 }
-
-

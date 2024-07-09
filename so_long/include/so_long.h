@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/09 20:42:40 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -17,7 +29,7 @@
 #  define BUFFER_SIZE 1000
 # endif
 
-# define PIX 150
+# define PIX 200
 # define SECONDS 0.03
 
 # define ERROR_MAP_NAME 1
@@ -53,12 +65,17 @@ typedef struct s_images
 {
 	mlx_image_t *floor;
 	mlx_image_t *wall;
-	mlx_image_t *exit;
-	mlx_image_t	*exit_ready;
-	//mlx_image_t *player_left;
-	mlx_image_t *player_right;
+	
+	mlx_image_t *exit_opened;
+	mlx_image_t *exit_closed;
+
+	mlx_image_t *player_left_up;
+	mlx_image_t *player_right_up;
+	mlx_image_t *player_left_down;
+	mlx_image_t *player_right_down;
+	
 	mlx_image_t *enemy_left;
-	//mlx_image_t *enemy_right;
+	mlx_image_t *enemy_right;
 	mlx_image_t *collect;
 } 					t_images;
 
@@ -66,11 +83,17 @@ typedef struct s_texture
 {
 	mlx_texture_t	*floor;
 	mlx_texture_t	*wall;
-	mlx_texture_t	*exit;
-	mlx_texture_t	*exit_ready;
+	
+	mlx_texture_t	*exit_opened;
+	mlx_texture_t	*exit_closed;
 
-	mlx_texture_t	*player_r;
-	mlx_texture_t	*enemy_l;
+	mlx_texture_t	*player_left_up;
+	mlx_texture_t	*player_right_up;
+	mlx_texture_t	*player_left_down;
+	mlx_texture_t	*player_right_down;
+	
+	mlx_texture_t	*enemy_left;
+	mlx_texture_t	*enemy_right;
 	mlx_texture_t	*collect;
 }		t_textures;
 
@@ -78,7 +101,7 @@ typedef struct s_map
 {
 	char ** matrix;
 	t_point *enemies_pos;
-	t_point *coll_pos;
+	//t_point *coll_pos;
 	t_point map_dim;
 	t_point player_pos;
 	t_point exit_pos;
@@ -90,7 +113,9 @@ typedef struct s_map
 	int moves;
 	mlx_t *mlx;
 	t_images images;
+	mlx_image_t *movmnts;
 	t_textures textures;
+	
 } t_map;
 
 
@@ -326,6 +351,7 @@ void	load_textures(t_map	*game);
 void	textures_to_img(t_map *game);
 void	create_playwindow(t_map *game);
 void	delete_textures(t_map *game);
+void	delete_img(t_map *game);
 
 void	show_map(t_map	*game);
 int32_t	show_window(t_map *data);
@@ -334,8 +360,6 @@ mlx_image_t	*get_image(t_map *game, char symbol);
 
 
 
-void delete_candles(t_map * game);
-void collect_candles(t_map * game);
 
 void my_keyhook(mlx_key_data_t keydata, void *param);
 void key_w(t_map * game);
@@ -343,6 +367,9 @@ void key_s(t_map * game);
 void key_d(t_map * game);
 void key_a(t_map * game);
 
+
+void	update_game(t_map *game);
+void	update_collectables(t_map *game);
 size_t	ft_strlen_sl(const char *str); //the 3rd strlen in the project
 
 # endif

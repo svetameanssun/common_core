@@ -43,15 +43,6 @@ void manage_map_error(t_map *game, int exit_code)
 		exit(exit_code);
 }
 
-//printf("The file is not empty.\n");
-//printf("Name checked.\n");
-//printf("Map rectangular.\n");
-//printf("All elements checked.\n");
-//printf("Perfect enclosure.\n");
-//printf("Correct number of enemies.\n");
-//printf("Player and enemy present.\n");
-//printf("Right ammount of collect and exit.\n");
-
 
 int check_map(char * map_name, t_map *game)
 {
