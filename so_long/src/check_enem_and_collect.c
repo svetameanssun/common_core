@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_enem_and_collect.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/10 17:23:19 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/10 17:23:20 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 void count_enemy(t_map * game)
@@ -17,8 +29,6 @@ void count_enemy(t_map * game)
         }
         i++;
     }
-    /*if (game->n_enemies == 0)
-        return(ERROR_NO_ENEMY);*/
     return ;
 }
 

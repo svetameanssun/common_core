@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   floodfill.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/10 17:24:33 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/10 17:29:52 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-static char	*fill(char **map, int rows, int columns)
+char	*fill(char **map, int rows, int columns)
 {
 	map[rows][columns] = '1';
 	if (map[rows - 1][columns] != '1')

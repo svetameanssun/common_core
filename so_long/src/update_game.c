@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   update_game.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/10 17:26:00 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/10 17:26:01 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 void	update_game(t_map *game)
 {
+	
 	update_enemy(game);
-
 	if (game->matrix[game->player_pos.y][game->player_pos.x] == 'C')
 	{
-		update_collectables(game);
 		ft_printf("One more candle!\n");
+		update_collectables(game);
+		
 	}
 	if (game->matrix[game->player_pos.y][game->player_pos.x] == 'N')
 	{

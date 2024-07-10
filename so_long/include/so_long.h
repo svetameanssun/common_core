@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:03:05 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:29:44 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,7 +337,7 @@ void free_point(t_point *positions, int size);
 void	init_game(t_map *game);
 
 void n_to_one(char **copymap);
-static char	*fill(char **map, int rows, int columns);
+char	*fill(char **map, int rows, int columns);
 int	part_floodfill(char	**copymap, t_map *game);
 int	floodfill(t_map *game);
 void	player_current_pos(t_map *game);

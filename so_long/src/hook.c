@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hook.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/10 17:23:10 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/10 17:28:39 by stitovsk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
 
@@ -7,13 +19,10 @@ void key_w(t_map *game)
 	
 	if(game->matrix[game->player_pos.y - 1][game->player_pos.x] != '1')
 	{
-		
 		game->images.player_right_down->instances[0].y -= PIX;
 		game->images.player_left_down->instances[0].y -= PIX;
 		game->images.player_left_up->instances[0].y -= PIX;
 		game->images.player_right_up->instances[0].y -= PIX;
-		
-
 		game->images.player_left_up->enabled = false;
 		game->images.player_right_down->enabled = false;
 		game->images.player_right_up->enabled = true;
@@ -28,12 +37,10 @@ void key_d(t_map * game)
 {
 	if(game->matrix[game->player_pos.y][game->player_pos.x + 1] != '1')
 	{
-
 		game->images.player_right_down->instances[0].x += PIX;
 		game->images.player_left_down->instances[0].x += PIX;
 		game->images.player_left_up->instances[0].x += PIX;
 		game->images.player_right_up->instances[0].x += PIX;
-		
 		game->images.player_right_down->enabled = true;
 		game->images.player_left_up->enabled = false;
 		game->images.player_left_down->enabled = false;
@@ -50,13 +57,10 @@ void key_s(t_map *game)
 {
 	if (game->matrix[game->player_pos.y + 1][game->player_pos.x] != '1')
 	{
-		
 		game->images.player_right_down->instances[0].y += PIX;
 		game->images.player_left_down->instances[0].y += PIX;
 		game->images.player_left_up->instances[0].y += PIX;
 		game->images.player_right_up->instances[0].y += PIX;
-
-		
 		game->images.player_left_down->enabled = true;
 		game->images.player_left_up->enabled = false;
 		game->images.player_right_down->enabled = false;
@@ -77,12 +81,10 @@ void key_a(t_map *game)
 		game->images.player_left_down->instances[0].x -= PIX;
 		game->images.player_left_up->instances[0].x -= PIX;
 		game->images.player_right_up->instances[0].x -= PIX;
-
 		game->images.player_right_up->enabled = false;
 		game->images.player_right_down->enabled = false;
 		game->images.player_left_down->enabled = false;
 		game->images.player_left_up->enabled = true;
-
 		game->player_pos.x--;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
@@ -97,9 +99,7 @@ void my_keyhook(mlx_key_data_t keydata, void *param)
 	t_map *game;
 	char *moves;
 	char *aux;
-	int flg;
 
-	flg = 0;
 	game = (t_map *) param;
 	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
 		&& keydata.action == MLX_PRESS ) 
