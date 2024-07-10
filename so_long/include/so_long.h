@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 14:53:47 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:03:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,6 @@ int check_player(t_map * game);
 int check_exit(t_map * game);
 int	check_exit_access(t_map *game);
 
-void position_collects(t_map *game);
 /**
  * @brief		checks the number of elements and characters,
  *              whether it is allowed number.
@@ -206,8 +205,7 @@ void position_collects(t_map *game);
 */
 int check_collect(t_map * game);
 
-void position_enemies(t_map *game);
-int check_enemy(t_map * game);
+void count_enemy(t_map * game);
 
 
 /**
@@ -323,7 +321,6 @@ void free_if_game(t_map *game);
  * @param data		takes in the structure it will free
  * 						
 */
-void free_game(t_map *game);
 
 /**
  * @brief			frees a bidimentional array

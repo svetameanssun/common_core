@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-int check_enemy(t_map * game)
+void count_enemy(t_map * game)
 {
     int i;
     int j;
@@ -19,7 +19,7 @@ int check_enemy(t_map * game)
     }
     /*if (game->n_enemies == 0)
         return(ERROR_NO_ENEMY);*/
-    return(0);
+    return ;
 }
 
 int check_collect(t_map * game)

@@ -49,7 +49,7 @@ void manage_map_error(t_map *game, int exit_code)
 int check_map(char * map_name, t_map *game)
 {
 	int error;
-
+	
 	if (map_to_matrix(map_name, game) != 0)
 		manage_prog_error(game, ERROR_EMPTY_FILE);
 	if (check_map_name(map_name) != 0)
@@ -63,8 +63,7 @@ int check_map(char * map_name, t_map *game)
 	error = check_player(game);
 	if (error != 0)
 		manage_map_error(game, error);
-	if(check_enemy(game)!= 0)
-		manage_map_error(game, ERROR_NO_ENEMY);
+	count_enemy(game);
 	if (check_collect(game) != 0)
 		manage_map_error(game, ERROR_NO_COLLECTABLES);
 	if (check_exit(game)!= 0)
