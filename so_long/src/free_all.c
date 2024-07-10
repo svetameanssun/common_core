@@ -6,13 +6,13 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:24:39 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:24:40 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 18:02:31 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void free_point(t_point *positions, int size)
+/*void free_point(t_point *positions, int size)
 {
     int i;
 
@@ -26,7 +26,7 @@ void free_point(t_point *positions, int size)
             i++;
         }
     }
-}
+}*/
 
 void	free_matrix(char **map)
 {

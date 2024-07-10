@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:23:33 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:23:34 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:59:43 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int is_elem(int c, int elem)
 {
-    int res;
-
-    res = 0;
     if (c == elem)
         return(1);
     return(0);
@@ -39,9 +36,9 @@ int count_map_lines(char * map_name)
     int fd;
 
 	fd = open(map_name, O_RDONLY);
-    if (fd < 0)
+    if (fd == -1)
         manage_prog_error(NULL, ERROR_FD);
-	str = get_next_line(fd);
+    str = get_next_line(fd);
 	free(str);
     count = 0;
     while(str)
@@ -56,11 +53,9 @@ int count_map_lines(char * map_name)
 
 int check_map_name(char *map_name)
 {
-    int i;
     int len;
     int res;
 
-    i = 0;
     len = ft_strlen(map_name);
     if (len < 4)
 		return (ERROR_MAP_NAME);

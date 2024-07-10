@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:29:44 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 18:02:19 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@
 # define ERROR_EMPTY_FILE 14
 # define ERROR_MLX 15
 # define ERROR_SIZE 16
-
-
-
 
 
 
@@ -329,7 +326,6 @@ void free_if_game(t_map *game);
 */
 void	free_matrix(char **map);
 void ft_print_matrix(char **matrix); // REMOVE OR CHANGE
-void free_point(t_point *positions, int size);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:34 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:25:35 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:45:26 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void load_elem(t_map *game, int x, int y, char symbol)
 
 void	show_map(t_map	*game)
 {
-	mlx_image_t	*img;
 	int			i;
 	int			j;
 

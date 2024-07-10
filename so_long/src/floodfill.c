@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:24:33 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:29:52 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:46:21 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ void n_to_one(char **copymap)
 int	floodfill(t_map *game)
 {
 	char	**copymap;
-	int		rows;
-	int		columns;
 	int		i;
 
 	i = 0;

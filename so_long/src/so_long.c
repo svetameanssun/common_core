@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:25:56 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 17:47:06 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	init_game(t_map *game)
 int main(int argc, char ** argv)
 {
 	t_map game;
-	int exit_code;
 
 	if (argc != 2)
 		manage_prog_error(&game,ERROR_INPUT);
