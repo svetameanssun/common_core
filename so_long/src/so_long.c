@@ -12,8 +12,6 @@ void	init_game(t_map *game)
 	game->player_pos.y = 0;
 	game->exit_pos.x = 0;
 	game->exit_pos.y = 0;
-	//game->coll_pos = NULL;
-	game->enemies_pos = NULL;
 	game->n_collects = 0;
 	game->n_collected = 0;
 	game->n_enemies = 0;
@@ -36,7 +34,5 @@ int main(int argc, char ** argv)
 	mlx_loop(game.mlx);
 	delete_img(&game);
 	mlx_terminate(game.mlx);
-	free_game(&game);
-	
-
+	free_if_game(&game);
 }

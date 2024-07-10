@@ -33,6 +33,8 @@ mlx_image_t	*get_image(t_map *game, char symbol)
 }
 
 
+
+
 void load_elem(t_map *game, int x, int y, char symbol)
 {
 	mlx_image_t	*img;
@@ -49,6 +51,7 @@ void	show_map(t_map	*game)
 
 	j = 0;
 	i = 0;
+	
 	while (game->matrix[j])
 	{
 		i = 0;
@@ -58,14 +61,30 @@ void	show_map(t_map	*game)
 			if (game->matrix[j][i] == '1')
 				load_elem(game, i, j, '1');
 			else if (game->matrix[j][i] == 'E')
+			{
+				load_elem(game, i, j, 'D');
 				load_elem(game, i, j, 'E');
+			}
 			else if (game->matrix[j][i] == 'C')
 				load_elem(game, i, j, 'C');
 			else if (game->matrix[j][i] == 'N')
+			{
 				load_elem(game, i, j, 'N');
+				load_elem(game, i, j, 'R');
+			}
 			i++;
 		}
 		j++;
 	}
+	
 	load_elem(game, game->player_pos.x, game->player_pos.y, 'P');
+	load_elem(game, game->player_pos.x, game->player_pos.y, '2');
+	load_elem(game, game->player_pos.x, game->player_pos.y, '3');
+	load_elem(game, game->player_pos.x, game->player_pos.y, '4');
+
+	update_enemy(game);
+	game->images.exit_opened->enabled = false;
+	game->images.player_left_up->enabled = false;
+	game->images.player_left_down->enabled = false;
+	game->images.player_right_up->enabled = false;
 }

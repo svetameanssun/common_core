@@ -13,6 +13,8 @@ void manage_prog_error(t_map *game, int exit_code)
 		ft_putstr("Error:\n Could not open file.\n");
 	if (exit_code == ERROR_MLX)
 		ft_putstr("Error:\n Could not create MXL.\n");
+	if (exit_code == ERROR_SIZE)
+		ft_putstr("Error:\n Window is too big.\n");
 	free_if_game(game);
 	exit(exit_code);
 }
@@ -60,7 +62,7 @@ int check_map(char * map_name, t_map *game)
 		manage_map_error(game, ERROR_NO_WALLS);
 	error = check_player(game);
 	if (error != 0)
-		manage_prog_error(game, error);
+		manage_map_error(game, error);
 	if(check_enemy(game)!= 0)
 		manage_map_error(game, ERROR_NO_ENEMY);
 	if (check_collect(game) != 0)

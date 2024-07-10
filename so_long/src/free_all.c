@@ -32,17 +32,12 @@ void	free_matrix(char **map)
 	}
 }
 
-void free_game(t_map *game)
-{
-    free_matrix(game->matrix);
-    free_point(game->enemies_pos, game->n_enemies);
-}
 
 void free_if_game(t_map *game)
 {
 	if (game)
 	{
-		free_game(game);
+		free_matrix(game->matrix);
 	}
 	exit(1);
 

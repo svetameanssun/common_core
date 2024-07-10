@@ -21,7 +21,7 @@ int check_player(t_map * game)
         }
         i++;
     }
-    if (player >= 2)
+    if (player > 1)
         return(ERROR_DUPLIC_PLAYER);
     if (player < 1)
         return(ERROR_NO_PLAYER);

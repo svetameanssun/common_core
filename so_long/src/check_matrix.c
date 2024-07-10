@@ -8,6 +8,8 @@ int check_rectangular(t_map * game)
 
     i = 1;
     example_line_len = ft_strlen_sl(*(game->matrix));
+    if (example_line_len > 19)
+        manage_prog_error(game, ERROR_SIZE);
     current_line_len = 0;
     while(game->matrix[i])
     {

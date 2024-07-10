@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/09 20:42:40 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:53:47 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define SECONDS 0.03
 
 # define ERROR_MAP_NAME 1
-# define ERROR_EMPTY_FILE 14
+
 # define ERROR_NO_RECT 2
 # define ERROR_FORBIDDEN_ELEM 3
 # define ERROR_NO_WALLS 4
@@ -46,8 +46,9 @@
 # define ERROR_FD 11
 # define ERROR_DUPLIC_PLAYER 12
 # define ERROR_NO_ENEMY 13
-
+# define ERROR_EMPTY_FILE 14
 # define ERROR_MLX 15
+# define ERROR_SIZE 16
 
 
 
@@ -100,8 +101,6 @@ typedef struct s_texture
 typedef struct s_map
 {
 	char ** matrix;
-	t_point *enemies_pos;
-	//t_point *coll_pos;
 	t_point map_dim;
 	t_point player_pos;
 	t_point exit_pos;
@@ -369,6 +368,7 @@ void key_a(t_map * game);
 
 
 void	update_game(t_map *game);
+void	update_enemy(t_map *game);
 void	update_collectables(t_map *game);
 size_t	ft_strlen_sl(const char *str); //the 3rd strlen in the project
 
