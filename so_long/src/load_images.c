@@ -6,17 +6,14 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:34 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:45:26 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:22:04 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-
-mlx_image_t	*get_image(t_map *game, char symbol)
+mlx_image_t	*get_image(t_map *game, mlx_image_t	*img, char symbol)
 {
-	mlx_image_t	*img;
-
 	if (symbol == '1')
 		img = game->images.wall;
 	if (symbol == '0')
@@ -44,15 +41,61 @@ mlx_image_t	*get_image(t_map *game, char symbol)
 	return (img);
 }
 
+void load_players( t_map *game,mlx_image_t*img, int x, int y)
+{
+	img = get_image(game,img,  'P');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = get_image(game,img,  '2');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = get_image(game,img,  '3');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = get_image(game,img,  '4');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
 
+	game->images.player_left_up->enabled = false;
+	game->images.player_left_down->enabled = false;
+	game->images.player_right_up->enabled = false;
+}
 
+void load_exits( t_map *game,mlx_image_t *img, int x, int y)
+{
+	img = get_image(game,img,  'E');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = get_image( game,img, 'D');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	game->images.exit_opened->instances->enabled = false;
+}
+
+void load_enemies( t_map *game,mlx_image_t *img, int x, int y)
+{
+	img = get_image(game, img,  'N');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = get_image(game, img, 'R');
+	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+}
 
 void load_elem(t_map *game, int x, int y, char symbol)
 {
 	mlx_image_t	*img;
 
-	img = get_image(game, symbol);
-	mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	img = NULL;
+	if (symbol == 'P')
+	{
+		load_players(game, img, x, y);
+	}
+	else if (symbol == 'E')
+	{
+		load_exits(game, img, x , y);
+	}
+	else if (symbol == 'N')
+	{
+		load_enemies(game, img, x, y);
+	}
+	else if (symbol == 'C'|| symbol == '0' || symbol == '1')
+	{
+		img = get_image(game, img, symbol);
+		mlx_image_to_window(game->mlx, img, x * PIX, y * PIX);
+	}
 }
 
 void	show_map(t_map	*game)
@@ -72,30 +115,17 @@ void	show_map(t_map	*game)
 			if (game->matrix[j][i] == '1')
 				load_elem(game, i, j, '1');
 			else if (game->matrix[j][i] == 'E')
-			{
-				load_elem(game, i, j, 'D');
 				load_elem(game, i, j, 'E');
-			}
 			else if (game->matrix[j][i] == 'C')
 				load_elem(game, i, j, 'C');
 			else if (game->matrix[j][i] == 'N')
-			{
 				load_elem(game, i, j, 'N');
-				load_elem(game, i, j, 'R');
-			}
 			i++;
 		}
 		j++;
 	}
-	
 	load_elem(game, game->player_pos.x, game->player_pos.y, 'P');
-	load_elem(game, game->player_pos.x, game->player_pos.y, '2');
-	load_elem(game, game->player_pos.x, game->player_pos.y, '3');
-	load_elem(game, game->player_pos.x, game->player_pos.y, '4');
-
 	update_enemy(game);
-	game->images.exit_opened->enabled = false;
-	game->images.player_left_up->enabled = false;
-	game->images.player_left_down->enabled = false;
-	game->images.player_right_up->enabled = false;
 }
+
+

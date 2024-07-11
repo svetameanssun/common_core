@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 18:02:19 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:05:33 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -348,8 +348,11 @@ void	delete_img(t_map *game);
 void	show_map(t_map	*game);
 int32_t	show_window(t_map *data);
 void load_elem(t_map *game, int x, int y, char symbol);
-mlx_image_t	*get_image(t_map *game, char symbol);
-
+mlx_image_t	*get_image(t_map *game, mlx_image_t	*img, char symbol);
+mlx_image_t	*get_player_images(t_map *game, char symbol);
+mlx_image_t	*get_images(t_map *game, char symbol);
+void load_players(t_map *game, mlx_image_t*img, int x, int y);
+void load_enemies( t_map *game,mlx_image_t *img, int x, int y);
 
 
 

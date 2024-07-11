@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:23:10 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:28:39 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:40:32 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ void my_keyhook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		mlx_close_window(game->mlx);
-		free_if_game(game);
-		free(game);
-		exit(1);
+		//free_if_game(game);
+		//free(game);
+		return ;
 	}
 
 	moves = ft_itoa(game->moves);
