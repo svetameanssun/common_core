@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:26:00 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:26:01 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:19:47 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	update_game(t_map *game)
 {
-	
 	update_enemy(game);
 	if (game->matrix[game->player_pos.y][game->player_pos.x] == 'C')
 	{
 		ft_printf("One more candle!\n");
-		update_collectables(game);
-		
+		update_collectables(game);	
 	}
 	if (game->matrix[game->player_pos.y][game->player_pos.x] == 'N')
 	{
@@ -37,7 +35,6 @@ void	update_game(t_map *game)
 		else
 			ft_printf("Go get more candles!\n");
 	}
-	
 }
 
 void	update_enemy(t_map *game)
@@ -45,7 +42,6 @@ void	update_enemy(t_map *game)
 	int	i;
 
 	i = 0;
-	
 	while (i < game->n_enemies)
 	{
 		if (game->player_pos.x * PIX < game->images.enemy_left->instances[i].x)
@@ -58,7 +54,6 @@ void	update_enemy(t_map *game)
 			game->images.enemy_left->instances[i].enabled = false;
 			game->images.enemy_right->instances[i].enabled = true;
 		}
-
 		i++;
 	}
 	return;
@@ -70,7 +65,6 @@ void	update_collectables(t_map *game)
 	int	i;
 
 	i = 0;
-	
 	while (game->n_collects != 0)
 	{
 		if (game->player_pos.x * PIX == game->images.collect->instances[i].x

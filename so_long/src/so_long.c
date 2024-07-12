@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:47:06 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:33:36 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	init_game(t_map *game)
 	game->mlx = NULL;
 }
 
-int main(int argc, char ** argv)
+int	main(int argc, char	**argv)
 {
-	t_map game;
+	t_map	game;
 
 	if (argc != 2)
-		manage_prog_error(&game,ERROR_INPUT);
+		manage_prog_error(&game, ERROR_INPUT);
 	init_game(&game);
 	check_map(argv[1], &game);
 	show_window(&game);

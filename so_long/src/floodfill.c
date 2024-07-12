@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:24:33 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/10 17:46:21 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/12 16:10:26 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ int	part_floodfill(char	**copymap, t_map *game)
 	free_matrix(copymap);
 	return (0);
 }
-void n_to_one(char **copymap)
+
+void	n_to_one(char	**copymap)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	
-	while(copymap[i]!= NULL)
+	while (copymap[i] != NULL)
 	{
 		j = 0;
-		while(copymap[i][j] != '\0')
+		while (copymap[i][j] != '\0')
 		{
-			if(copymap[i][j] == 'N')
+			if (copymap[i][j] == 'N')
 				copymap[i][j] = '1';
 			j++;
 		}
@@ -76,7 +76,7 @@ int	floodfill(t_map *game)
 	i = 0;
 	player_current_pos(game);
 	copymap = malloc(sizeof(char *) * (game->map_dim.y + 1));
-	if(copymap == NULL)
+	if (copymap == NULL)
 		manage_prog_error(game, ERROR_MALLOC);
 	while (i < game->map_dim.y)
 	{

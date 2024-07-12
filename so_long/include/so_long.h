@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/11 17:05:33 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:02:16 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -361,7 +361,7 @@ void key_w(t_map * game);
 void key_s(t_map * game);
 void key_d(t_map * game);
 void key_a(t_map * game);
-
+void all_moves(mlx_key_data_t keydata, t_map *game);
 
 void	update_game(t_map *game);
 void	update_enemy(t_map *game);
