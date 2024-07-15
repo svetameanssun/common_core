@@ -1,16 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_elements.c                                   :+:      :+:    :+:   */
+/*   check_elements_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:23:26 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 17:17:34 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:02:51 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
+void	count_enemy(t_map	*game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (game->matrix[i])
+	{
+		j = 0;
+		while (game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
+		{
+			game->n_enemies += is_elem(game->matrix[i][j], 'N');
+			j++;
+		}
+		i++;
+	}
+	return ;
+}
 
 int	check_collect(t_map	*game)
 {

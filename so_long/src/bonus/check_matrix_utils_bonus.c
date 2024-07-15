@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_matrix_utils.c                               :+:      :+:    :+:   */
+/*   check_matrix_utils_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:23:33 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 19:53:01 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 19:54:17 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	is_elem(int c, int elem)
 {

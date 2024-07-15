@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_to_matrix.c                                    :+:      :+:    :+:   */
+/*   map_to_matrix_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:53:39 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/07/15 17:02:15 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:46:50 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_print_matrix(char **matrix)
 {

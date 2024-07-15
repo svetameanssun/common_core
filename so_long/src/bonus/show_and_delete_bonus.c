@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   show_and_delete.c                                  :+:      :+:    :+:   */
+/*   show_and_delete_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:47 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 17:02:34 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 21:03:38 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	delete_textures(t_map *game)
 {

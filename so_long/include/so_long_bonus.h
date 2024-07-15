@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 17:29:46 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 17:50:44 by stitovsk         ###   ########.fr       */
+/*   Created: 2024/07/15 14:32:42 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/07/15 17:51:28 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -148,6 +148,8 @@ int			check_exit(t_map *game);
  * @param data t_map *game                   
 */
 int			check_collect(t_map *game);
+
+void		count_enemy(t_map *game);
 
 /**
  * @brief Checks the filename, where the maps is saved      

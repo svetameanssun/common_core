@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_elements.c                                    :+:      :+:    :+:   */
+/*   load_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 15:10:53 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 17:01:16 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:46:36 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 mlx_image_t	*get_image(t_map *game, mlx_image_t *img, char symbol)
 {

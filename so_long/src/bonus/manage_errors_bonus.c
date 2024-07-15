@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_errors.c                                    :+:      :+:    :+:   */
+/*   manage_errors_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:24:51 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 19:25:39 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 19:26:00 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	manage_prog_error(t_map *game, int exit_code)
 {
@@ -75,6 +75,7 @@ int	check_map(char	*map_name, t_map	*game)
 	error = check_player(game);
 	if (error != 0)
 		manage_map_error(game, error);
+	count_enemy(game);
 	if (check_collect(game) != 0)
 		manage_map_error(game, ERROR_NO_COLLECTABLES);
 	if (check_exit(game) != 0)

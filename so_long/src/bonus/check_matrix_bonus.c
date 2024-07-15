@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_matrix.c                                     :+:      :+:    :+:   */
+/*   check_matrix_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:24:25 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 17:01:44 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:02:56 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	check_rectangular(t_map	*game)
 {
@@ -46,8 +46,8 @@ int	check_elements(t_map	*game)
 		while (game->matrix[i][j] != '\0' && game->matrix[i][j] != '\n')
 		{
 			if ((game->matrix[i][j] == '1') || (game->matrix[i][j] == '0')
-			|| (game->matrix[i][j] == 'P') || (game->matrix[i][j] == 'E')
-			|| (game->matrix[i][j] == 'C'))
+			|| (game->matrix[i][j] == 'P') || (game->matrix[i][j] == 'N')
+			|| (game->matrix[i][j] == 'E') || (game->matrix[i][j] == 'C'))
 				j++;
 			else
 				return (ERROR_FORBIDDEN_ELEM);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_images.c                                      :+:      :+:    :+:   */
+/*   load_images_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 17:25:34 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/07/15 20:46:11 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/07/15 20:47:53 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	check_texture(t_map	*game, mlx_texture_t **txt, char *str)
 {
@@ -26,7 +26,8 @@ void	load_textures(t_map	*game)
 	check_texture(game, &game->textures.floor, "./imgs/floor.png");
 	check_texture(game, &game->textures.wall, "./imgs/wall.png");
 	check_texture(game, &game->textures.exit_closed, "./imgs/exit_closed.png");
-	check_texture(game, &game->textures.exit_opened, "./imgs/exit_opened.png");
+	check_texture(game, &game->textures.exit_opened,
+		"./imgs/exit_opened.png");
 	check_texture(game, &game->textures.player_left_down,
 		"./imgs/vasilisa_dl.png");
 	check_texture(game, &game->textures.player_right_down,
