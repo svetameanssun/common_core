@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
+#    By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/04 19:00:48 by stitovsk          #+#    #+#              #
-#    Updated: 2024/06/06 15:38:26 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/08/03 18:38:45 by svetameanss      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

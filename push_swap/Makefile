@@ -1,5 +1,5 @@
 NAME = push_swap
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g3
 FILES = $(shell find src -type f -name "*.c")
 OBJS = $(FILES:.c=.o)
 
