@@ -12,3 +12,6 @@
   <li><strong>Longer and more accurate answer:</strong> To understand the roots of modern technology  
     and what actually happens "under the hood" when code is executed.</li>
 </ul>
+
+
+
