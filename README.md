@@ -1,17 +1,24 @@
-<h4 align="center">Introduction to C</h4>
+<h1 align="center">42 Programming school common core projects</h1>
 
-<h2>Why C?</h2>
+If you have never heard about **42 Programming School**, you might wonder what differentiates it from a myriad of other courses you may find online. The answer to this shrewd question might be reflected in one word:
+
+## **THE METHODOLOGY**
+
+(Well, there are technically two words, but they represent one concept.)
+
+The 42 methodology consists of throwing a project at students and having them try to finish it before the deadline.
+
+No teachers, no textbooks.
+
+You can find help (and some emotional support) only among other students: those who have already successfully finished the project or those who have just started it, just like you.
+And also those who are in the middle of doing it. Or those who have never done it but have some idea about the technology behind the project... I mean, any other student!
+
+You end up learning new, difficult concepts, through trial and error and through constant discussions with like-minded people.
+
+Doesn't it sound like a real-world work experience?
+<h2>What is COMMON CORE?</h2>
 <p>
-  You might wonder: In a world thriving with adaptive tools, advanced frameworks,  
-  and constantly evolving technologies, why choose to learn the old, low-level, and  
-  often challenging <em>C programming language</em>?
+  The Common Core is a set of projects that help you to establish a solid technological base to start your journey as a software developer
+  (or as any other specialist in the IT world, basically).
+  
 </p>
-<ul>
-  <li><strong>Short answer:</strong> I had to — it's the first language you learn at 42.  
-    <a href="https://www.42network.org/about-us/">https://www.42network.org/about-us/</a></li>
-  <li><strong>Longer and more accurate answer:</strong> To understand the roots of modern technology  
-    and what actually happens "under the hood" when code is executed.</li>
-</ul>
-
-
-
