@@ -1,3 +1,6 @@
 [submodule "cpp_modules"]
 	path = cpp_modules
 	url = https://github.com/svetameanssun/cpp_modules.git
+[submodule "ft_irc"]
+	path = ft_irc
+	url = https://github.com/svetameanssun/ft_irc.git
