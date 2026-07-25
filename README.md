@@ -11,7 +11,7 @@ The 42 methodology consists of throwing a project at students and having them tr
 No teachers, no textbooks.
 
 You can find help (and some emotional support) only among other students: those who have already successfully finished the project or those who have just started it, just like you.
-And also those who are in the middle of doing it. Or those who have never done it but have some idea about the technology behind the project... I mean, any other student!
+And also those who are in the middle of doing it. Or those who have never done it but have some idea about the technology behind the project... I mean, literally any other student!
 
 You end up learning new, difficult concepts, through trial and error and through constant discussions with like-minded people.
 
