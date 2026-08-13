@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 14:03:52 by stitovsk          #+#    #+#             */
-/*   Updated: 2023/11/28 14:14:47 by stitovsk         ###   ########.fr       */
+/*   Created: 2023/11/24 14:24:55 by stitovsk          #+#    #+#             */
+/*   Updated: 2023/11/28 15:59:57 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	count_hex(long unsigned int n)
+int	puthex_ptr(long unsigned int ptr, int num)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (num > 0)
+	{
+		if (ptr > 15)
+			puthex_ptr(ptr / 16, num - 1);
+		write(1, &base[ptr % 16], 1);
+	}
+	return (count_hex(ptr));
+}
+
+int	int_putptr(long unsigned int n)
 {
 	int	count;
 
-	count = 0;
 	if (n == 0)
-		return (1);
-	while (n != 0)
 	{
-		n /= 16;
-		count++;
+		write(1, "0x0", 3);
+		return (3);
 	}
-	return (count);
-}
-
-int	int_puthex(char c, unsigned int n)
-{
-	char	*base;
-	int		count;
-
-	count = count_hex(n);
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	else if (c == 'x')
-		base = "0123456789abcdef";
-	if (n == 0)
-		write(1, &base[0], 1);
-	else if (n >= 16)
-	{
-		int_puthex(c, n / 16);
-		int_puthex(c, n % 16);
-	}
-	else
-		write(1, &base[n], 1);
-	return (count);
+	write(1, "0x", 2);
+	count = puthex_ptr(n, 16);
+	return (count + 2);
 }
