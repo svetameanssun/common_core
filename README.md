@@ -1,4 +1,4 @@
-<h1 align="center">42 Programming School Common Core Projects</h1>
+<h1 align="left">42 Programming School Common Core Projects</h1>
 
 If you have never heard of **42 Programming School**, you might wonder what differentiates it from a myriad of other courses you may find online. The answer to this shrewd question might be summarized in one word:
 
