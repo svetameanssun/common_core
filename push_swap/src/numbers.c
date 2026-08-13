@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:22:34 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/04/01 14:16:01 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:45:42 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ long	ft_atol(char *str)
 
 	res = 0;
 	sign = 1;
-	while(*str == ' ')
+	while (*str == ' ')
 		str++;
 	if (*str == '-')
 	{
