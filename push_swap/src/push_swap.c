@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:22:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/03/29 15:22:13 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:31:17 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	push_swap(t_stack **stck_a, t_stack **stck_b)
 		else
 			sort_stacks(stck_a, stck_b, stack_size(stck_a));
 	}
+	else if (is_sorted(stck_a))
+		return ;
 }
 
 void	push_smaller(t_stack **stck_a, t_stack **stck_b, long mean)
@@ -66,7 +68,10 @@ void	sort_stacks(t_stack **stck_a, t_stack **stck_b, int stck_a_size)
 	}
 	while (!is_sorted(stck_a))
 	{
-		reverse_rotate(stck_a, 'a');
+		if (min_node_is_superior(stck_a) == 2)
+			rotate(stck_a, 'a');
+		else if (min_node_is_superior(stck_a) == 1)
+			reverse_rotate(stck_a, 'a');
 		set_positions(stck_a);
 	}
 }

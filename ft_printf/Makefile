@@ -1,8 +1,14 @@
-FLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror
 NAME   = libftprintf.a
 CC = gcc
-FILES = ft_check_format.c ft_printf.c ft_put_int_unsign.c ft_put_int.c \
-		ft_puthex.c ft_strchar.c
+FILES = ft_check_format.c \
+		ft_printf.c \
+		ft_put_int_unsign.c \
+		ft_put_int.c \
+		ft_putptr.c \
+		ft_puthex.c \
+		ft_strchar.c \
+
 OBJECTS = $(FILES:.c=.o)
 
 # Colors
@@ -18,6 +24,7 @@ CYAN = \033[0;96m
 WHITE = \033[0;97m
 
 $(NAME) : $(OBJECTS)
+	@echo "$(CYAN)Creating library from .o$(RESET)"
 	@ar rcs $(NAME) $(OBJECTS)
 
 %.o : %.c
@@ -27,9 +34,15 @@ $(NAME) : $(OBJECTS)
 all: $(NAME)
 
 clean:
-	@rm -f $(OBJECTS) 
+	@for file in $(OBJECTS); do \
+		if [ -f $$file ]; then \
+			echo "$(YELLOW)Removing $$file...$(RESET)"; \
+		fi; \
+	done
+	@rm -f $(OBJECTS)
 
 fclean: clean
+	@echo "$(RED)Removed $(NAME) $(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all

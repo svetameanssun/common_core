@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:23:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/04/01 15:40:03 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:20:24 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ long	*words_to_arr(int argc, char **argv)
 		ft_error();
 	while (index < arr_len)
 	{
-		if (input_valid(argv[1 + index]) == 0)
+		if (input_valid(argv[1 + index], 0) == 0)
 		{
 			free(arr);
 			ft_error();
@@ -85,26 +85,23 @@ t_stack	*array_to_stack(long *array, int array_len)
 	return (stck_start);
 }
 
-t_stack	*str_to_stack(char *str, int word_cnt)
+t_stack	*str_to_stack(char *str, int word_cnt, int i, int j)
 {
-	int		i;
-	int		j;
 	long	*res;
 	t_stack	*stck;
 
-	i = 0;
-	j = 1;
 	res = (long *)malloc(sizeof(long) * (word_cnt));
 	if (!res)
 		ft_error();
 	res[0] = ft_atol(str);
 	while (j < word_cnt)
 	{
-		while(is_space(str[i]))
+		while (is_space(str[i]))
 			i++;
 		while (str[i] && !is_space(str[i]))
 			i++;
-		res[j++] = ft_atol(str + i);
+		res[j] = ft_atol(str + i);
+		j++;
 	}
 	if (!longs_unique(res, word_cnt))
 	{
@@ -112,6 +109,7 @@ t_stack	*str_to_stack(char *str, int word_cnt)
 		ft_error();
 	}
 	stck = array_to_stack(res, word_cnt);
+	free(res);
 	return (stck);
 }
 
@@ -128,10 +126,10 @@ t_stack	*args_to_stack(int argc, char **argv)
 	if (argc == 2)
 	{
 		str = argv[1];
-		if (input_valid(str) == 0)	
+		if (input_valid(str, 0) == 0)
 			ft_error();
 		word_cnt = word_count(str);
-		stck = str_to_stack(str, word_cnt);
+		stck = str_to_stack(str, word_cnt, 0, 1);
 		if (!stck)
 			ft_error();
 	}
