@@ -1,0 +1,13 @@
+NO ./imgs/baba_yaga.png
+SO ./imgs/vasilisa.png
+EA ./imgs/leshyi.png
+WE ./imgs/rana.png
+
+C 105, 105, 105
+F 127, 127, 127
+
+111111111111111
+100000000000001
+1000000S0000001
+100000000000001
+111111111111111
