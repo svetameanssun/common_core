@@ -3,7 +3,7 @@
 <h2>Why C?</h2>
 <p>
   You might wonder: In a world thriving with adaptive tools, advanced frameworks,  
-  and constantly evolving technologies, why choose to learn the old, low-level, and  
+  and constantly evolving technologies, why choose to learn the obsolete* (not my opinion, but some think like that!), low-level, and  
   often challenging <em>C programming language</em>?
 </p>
 <ul>
