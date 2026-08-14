@@ -46,13 +46,13 @@ This project introduces the concept of **variadic functions** in C, which allow 
 ```text
 .
 ├── Makefile
+├── ft_check_format.c
 ├── ft_printf.c
 ├── ft_printf.h
-├── ft_print_char.c
-├── ft_print_str.c
-├── ft_print_nbr.c
-├── ft_print_unsigned.c
-├── ft_print_hex.c
-└── ft_print_ptr.c
+├── ft_put_int.c
+├── ft_put_int_unsign.c
+├── ft_puthex.c
+├── ft_putptr.c
+└── ft_strchar.c
 
 ```
