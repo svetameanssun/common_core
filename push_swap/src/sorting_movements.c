@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:21:20 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/03/29 15:21:21 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:14:10 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	push(t_stack **src, t_stack **dest, char dest_name)
 	else if (dest_name == 'b')
 		write(1, "pb\n", 3);
 }
-// ROTATE - and - REVERSE_ROTATE return void or s_stack * ???
+
 void	rotate(t_stack **stck, char stck_name)
 {
 	t_stack	*temp;
@@ -94,38 +94,3 @@ void	reverse_rotate(t_stack **stck, char stck_name)
 	else if (stck_name == 'b')
 		write(1, "rrb\n", 4);
 }
-
-/*int main()
-{
-	int i = 1;
-	int j = 121;
-	t_stack *lst= (t_stack *)malloc(sizeof(t_stack)); // IMPORTANTE!
-	t_stack *lst2 = (t_stack *)malloc(sizeof(t_stack));
-
-	t_stack *aux;// = (t_stack *)malloc(sizeof(t_stack));
-	t_stack *aux2;
-	aux = lst;
-	aux2 = lst2;
-	while(i < 11)
-	{
-
-		lst->content = (long)i;
-		lst2->content = (long)j;
-
-		lst->next= malloc(sizeof(t_stack));
-		lst2->next= malloc(sizeof(t_stack));
-
-		lst = lst->next;
-		lst2 = lst2->next;
-
-		i++;
-		j+=44;
-	}
-
-	printf("original stacks: \n");
-	print_stack_contents(aux);
-	print_stack_contents(aux2);
-	push(&aux2, &aux, 'a');
-	print_stack_contents(aux);
-	print_stack_contents(aux2);
-}*/

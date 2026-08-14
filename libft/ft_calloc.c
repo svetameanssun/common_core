@@ -14,10 +14,8 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	size_t	i;
 	void	*res;
 
-	i = 0;
 	res = malloc(nelem * elsize);
 	if (res != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:23:00 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/03/29 15:23:01 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:49:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,9 @@ void	free_stack(t_stack **stck)
 	stck = NULL;
 }
 
-/*void	*free_all(char **str, int cont)
-{
-	int	i;
-
-	i = 0;
-	while (i < cont)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-	return (NULL);
-}*/
-
 int	is_sorted(t_stack **stck)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stck;
 	if (!temp)
