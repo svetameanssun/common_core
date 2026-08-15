@@ -173,3 +173,6 @@ make
 | `D` | Strafe right |
 | `←` / `→` | Rotate camera view left / right |
 | `ESC` / `[X]` | Cleanly exit the game |
+
+This project has been created as part of the 42 curriculum by [Svetlana Titovskaia](https://github.com/svetameanssun) and [Maria Gomez Roman](https://github.com/telecomgr).
+
