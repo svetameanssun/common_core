@@ -6,7 +6,7 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/04 19:00:48 by stitovsk          #+#    #+#              #
-#    Updated: 2024/06/06 15:38:26 by stitovsk         ###   ########.fr        #
+#    Updated: 2026/08/15 16:14:04 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,10 @@ all: $(NAME)
 
 
 $(NAME): $(OBJ)
-	@$(MAKE) -C $(LIBFT)
-	@mv $(LIBFT)/$(LIBFT).a $(LIBFT).a
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT).a -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(addprefix libft/, $(LIBFT)).a -o $(NAME)
 
 clean:
-	$(MAKE) -C $(LIBFT) clean
-	rm -f $(OBJ) $(LIBFT).a
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
