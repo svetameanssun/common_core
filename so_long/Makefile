@@ -6,7 +6,7 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/14 16:17:17 by stitovsk          #+#    #+#              #
-#    Updated: 2024/07/15 21:08:01 by stitovsk         ###   ########.fr        #
+#    Updated: 2026/08/15 18:44:01 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,12 +117,6 @@ $(OBJ_BONUS): $(OBJ_DIR_BONUS)%.o: $(SRC_DIR_BONUS)%.c
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIBFT_INC) -I$(MLX42_INC) -I$(FT_PRINTF_INC) -c $^ -o $@
 	@echo "$(RED)Compiling .o of $@...$(RESET)"
 
-$(LIBFT_BIN):
-	@$(MAKE) -C $(LIBFT_DIR)
-
-$(FT_PRINTF_BIN):
-	@$(MAKE) -C $(FT_PRINTF_DIR)
-
 $(MLX42_BIN):
 	@$(MAKE) -C $(MLX42_DIR)
 	
@@ -135,15 +129,11 @@ all: $(NAME)
 	@echo "$(MAGNETA)$(NAME) executable...$(RESET)"
 
 clean:
-	@$(MAKE) -s -C $(LIBFT_DIR) clean
-	@$(MAKE) -s -C $(FT_PRINTF_DIR) clean
 	@$(MAKE) -s -C $(MLX42_DIR) clean
 	@-rm -f $(OBJ)
 	@-rm -f $(OBJ_BONUS)
 
 fclean: clean
-	@$(MAKE) -s -C $(LIBFT_DIR) fclean
-	@$(MAKE) -s -C $(FT_PRINTF_DIR) fclean
 	@$(MAKE) -s -C $(MLX42_DIR) fclean
 	@-rm -f so_long
 	@-rm -f so_long_bonus
