@@ -152,3 +152,24 @@ This project introduces the fundamentals of **computer graphics** and **real-tim
     ├── utils_2.c
     └── utils.c
 ```
+
+## 🎮 How to Play & Controls
+
+### Compilation & Execution
+```bash
+# Compile the project
+make
+
+# Run the game with a valid .cub map file
+./cub3D maps/map.cub
+```
+### Controls
+
+| Key / Input | Action |
+| :--- | :--- |
+| `W` | Move forward |
+| `S` | Move backward |
+| `A` | Strafe left |
+| `D` | Strafe right |
+| `←` / `→` | Rotate camera view left / right |
+| `ESC` / `[X]` | Cleanly exit the game |
