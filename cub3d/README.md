@@ -44,3 +44,111 @@ This project introduces the fundamentals of **computer graphics** and **real-tim
 ## 📁 Project Structure
 
 ```text
+.
+├── MLX42
+├── checker_map
+│   ├── checker_borders.c
+│   ├── checker_inside.c
+│   └── checker_spaces.c
+├── full_window
+│   ├── callback.c
+│   ├── ft_calculations.c
+│   ├── ft_movements.c
+│   ├── ft_painting.c
+│   ├── ft_player.c
+│   ├── ft_textures_mlx.c
+│   └── rays.c
+├── imgs
+│   ├── baba_yaga.png
+│   ├── leshyi.png
+│   ├── rana.png
+│   ├── vasilisa.png
+│   ├── wooden_wall_chopper.png
+│   ├── wooden_wall_monkey.png
+│   ├── wooden_wall_nami.png
+│   └── wooden_wall_nico.png
+├── includes
+│   ├── colors.h
+│   ├── cub3d.h
+│   ├── ft_printf.h
+│   ├── get_next_line_bonus.h
+│   ├── get_next_line.h
+│   ├── libft.h
+│   └── macro.h
+├── init
+│   ├── init_structures.c
+│   └── init_walls_and_rays.c
+├── libs
+│   ├── gnl
+│   │   └── libgnl.a
+│   ├── libft
+│   │   └── libft.a
+│   └── printf
+│       └── libftprintf.a
+├── Makefile
+├── maps
+│   ├── map_42_1.cub
+│   ├── map_42_2.cub
+│   ├── map_42_3.cub
+│   ├── map_42_4.cub
+│   ├── map_art.cub
+│   ├── map_military2.cub
+│   ├── map_military.cub
+│   ├── map_one_piece2.cub
+│   ├── map_one_piece.cub
+│   ├── map_one_piece_inverted.cub
+│   ├── map_one_piece_non_inverted.cub
+│   ├── map_profiles_DR.cub
+│   ├── map_vangogh_0.cub
+│   ├── map_vangogh_1.cub
+│   ├── map_walls_0.cub
+│   ├── map_walls_1.cub
+│   └── map_walls_2.cub
+├── maps_non_valids
+│   ├── bad_double_color.cub
+│   ├── bad_extension.cuv
+│   ├── bad_wall_first.cub
+│   ├── bad_wall_last.cub
+│   ├── bad_wrong_f_color.cub
+│   ├── color_missing.cub
+│   ├── color_missing_rgb.cub
+│   ├── color_none.cub
+│   ├── file_letter_end.cub
+│   ├── filetype_missing
+│   ├── filetype_wrong.buc
+│   ├── map_bad_id.cub
+│   ├── map_bad_path.cub
+│   ├── map_empty.cub
+│   ├── map_first.cub
+│   ├── map_middle.cub
+│   ├── map_missing.cub
+│   ├── map_only.cub
+│   ├── map_rgb_err.cub
+│   ├── map_splittered.cub
+│   ├── map_too_small.cub
+│   ├── player_multiple.cub
+│   ├── player_none.cub
+│   ├── player_on_edge.cub
+│   ├── test_double_path.cub
+│   ├── test_no_path.cub
+│   ├── test_pos_left._xpm.cub
+│   ├── test_tabs.cub
+│   ├── test_wrong_symbols.cub
+│   └── wall_open.cub
+├── obj
+├── parser
+│   └── parser.c
+├── play
+│   └── main.c
+└── read_map
+    ├── checker_2.c
+    ├── checker.c
+    ├── error.c
+    ├── free.c
+    ├── manage_color.c
+    ├── map.c
+    ├── textures.c
+    ├── update_map.c
+    ├── utils_2.c
+    └── utils.c
+```
