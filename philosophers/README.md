@@ -57,3 +57,15 @@ This project introduces the fundamentals of **multithreading** and **concurrency
     ├── start_supper.c
     ├── supervising.c
     └── time_print.c
+```
+
+## 🍝 Dining Philosophers Problem 
+The **Dining Philosophers Problem** is a classic computer science thought experiment formulated by Edsger Dijkstra in 1965 to illustrate synchronization issues and techniques for resolving them:
+
+* One or more philosophers sit at a round table with a large bowl of spaghetti in the middle.
+* The philosophers alternate between three states: **eating**, **thinking**, and **sleeping**.
+* There are as many forks on the table as there are philosophers.
+* A philosopher needs **two forks** (both their left and right fork) to eat spaghetti.
+* Philosophers do not speak to one another and cannot know if another philosopher is about to eat or think.
+* When a philosopher finishes eating, they put down both forks and go to sleep. Once awake, they start thinking again until they acquire two forks to eat.
+* **The Goal:** Keep every philosopher alive as long as possible without falling into a **Deadlock** (where every philosopher holds one fork and waits indefinitely for another) or **Starvation** (where a philosopher starves because they can never grab both forks).
