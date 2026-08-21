@@ -7,3 +7,6 @@
 [submodule "Inception"]
 	path = Inception
 	url = https://github.com/svetameanssun/Inception.git
+[submodule "Transcendence"]
+	path = Transcendence
+	url = https://github.com/svetameanssun/Transcendence
